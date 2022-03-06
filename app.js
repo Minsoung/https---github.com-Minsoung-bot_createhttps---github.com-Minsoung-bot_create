@@ -1,7 +1,21 @@
-// node_modules 에 있는 express 관련 파일을 가져온다.
+const myslq = require('mysql');
+const fs = require('fs');
+
 var express = require('express')
 var app = express();
-const fs = require('fs');
+
+const con = myslq.createConnection({
+      host : 'localhost'
+    , user : 'root'
+    , password : '1234'
+    , database : 'botDB'
+});
+
+con.connect(function(err){
+    if (err) throw err;
+
+    console.log('Connected');
+});
 
 // 3000 포트로 서버 오픈
 app.listen(3000, '0.0.0.0');
@@ -14,7 +28,13 @@ app.get('/', function(req,res) {
 
     console.log(ip);
 
-    //res.send("<h1>"+ip+"</h1>");
+    var sql = "INSERT INTO IPLOG(IP, CREATED) VALUES(?,NOW())";
+
+    con.query(sql, [ip],function(err, result, fields){
+        if (err) throw err;
+
+        console.log(result);
+    });
 
     res.sendFile(__dirname +'/main.html');
 })

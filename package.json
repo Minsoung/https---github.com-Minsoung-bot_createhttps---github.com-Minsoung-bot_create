@@ -2,6 +2,7 @@
   "dependencies": {
     "@discordjs/voice": "^0.6.0",
     "axios": "^0.26.0",
+    "body-parser": "^1.19.2",
     "cheerio": "^1.0.0-rc.10",
     "discord.js": "^13.1.0",
     "ejs": "^3.1.6",
@@ -9,6 +10,7 @@
     "fs": "^0.0.1-security",
     "google-spreadsheet": "^3.1.15",
     "googleapis": "^39.2.0",
+    "mysql": "^2.18.1",
     "nodemon": "^2.0.15",
     "open": "^8.4.0",
     "pm2": "^5.2.0",
