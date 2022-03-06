@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "chuno-user-list",
+  "private_key_id": "665498e528806b4e03abae6450e259d6daea2ad6",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC2lq2cOW6AsRYI\nFKx2FZ138DxwuSB3TKNZE4rFGrhx7U2s5eFMTlhCuvrrs8zNFAph42TfCaVT4jy9\nXohWUJ3GbSsV7ZQvfIXB1I33FlGzE4xc8gnlmkbiZDJYW3HDW5TJirEJKQ7F8mjG\nAQud5nVHaJQoMG1gi0WrCL47bOFyMJH+SfMZuyBDGFQ8hhDNgju/bFCLTCVThjpp\nAGC0CqPt6TygGEuC+o1G/EMTVKIxbaIPdUANbVXYchcVX3yq5EFBHDZbiCrzrn8m\nJ4Dn8WLmkXdD6bJ/fslacGjwV6RDn1XaP248e+CeVz1YdE0567F7j8hamGYLI3zN\n7FSNRFn7AgMBAAECggEACKWddoQ4byXJH6bYUrChXXhmFFyKuhD0vMIyfzUjE694\n+egvwZewPFtzM023iZAaZxpda5FJtW2bEh4eTMrSk1QWMe/8uub7GqaAoU6lndpz\nekSyzUnUyOHqiclYMOKZwEBY3qXaykBkT9mQKEaCuq1W3t8JlFnkJGkXQTndz1+C\nznismxMDxjMYsN1YK3XxM0gtpUDTBlE4Se2V7sA4hE9pNDeeiHXMawgfl0fHO+Mw\nuEj5kXWIvJo82eJU2IEDeISfM1DflmolQtRcdSto1rCYV2uQkK7a4xuUrwo9ANc1\n169h7qJz+GLhuINzu7hi4QyBu9YEJ8IBXwL9RLFxeQKBgQD4FxI7eqf2NFWbymgr\nJbX2IANwKT/iifKfBrigusEmxhLB2NW+SObCp+lupR/Eqtop6ysL4E3Qnl6exbaj\nbnXKsj3l6R35gS2G+7cmrpeD6WFCjMjjjTCrfXApA0N7uCavmeqiAzx/JpFfJ2fm\nVgWh8oY4lmCw7AWbsGytgHRGVQKBgQC8aPqXSAEHzztY5/Rnv1LpjZbvfy4/nScs\nmM/bxTM5T4uuFgS1vzuO8fOurMfc3auyXPQTeidlKDv8mp8jSr175zM9dBX8Ywvl\nzTWLuZ+KhKUN62cVznkLFnP9nQyQ/UfDWVUhusv26bjFlDvdREi3TCkWiwXAP3be\nMw1O0cBPDwKBgQCz+VCxs3ZbhnXAUeKlwnKxfWHhIRuGRRqsQNz5ROHQNgrvc1UD\n+LDm75bJPKLCMkuX81FECVGKEQmFVtr6zqxHAm0i961WDl8vuDWSqz+hY1G6TJWD\ndi6jiZkvN33iJ6Jw61CqfXyKpTj6dYTLNQZbCKxUKss0LdSXsDH23+P6DQKBgQCM\nrnpGkX4rfaJbvT7yZJqdR5rnE3jOCSMiGqxB9lpMNcgfYdN8feET2DfTOrI1idNV\naDDbhj96OfOopy+iY4FezgClp1NvU+mjWnnb7ethu6+e2CHt13DsRYSwXx7t+CEo\njUCS4e7AXD4aUZftnLoLG7QmYAIYTYsNWONb8iR9IwKBgF+yp/yJW6ezDxN00AvM\nM7G6T31CiVpAjKlDSnaB5jgp7qH9zLjviqzkWnV/tgo3528sB7Ar3FtJh/IYJs49\n9uwoXA8RlEhFuSiTBU+YiHtULskkBCCzt/iyZGoPBIWIs4xUgDsYCWhHccBIcHKZ\nt3EDIHUAkLxb2F0hD2vYxnqo\n-----END PRIVATE KEY-----\n",
+  "client_email": "id-chuno@chuno-user-list.iam.gserviceaccount.com",
+  "client_id": "110684116704959522637",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/id-chuno%40chuno-user-list.iam.gserviceaccount.com"
+}
