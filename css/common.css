@@ -7,27 +7,27 @@
 
 @font-face {
   font-family: 'NanumGothic';
-  src: url('../font/NanumGothic/NanumGothic.svg#NanumGothic') format('svg'),
-       url('../font/NanumGothic/NanumGothic.ttf') format('truetype'),
-       url('../font/NanumGothic/NanumGothic.woff') format('woff');
+  src: url('/NanumGothic/NanumGothic.svg#NanumGothic') format('svg'),
+       url('/NanumGothic/NanumGothic.ttf') format('truetype'),
+       url('/NanumGothic/NanumGothic.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'NanumGothicBold';
-  src: url('../font/NanumGothicBold/NanumGothicBold.svg#NanumGothicBold') format('svg'),
-       url('../font/NanumGothicBold/NanumGothicBold.ttf') format('truetype'),
-       url('../font/NanumGothicBold/NanumGothicBold.woff') format('woff');
+  src: url('/NanumGothicBold/NanumGothicBold.svg#NanumGothicBold') format('svg'),
+       url('/NanumGothicBold/NanumGothicBold.ttf') format('truetype'),
+       url('/NanumGothicBold/NanumGothicBold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'NanumGothicExtraBold';
-  src: url('../font/NanumGothicExtraBold/NanumGothicExtraBold.svg#NanumGothicExtraBold') format('svg'),
-       url('../font/NanumGothicExtraBold/NanumGothicExtraBold.ttf') format('truetype'),
-       url('../font/NanumGothicExtraBold/NanumGothicExtraBold.woff') format('woff');
+  src: url('/NanumGothicExtraBold/NanumGothicExtraBold.svg#NanumGothicExtraBold') format('svg'),
+       url('/NanumGothicExtraBold/NanumGothicExtraBold.ttf') format('truetype'),
+       url('/NanumGothicExtraBold/NanumGothicExtraBold.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
