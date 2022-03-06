@@ -18,3 +18,16 @@ app.get('/', function(req,res) {
 
     res.sendFile(__dirname +'/main.html');
 })
+
+app.get('/survey', function(req,res) {
+
+    // var requestIp = require('request-ip');
+
+    // let ip = requestIp.getClientIp(req);
+
+    // console.log(ip);
+
+    //res.send("<h1>"+ip+"</h1>");
+
+    res.sendFile(__dirname +'/survey.html');
+})
