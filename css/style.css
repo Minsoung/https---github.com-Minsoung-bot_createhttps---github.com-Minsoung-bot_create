@@ -1,0 +1,98 @@
+/* contents */
+#section{background-image: url(../img/01.jpg); width: 100%; height: 100%; overflow: hidden;}
+
+#section > div{width: 100%; height: 100vh; overflow: scroll;}
+
+#outer{width: 90%; margin: 0 auto; margin-top: 50px;}
+
+#section #container{width: 50%; height: 100%; margin: 0 auto;} 
+
+.c1{
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 24px;
+    page-break-inside: avoid;
+    word-wrap: break-word;
+    font-family: 'NanumGothic';
+}
+
+    .c1 .title{font-size: 24px;  font-weight: bold;}
+
+    /* 쓰기 input */
+    .c1 .inputtext,
+    .c1 .inputtext1{width: 100%; margin-left: 2px; margin-top: 20px;}
+    
+    .c1 .inputtext input{width: 40%; border-bottom: 1px solid gray; font-size: 20px; background-color: rgba(0, 0, 0, 0); overflow: hidden;}
+
+    .c1 .inputtext1 input{width: 30%; border-bottom: 1px solid gray; font-size: 20px; background-color: rgba(0, 0, 0, 0); overflow: hidden; margin-right: 15px;}
+
+    /* 숫자 input */
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* 체크박스 input */
+    .c1 .inputckeck{width: 100%; margin-left: 2px; margin-top: 20px;}
+    
+    .c1 .inputckeck input{width: 20px; height: 20px;}
+
+    .c1 .inputckeck span{font-size: 20px; margin-right: 130px;}
+
+    .c1 .inputckeck p{font-size: 16px; font-weight: bold; color: gray; margin-top: 10px;}
+
+/* 병종 title */
+.c2{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 24px;
+    page-break-inside: avoid;
+    word-wrap: break-word;
+    font-family: 'NanumGothic';
+    margin:50px 0 16px 0;
+}
+    .c2 .title{font-size: 26px; font-weight: bold; text-align: center;}
+
+/* 병종 선호도 */
+.c3{
+    width: 30%;
+    float: left;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 24px;
+    page-break-inside: avoid;
+    word-wrap: break-word;
+    font-family: 'NanumGothic';
+    margin-right: 5%;
+    margin-bottom: 15px;
+}
+.c3_last{
+    width: 30%;
+    float: left;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    padding: 24px;
+    page-break-inside: avoid;
+    word-wrap: break-word;
+    font-family: 'NanumGothic';
+    margin-right: 0%;
+}
+    .c3 .title,
+    .c3_last .title{font-size: 24px;  font-weight: bold;}
+
+    /* 체크박스 input */
+    .c3 .inputckeck,
+    .c3_last .inputckeck{width: 100%; margin-left: 2px; margin-top: 20px;}
+
+    .c3 .inputckeck input,
+    .c3_last .inputckeck input{width: 20px; height: 20px;}
+
+    .c3 .inputckeck span,
+    .c3_last .inputckeck span{font-size: 20px;}
