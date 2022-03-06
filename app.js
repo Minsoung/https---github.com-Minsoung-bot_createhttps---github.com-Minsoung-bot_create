@@ -13,5 +13,5 @@ app.get('/', function(req,res) {
 
     console.log(ip);
 
-    res.send("<h1>"+ip+"</h1>"); 
+    res.send("<h1>"+ip+"</h1>");
 })
