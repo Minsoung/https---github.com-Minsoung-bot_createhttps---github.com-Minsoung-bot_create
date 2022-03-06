@@ -16,6 +16,6 @@ ufn_Send_Mag = function(msg, Discord, board) {
 }
 
 module.exports = {
-    name : "함수"
-  , description : "함수 모음"
+    name : "함수" 
+  , description : "함수 모음" 
 }

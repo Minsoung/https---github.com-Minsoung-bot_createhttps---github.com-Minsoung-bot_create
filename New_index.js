@@ -11,7 +11,7 @@ for (const file of commandFiles) {
 }
 
 if (gfn_isNull("tt")) {
-    console.log("true");
+    console.log("true"); 
 } else {
-    console.log("false");
+    console.log("false");  
 }
