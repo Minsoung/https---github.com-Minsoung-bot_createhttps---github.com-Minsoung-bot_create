@@ -139,7 +139,7 @@
         .button{
             position: absolute;
             right: 20px;
-            top: 25px;
+            top: 30px;
             padding: 8px 15px;
             background-color: white;
             border: 1px solid gray;
@@ -185,7 +185,6 @@
 
             .c1 .inputtext1 input:nth-child(n+1){margin-top: 30px;}
 
-
             .c2 .title{font-size: 22px;}
 
             .c3 .title, .c3_last .title{font-size: 20px;}
@@ -194,8 +193,8 @@
 
         /* 병종 선호도 */
         .c3{
-            width: 30%;
-            float: left;
+            width: 100%;
+            float: none;
             background-color: rgba(255, 255, 255, 0.9);
             border: 1px solid #dadce0;
             border-radius: 8px;
@@ -207,8 +206,8 @@
             margin-bottom: 15px;
         }
         .c3_last{
-            width: 30%;
-            float: left;
+            width: 100%;
+            float: none;
             background-color: rgba(255, 255, 255, 0.9);
             border: 1px solid #dadce0;
             border-radius: 8px;
@@ -218,9 +217,6 @@
             font-family: 'NanumGothic';
             margin-right: 0%;
             margin-bottom: 15px;
-        }
-        .c3{float: none; width: 100%;}
-
-        .c3_last{float: none; width: 100%;}
-        
+        }  
+        .c3:last-child{margin-bottom: 60px;}      
     }
