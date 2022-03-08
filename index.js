@@ -45,7 +45,7 @@ client.on('message', msg => {
       , Color : "YELLOW"
     }
 
-    ufn_Send_Msg(msg, Discord, board);
+    ufn_Send_Msg(msg, Discord, board);  
 
 })
 
