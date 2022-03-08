@@ -1,9 +1,25 @@
+/* 제출하기 버튼 */
+.button{
+    position: absolute;
+    right: 110px;
+    top: 40px;
+    padding: 13px 20px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 50px;
+    z-index: 1;
+}
+    .button span{font-size: 26px;}
+    .button:hover{opacity: 0.5;}
+
 /* contents */
 #section{background-image: url(../img/01.jpg); width: 100%; height: 100%; overflow: hidden;}
 
 #section > div{width: 100%; height: 100vh; overflow: scroll;}
 
-#outer{width: 90%; margin: 0 auto; margin-top: 50px;}
+#outer{width: 90%; margin: 0 auto; margin-top: 50px; overflow: hidden;}
+
+#inner{overflow: hidden;}
 
 #section #container{width: 50%; height: 100%; margin: 0 auto;} 
 
@@ -16,7 +32,12 @@
     page-break-inside: avoid;
     word-wrap: break-word;
     font-family: 'NanumGothic';
+    overflow: hidden;
 }
+
+    .c1 h1{font-size: 35px;}
+
+    .c1 h5{text-align: right; color: gray;}
 
     .c1 .title{font-size: 24px;  font-weight: bold;}
 
@@ -40,10 +61,13 @@
     
     .c1 .inputckeck input{width: 20px; height: 20px;}
 
-    .c1 .inputckeck span{font-size: 20px; margin-right: 130px;}
+    .c1 .inputckeck span{font-size: 20px;}
 
-    .c1 .inputckeck p{font-size: 16px; font-weight: bold; color: gray; margin-top: 10px;}
+    .c1 .inputckeck .coment{font-size: 16px; font-weight: bold; color: gray; margin-top: 10px;}
 
+    .c1 .familyship{width: 30%; display: inline-block; text-align: justify;}
+
+    .c1 .familyship:nth-child(n+4){margin-top: 20px;}
 /* 병종 title */
 .c2{
     width: 100%;
@@ -57,6 +81,12 @@
     margin:50px 0 16px 0;
 }
     .c2 .title{font-size: 26px; font-weight: bold; text-align: center;}
+
+    .blue{background-color:rgb(58, 58, 255); opacity: 0.9;}
+
+    .purple{background-color:rgb(199, 73, 199); opacity: 0.9;}
+
+    .yellow{background-color:rgb(255, 255, 94); opacity: 0.9;}
 
 /* 병종 선호도 */
 .c3{
@@ -88,6 +118,7 @@
     .c3_last .title{font-size: 24px;  font-weight: bold;}
 
     /* 체크박스 input */
+    
     .c3 .inputckeck,
     .c3_last .inputckeck{width: 100%; margin-left: 2px; margin-top: 20px;}
 
@@ -96,3 +127,98 @@
 
     .c3 .inputckeck span,
     .c3_last .inputckeck span{font-size: 20px;}
+
+
+    /****************
+          모바일 
+    *****************/
+
+	@media all and (max-width:1411px){
+
+        /* 제출하기 버튼 */
+        .button{
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            padding: 8px 15px;
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 50px;
+            z-index: 1;
+        }
+            .button span{font-size: 20px;}
+            .button:hover{opacity: 0.5;}
+
+        /* contents */
+        #section{background-image: none; width: 100%; height: 100%; overflow: hidden;}
+
+        #section > div{width: 100%; height: 100vh; background-color: rgb(105, 105, 105);}
+
+        #section #container{width: 100%; height: 100%; margin: 0 auto;} 
+
+        .c1{
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            padding: 24px;
+            page-break-inside: avoid;
+            word-wrap: break-word;
+            font-family: 'NanumGothic';
+        }
+        
+            .c1 .title{font-size: 20px;}
+
+            .c1 .inputtext input{width: 80%; font-size: 16px;}
+
+            .c1 .inputckeck span{font-size: 16px;}
+
+            .c1 .inputckeck br{display: none;}
+
+            .c1 .familyship{width: 100%; display:block;}
+
+            .c1 .familyship:nth-child(n+1){margin-top: 20px;}
+
+            .c1 .inputtext1 input{display: block; width: 100%; font-size: 16px;}
+
+            .c1 .inputtext1 input:nth-child(n+1){margin-top: 30px;}
+
+
+            .c2 .title{font-size: 22px;}
+
+            .c3 .title, .c3_last .title{font-size: 20px;}
+
+            .c3 .inputckeck span, .c3_last .inputckeck span{font-size: 16px}
+
+        /* 병종 선호도 */
+        .c3{
+            width: 30%;
+            float: left;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 24px;
+            page-break-inside: avoid;
+            word-wrap: break-word;
+            font-family: 'NanumGothic';
+            margin-right: 0%;
+            margin-bottom: 15px;
+        }
+        .c3_last{
+            width: 30%;
+            float: left;
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 24px;
+            page-break-inside: avoid;
+            word-wrap: break-word;
+            font-family: 'NanumGothic';
+            margin-right: 0%;
+            margin-bottom: 15px;
+        }
+        .c3{float: none; width: 100%;}
+
+        .c3_last{float: none; width: 100%;}
+        
+    }
