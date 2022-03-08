@@ -53,5 +53,5 @@ app.get('/survey', function(req,res) {
 
     //res.send("<h1>"+ip+"</h1>");
 
-    res.sendFile(__dirname +'/survey.html');
+    res.sendFile(__dirname +'/survey.html'); 
 })
