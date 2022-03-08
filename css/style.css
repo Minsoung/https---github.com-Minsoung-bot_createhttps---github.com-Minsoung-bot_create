@@ -204,7 +204,6 @@
             font-family: 'NanumGothic';
             margin-right: 0%;
             margin-bottom: 15px;
-            overflow: hidden;
         }
         .c3_last{
             width: 100%;
@@ -218,7 +217,6 @@
             font-family: 'NanumGothic';
             margin-right: 0%;
             margin-bottom: 15px;
-            overflow: hidden;
         }  
-          
+        .c3:last-child{margin-bottom: 150px;}      
     }
