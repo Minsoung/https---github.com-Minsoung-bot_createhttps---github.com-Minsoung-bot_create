@@ -24,7 +24,7 @@ app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/img'));
 app.use(express.static(__dirname + '/font'));
 
-app.get('/', function(req,res) {
+app.get('/', function(req,res) {  
 
     var requestIp = require('request-ip');
 
