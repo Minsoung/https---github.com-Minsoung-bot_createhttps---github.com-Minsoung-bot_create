@@ -20,7 +20,11 @@ con.connect(function(err){
 // 3000 포트로 서버 오픈
 app.listen(3000, '0.0.0.0');
 
-app.get('/', function(req,res) {
+app.use(express.static(__dirname + '/css'));
+app.use(express.static(__dirname + '/img'));
+app.use(express.static(__dirname + '/font'));
+
+app.get('/', function(req,res) {  
 
     var requestIp = require('request-ip');
 
@@ -49,5 +53,5 @@ app.get('/survey', function(req,res) {
 
     //res.send("<h1>"+ip+"</h1>");
 
-    res.sendFile(__dirname +'/survey.html');
+    res.sendFile(__dirname +'/survey.html'); 
 })
