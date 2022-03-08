@@ -6,7 +6,7 @@ gfn_isNull = function(value) {
     return false;
 }
 
-ufn_Send_Mag = function(msg, Discord, board) {
+ufn_Send_Msg = function(msg, Discord, board) {
     const embed = new Discord.MessageEmbed()
     .setTitle(board.Title)
     .setDescription(board.Stirng_value)

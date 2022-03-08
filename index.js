@@ -2,7 +2,10 @@ const Discord = require('discord.js');
 const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES] });
 const fs = require('fs');
 const {token ,prefix} = require('./config.json');
+const request = require('request');
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('js'));
+
+const open = require('open');
 
 client.commands = new Discord.Collection();
 
@@ -27,10 +30,11 @@ client.on('message', msg => {
     const value = msg.content.slice(prefix.length).trim().split(/ +/);
 
     console.log("-------------------------");
+    console.log(msg.member); 
     console.log(value);
     console.log(msg.content);
     console.log("-------------------------");
-  
+
     let command = value.shift();
     let arms_name = "";
 
@@ -41,7 +45,7 @@ client.on('message', msg => {
       , Color : "YELLOW"
     }
 
-  ufn_Send_Mag(msg, Discord, board);
+    ufn_Send_Msg(msg, Discord, board);
 
 })
 
