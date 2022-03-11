@@ -4,18 +4,34 @@ const fs = require('fs');
 var express = require('express')
 var app = express();
 
-const con = myslq.createConnection({
-      host : 'localhost'
-    , user : 'root'
-    , password : '1234'
-    , database : 'botDB'
-});
+function handleDisconnect() {
+    const con = myslq.createConnection({
+          host : 'localhost'
+        , user : 'root' 
+        , password : '1234'
+        , database : 'botDB'
+    });
 
-con.connect(function(err){
-    if (err) throw err;
+    con.connect(function(err) {
+        if (err) { 
+            console.log('error when connecting to db:', err);
+            setTimeout(handleDisconnect, 2000);
+        }
 
-    console.log('Connected');
-});
+        console.log('Connected');
+    });
+
+    con.on('error', function(err) { 
+        console.log('db error', err); 
+        if (err.code === 'PROTOCOL_CONNECTION_LOST') { 
+            handleDisconnect(); 
+        } else { 
+            throw err;
+        } 
+    });
+}
+
+handleDisconnect();
 
 // 3000 포트로 서버 오픈
 app.listen(3000, '0.0.0.0');
@@ -55,3 +71,19 @@ app.get('/survey', function(req,res) {
 
     res.sendFile(__dirname +'/survey.html'); 
 })
+
+
+
+/*
+const con = myslq.createConnection({
+    host : 'localhost'
+  , user : 'root' 
+  , password : '1234'
+  , database : 'botDB'
+});
+
+con.connect(function(err){
+  if (err) throw err;
+
+  console.log('Connected');
+});*/
