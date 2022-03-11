@@ -24,6 +24,8 @@ gfn_getDate = function(value) {
     }
 }
 
+// null 확인 후 변경 value = 확인하고싶은 값  chagevalue = 변경할 값
+// 김민성
 gfn_nvlChage = function(value, chagevalue) {
     var rtVal = "";
 
