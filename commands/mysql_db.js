@@ -1,10 +1,12 @@
 const myslq = require('mysql');
+const db_Master = require('./db_config.json');
 
 const con = myslq.createConnection({
-    host : 'localhost'
-  , user : 'root' 
-  , password : '1234'
-  , database : 'botDB'
+    host : db_Master.host
+  , user : db_Master.user
+  , password : db_Master.password
+  , database : db_Master.database
+  , multipleStatements: true
 });
 
 function handleDisconnect() {
