@@ -24,6 +24,22 @@ gfn_getDate = function(value) {
     }
 }
 
+gfn_nvlChage = function(value, chagevalue) {
+    var rtVal = "";
+
+    if (gfn_isNull(value)) {
+        if (gfn_isNull(chagevalue)) {
+            rtVal = "";
+        } else {
+            rtVal = chagevalue;
+        }
+    } else {
+        rtVal = value;
+    }
+
+    return rtVal;
+}
+
 // 디스코드에 메세지 값 설정 후 현재 있는 채널에 메세지 출력
 // 김민성
 gfn_Send_Msg = function(msg, Discord, board) {
@@ -34,6 +50,7 @@ gfn_Send_Msg = function(msg, Discord, board) {
 
     return msg.channel.send({embeds : [embed]});
 }
+
 
 module.exports = {
     name : "함수" 

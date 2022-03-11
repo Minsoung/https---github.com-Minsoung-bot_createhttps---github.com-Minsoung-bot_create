@@ -3,7 +3,7 @@ const con = require('./mysql_db');
 UserInfo_add = function(msg, Discord) {
     var sql = "";
 
-    sql  = "SELECT COUNT(NICKNAME_D) AS COUNT";
+    sql  = "SELECT COUNT(NICKNAME_D) AS COUNT, IP AS USER_IP, DROUGHTY_CD AS DROUGHTY";
     sql += " FROM SURVEY";
     sql += " WHERE NICKNAME_D = ?";
 
@@ -22,7 +22,34 @@ UserInfo_add = function(msg, Discord) {
             gfn_Send_Msg(msg, Discord, board);
             return;
         } else {
-            console.log(1);
+            var sql2 = "";
+            var value2 = new Array;
+
+            sql2  = "INSERT INTO USERINFO";
+            sql2 += "(ID, USERNAME, DISCRIMINATOR, NICKNAME_S, NICKNAME_D, IP, CREATED)";
+            sql2 += " VALUES";
+            sql2 += "(?, ?, ?, ?, ?, ?, NOW())";
+
+            value2[0] = msg.member.id;
+            value2[1] = msg.member.user.username;
+            value2[2] = msg.member.user.discriminator;
+            value2[3] = msg.member.nickname;
+            value2[4] = value;
+            value2[5] = result[0].USER_IP;
+        
+
+            con.query(sql2, value2,function(err, result, fields) {
+                if (err) throw err;
+
+                var board = {
+                    Title : "가입완료"
+                  , Stirng_value : "가입이 완료되었습니다."
+                  , Color : "RED"
+                }
+    
+                gfn_Send_Msg(msg, Discord, board);
+                return;
+            });
         }
     });
 }

@@ -2,17 +2,13 @@ const Discord = require('discord.js');
 const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES] });
 const fs = require('fs');
 const {token ,prefix} = require('./config.json');
-const request = require('request');
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('js'));
-const myslq = require('mysql');
-const open = require('open');
-const { trace } = require('console');
 
 client.commands = new Discord.Collection();
 
 for (const file of commandFiles) {
     if (file == "mysql_db.js") continue;
-    
+
     const command = require(`./commands/${file}`);
     console.log(command);
     client.commands.set(command.name, command);
@@ -20,10 +16,6 @@ for (const file of commandFiles) {
 
 client.once('ready', ()=>{
     console.log('보리 봇 준비 완료');
-  //const Guilds = client.guilds.cache.map(guild => guild.id);
-  //console.log(client.guilds.cache);
-
-  //console.log(Guilds);
 })
 
 
