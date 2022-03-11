@@ -23,7 +23,7 @@ UserInfo_add = function(msg, Discord) {
             return;
         } else {
             var sql2 = "";
-            var value2 = new Array;
+            var value2 = new Array();
 
             sql2  = "INSERT INTO USERINFO";
             sql2 += "(ID, USERNAME, DISCRIMINATOR, NICKNAME_S, NICKNAME_D, IP, CREATED)";
