@@ -4,12 +4,15 @@ const fs = require('fs');
 const {token ,prefix} = require('./config.json');
 const request = require('request');
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('js'));
-
+const myslq = require('mysql');
 const open = require('open');
+const { trace } = require('console');
 
 client.commands = new Discord.Collection();
 
 for (const file of commandFiles) {
+    if (file == "mysql_db.js") continue;
+    
     const command = require(`./commands/${file}`);
     console.log(command);
     client.commands.set(command.name, command);
@@ -38,14 +41,22 @@ client.on('message', msg => {
     let command = value.shift();
     let arms_name = "";
 
+    if (command == '도순' || command == '관도' || command == '검방패' || command == '긴자루도끼' || command == '워해머' ||
+        command == '창' || command == '야칼' || command == '화승총' || command == '장창' || command == '장궁' ||
+        command == '단궁' || command == '쌍도' ) {
+        console.log(command);
 
-    var board = {
-        Title : "TEST"
-      , Stirng_value : "TEST"
-      , Color : "YELLOW"
+        arms_name = command;      
+        command = '장비';
     }
+  
+    if (!client.commands.has(command)) return;
 
-    ufn_Send_Msg(msg, Discord, board);  
+    if (command == '장비') {
+        client.commands.get(command).User_job(msg, arms_name, Discord);
+    } else if (command == '가입신청') {
+        client.commands.get(command).User_Add(msg, Discord);
+    }
 
 })
 

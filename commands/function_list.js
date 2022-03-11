@@ -26,7 +26,7 @@ gfn_getDate = function(value) {
 
 // 디스코드에 메세지 값 설정 후 현재 있는 채널에 메세지 출력
 // 김민성
-ufn_Send_Msg = function(msg, Discord, board) {
+gfn_Send_Msg = function(msg, Discord, board) {
     const embed = new Discord.MessageEmbed()
     .setTitle(board.Title)
     .setDescription(board.Stirng_value)
