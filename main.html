@@ -9,6 +9,78 @@
 </head>
 
 <body>
-    <a href="/survey">설문지 이동</a>
+    
+
+    <section id="sub2_nav1">
+		<div class="outer">
+			<div class="inner">
+				<ul class="inner-tab">
+                    <li><a href="/survey">설문지 이동</a></li>
+                    <li><a href="javascript:" OnClick='premier(1);' id='premier_button1'>Mouse</a></li>
+                    <li><a href="javascript:" OnClick='premier(2);' id='premier_button2'>Keyboard</a></li>
+                    <li><a href="javascript:" OnClick='premier(3);' id='premier_button3'>Combo</a></li>
+                    <li><a href="javascript:" OnClick='premier(4);' id='premier_button4'>Headset</a></li>
+                    <li><a href="javascript:" OnClick='premier(5);' id='premier_button5'>WebCam</a></li>
+                  
+                </ul>
+			</div><!--//inner-->
+		</div><!--//outer-->
+    </section><!--//sub2_nav1-->
+
+    <section id="sub02_c1">
+        <div class="outer">
+            <div class="inner">
+                <div id='premier1'>
+                    
+                </div>
+
+                <!-- 키보드 -->
+                <div id="premier2">
+                   
+                </div>
+
+                <!-- 콤보 -->
+                <div id='premier3'>
+                    
+                </div>
+
+                <!-- 헤드셋 -->
+                <div id='premier4'>
+                   
+                </div>
+
+                <!-- 웹캠 -->
+                <div id='premier5'>
+                                 
+                </div>
+
+                <!-- 악세서리 -->
+                <div id='premier6'>
+                    
+                </div>
+            </div><!--//inner-->
+        </div><!--//outer-->
+    </section>
+
+    <!-- 메뉴 -->
+    <script language>
+        premier(1); //처음에 활성화 시킬 탭 번호를 인수로 설정
+        function premier(n) {
+            for(var i = 1; i < 7; i++) {
+                obj = document.getElementById('premier'+i);
+                menu = document.getElementById('premier_button'+i);
+                if ( n == i ) {
+                    obj.style.display = "block";
+                    menu.style.background="";
+                    menu.style.color="#000";
+                } 
+                else {
+                    obj.style.display = "none";
+                    menu.style.background="";
+                    menu.style.color="#858585";
+                }
+            }
+        }
+    </script>
 </body>
 </html>
