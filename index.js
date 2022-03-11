@@ -2,14 +2,13 @@ const Discord = require('discord.js');
 const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES] });
 const fs = require('fs');
 const {token ,prefix} = require('./config.json');
-const request = require('request');
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('js'));
-
-const open = require('open');
 
 client.commands = new Discord.Collection();
 
 for (const file of commandFiles) {
+    if (file == "mysql_db.js") continue;
+
     const command = require(`./commands/${file}`);
     console.log(command);
     client.commands.set(command.name, command);
@@ -17,10 +16,6 @@ for (const file of commandFiles) {
 
 client.once('ready', ()=>{
     console.log('보리 봇 준비 완료');
-  //const Guilds = client.guilds.cache.map(guild => guild.id);
-  //console.log(client.guilds.cache);
-
-  //console.log(Guilds);
 })
 
 
@@ -38,14 +33,22 @@ client.on('message', msg => {
     let command = value.shift();
     let arms_name = "";
 
+    if (command == '도순' || command == '관도' || command == '검방패' || command == '긴자루도끼' || command == '워해머' ||
+        command == '창' || command == '야칼' || command == '화승총' || command == '장창' || command == '장궁' ||
+        command == '단궁' || command == '쌍도' ) {
+        console.log(command);
 
-    var board = {
-        Title : "TEST"
-      , Stirng_value : "TEST"
-      , Color : "YELLOW"
+        arms_name = command;      
+        command = '장비';
     }
+  
+    if (!client.commands.has(command)) return;
 
-    ufn_Send_Msg(msg, Discord, board);  
+    if (command == '장비') {
+        client.commands.get(command).User_job(msg, arms_name, Discord);
+    } else if (command == '가입신청') {
+        client.commands.get(command).User_Add(msg, Discord);
+    }
 
 })
 
