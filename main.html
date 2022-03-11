@@ -1,66 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Document</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="./css/import.css">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/import.css">
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+
 </head>
 
 <body>
-    
-
+    <!-- 상단 메뉴 -->
     <section id="sub2_nav1">
 		<div class="outer">
 			<div class="inner">
 				<ul class="inner-tab">
                     <li><a href="/survey">설문지 이동</a></li>
-                    <li><a href="javascript:" OnClick='premier(1);' id='premier_button1'>Mouse</a></li>
-                    <li><a href="javascript:" OnClick='premier(2);' id='premier_button2'>Keyboard</a></li>
-                    <li><a href="javascript:" OnClick='premier(3);' id='premier_button3'>Combo</a></li>
-                    <li><a href="javascript:" OnClick='premier(4);' id='premier_button4'>Headset</a></li>
-                    <li><a href="javascript:" OnClick='premier(5);' id='premier_button5'>WebCam</a></li>
-                  
+                    <li><a href="javascript:" OnClick='premier(1);' id='premier_button1'>지도</a></li>
+                    <li><a href="javascript:" OnClick='premier(2);' id='premier_button2'>각종 Tip</a></li>
+                    <li><a href="javascript:" OnClick='premier(3);' id='premier_button3'>병종</a></li>
+                    <li><a href="javascript:" OnClick='premier(4);' id='premier_button4'>장수무기</a></li>
                 </ul>
 			</div><!--//inner-->
 		</div><!--//outer-->
     </section><!--//sub2_nav1-->
 
-    <section id="sub02_c1">
-        <div class="outer">
-            <div class="inner">
-                <div id='premier1'>
-                    
-                </div>
+    <!-- 왼쪽 사이드 세션 -->
+    <section id="left_side">
+        <!-- 지도 -->
+        <div id='premier1'>
+            <div id="mySidenav" class="sidenav">
+                <li class="menu"> <a>덕무</a>
+                    <ul class="hide">
+                        <ul class="side-tab"> 
+                            <li><a href="javascript:" OnClick='side(1);' id='side_button1'>성 이름</a></li>
+                            <li><a href="javascript:" OnClick='side(2);' id='side_button2'>마을 이름</a></li>
+                            <li><a href="javascript:" OnClick='side(3);' id='side_button3'></a></li>
+                            <li><a href="javascript:" OnClick='side(4);' id='side_button4'></a></li>
+                        </ul>
+                    </ul>
+                </li>
 
-                <!-- 키보드 -->
-                <div id="premier2">
-                   
-                </div>
+                <li class="menu"> <a>신성 로마</a>
+                    <ul class="hide">
+                        <ul class="side-tab"> 
+                            <li><a href="javascript:" OnClick='side(5);' id='side_button5'></a></li>
+                            <li><a href="javascript:" OnClick='side(6);' id='side_button6'></a></li>
+                            <li><a href="javascript:" OnClick='side(7);' id='side_button7'></a></li>
+                            <li><a href="javascript:" OnClick='side(8);' id='side_button8'></a></li>
+                        </ul>
+                    </ul>
+                </li>
 
-                <!-- 콤보 -->
-                <div id='premier3'>
-                    
-                </div>
+                <li class="menu"> <a>월폴</a>
+                  
+                </li>
 
-                <!-- 헤드셋 -->
-                <div id='premier4'>
-                   
-                </div>
+                <li class="menu"> <a>페아리스</a>
+                  
+                </li>
 
-                <!-- 웹캠 -->
-                <div id='premier5'>
-                                 
-                </div>
+                <li class="menu"> <a>폴리타니아</a>
+                  
+                </li>
 
-                <!-- 악세서리 -->
-                <div id='premier6'>
-                    
-                </div>
-            </div><!--//inner-->
-        </div><!--//outer-->
+                <li class="menu"> <a>막원</a>
+                  
+                </li>
+
+                <li class="menu"> <a>룽정</a>
+                  
+                </li>
+
+                <li class="menu"> <a>운천</a>
+                  
+                </li>
+
+                <li class="menu"> <a>바르톨리아</a>
+                  
+                </li>
+
+                <li class="menu"> <a>혼란의 땅</a>
+                  
+                </li>
+            </div>
+        </div>
+
+        <!-- 각종 Tip -->
+        <div id="premier2">
+            <div id="mySidenav" class="sidenav">
+                <li class="menu"> <a></a>
+                    <ul class="hide">
+                        <ul class="side-tab"> 
+                            <li><a href="javascript:" OnClick='side(1);' id='side_button1'></a></li>
+                            <li><a href="javascript:" OnClick='side(2);' id='side_button2'></a></li>
+                            <li><a href="javascript:" OnClick='side(3);' id='side_button3'></a></li>
+                            <li><a href="javascript:" OnClick='side(4);' id='side_button4'></a></li>
+                        </ul>
+                    </ul>
+                </li>
+
+                <li class="menu"> <a></a>
+                    <ul class="hide">
+                        <ul class="side-tab"> 
+                            <li><a href="javascript:" OnClick='side(1);' id='side_button1'></a></li>
+                            <li><a href="javascript:" OnClick='side(2);' id='side_button2'></a></li>
+                            <li><a href="javascript:" OnClick='side(3);' id='side_button3'></a></li>
+                            <li><a href="javascript:" OnClick='side(4);' id='side_button4'></a></li>
+                        </ul>
+                    </ul>
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+            </div>
+        </div>
+
+        <!-- 병종 -->
+        <div id='premier3'>
+            <div id="mySidenav" class="sidenav">
+                <li class="menu"> <a>3성 보병</a>
+                    <ul class="hide">
+                        <ul class="side-tab"> 
+                            <li><a href="javascript:" OnClick='side(1);' id='side_button1'></a></li>
+                            <li><a href="javascript:" OnClick='side(2);' id='side_button2'></a></li>
+                            <li><a href="javascript:" OnClick='side(3);' id='side_button3'></a></li>
+                            <li><a href="javascript:" OnClick='side(4);' id='side_button4'></a></li>
+                        </ul>
+                    </ul>
+                </li>
+
+                <li class="menu"> <a>3성 원거리</a>
+                    <ul class="hide">
+                        <ul class="side-tab"> 
+                            <li><a href="javascript:" OnClick='side(1);' id='side_button1'></a></li>
+                            <li><a href="javascript:" OnClick='side(2);' id='side_button2'></a></li>
+                            <li><a href="javascript:" OnClick='side(3);' id='side_button3'></a></li>
+                            <li><a href="javascript:" OnClick='side(4);' id='side_button4'></a></li>
+                        </ul>
+                    </ul>
+                </li>
+
+                <li class="menu"> <a>3성 기병</a>
+                  
+                </li>
+
+                <li class="menu"> <a>4성 보병</a>
+                  
+                </li>
+
+                <li class="menu"> <a>4성 원거리</a>
+                  
+                </li>
+
+                <li class="menu"> <a>4성 기병</a>
+                  
+                </li>
+
+                <li class="menu"> <a>5성 보병</a>
+                  
+                </li>
+
+                <li class="menu"> <a>5성 원거리</a>
+                  
+                </li>
+
+                <li class="menu"> <a>5성 기병</a>
+                  
+                </li>
+            </div>
+        </div>
+
+        <!-- 장수무기 -->
+        <div id='premier4'>
+            <div id="mySidenav" class="sidenav">
+                <li class="menu"> <a>검방패</a>
+                    <ul class="hide">
+                        <ul class="side-tab"> 
+                            <li><a href="javascript:" OnClick='side(1);' id='side_button1'></a></li>
+                            <li><a href="javascript:" OnClick='side(2);' id='side_button2'></a></li>
+                            <li><a href="javascript:" OnClick='side(3);' id='side_button3'></a></li>
+                            <li><a href="javascript:" OnClick='side(4);' id='side_button4'></a></li>
+                        </ul>
+                    </ul>
+                </li>
+
+                <li class="menu"> <a>장창</a>
+                    <ul class="hide">
+                        <ul class="side-tab"> 
+                            <li><a href="javascript:" OnClick='side(1);' id='side_button1'></a></li>
+                            <li><a href="javascript:" OnClick='side(2);' id='side_button2'></a></li>
+                            <li><a href="javascript:" OnClick='side(3);' id='side_button3'></a></li>
+                            <li><a href="javascript:" OnClick='side(4);' id='side_button4'></a></li>
+                        </ul>
+                    </ul>
+                </li>
+
+                <li class="menu"> <a>관도</a>
+                  
+                </li>
+
+                <li class="menu"> <a>장궁</a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+
+                <li class="menu"> <a></a>
+                  
+                </li>
+            </div>
+        </div>
+
+        <!-- 메뉴 중메뉴 슬라이드 -->
+        <script>
+            $(document).ready(function(){ 
+                $(".menu>a").click(function(){
+                    var submenu = $(this).next("ul");
+                    if( submenu.is(":visible") ){ 
+                        submenu.slideUp();
+                    }else{
+                        submenu.slideDown();
+                    }
+                });
+            });
+        </script>
     </section>
+
+    <!-- 가운데 세션 -->
+    <section id="midde">
+        <button type="button" class="drawing"><img src="/drawing.png" alt="그림판"/></button>
+        <div id="side1">
+            <img src="/02.png" alt="이미지"/>
+        </div>
+    </section>
+
+    <!-- 오른쪽 사이드 -->
+    <section id="right_side">
+
+    </section>
+
 
     <!-- 메뉴 -->
     <script language>
@@ -72,7 +299,28 @@
                 if ( n == i ) {
                     obj.style.display = "block";
                     menu.style.background="";
+                    menu.style.color="#fff";
+                } 
+                else {
+                    obj.style.display = "none";
+                    menu.style.background="";
                     menu.style.color="#000";
+                }
+            }
+        }
+    </script>
+
+    <!-- 사이드 메뉴 -->
+    <script language>
+        side(0); //처음에 활성화 시킬 탭 번호를 인수로 설정
+        function side(n) {
+            for(var i = 1; i < 10; i++) {
+                obj = document.getElementById('side'+i);
+                menu = document.getElementById('side'+i);
+                if ( n == i ) {
+                    obj.style.display = "block";
+                    menu.style.background="";
+                    menu.style.color="#fff";
                 } 
                 else {
                     obj.style.display = "none";

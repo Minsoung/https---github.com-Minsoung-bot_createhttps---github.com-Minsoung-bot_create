@@ -1,4 +1,5 @@
 /*외부 css읽어들이기*/
 @import url(./reset.css);
 @import url(./common.css);
-@import url(./style.css);
+@import url(./main_style.css);
+@import url(./survey_style.css);

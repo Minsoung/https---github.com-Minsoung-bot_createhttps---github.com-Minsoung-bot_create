@@ -2,7 +2,7 @@
 .button{
     position: absolute;
     right: 110px;
-    top: 40px;
+    top: 110px;
     padding: 13px 20px;
     background-color: white;
     border: 1px solid gray;
@@ -12,8 +12,22 @@
     .button span{font-size: 26px;}
     .button:hover{opacity: 0.5;}
 
+/* 홈으로 이동 */
+.home{
+    position: absolute;
+    right: 110px;
+    top: 40px;
+    padding: 13px 37px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 50px;
+    z-index: 1;
+}
+    .home span{font-size: 26px;}
+    .home:hover{opacity: 0.5;}
+
 /* contents */
-#section{background-image: url(/01.jpg); width: 100%; height: 100vh; overflow: hidden;}
+#section{background-image: url(/survey.jpg); width: 100%; height: 100vh; overflow: hidden;}
 
 #section > div{width: 100%; height: 110%; overflow: scroll;}
 
@@ -142,7 +156,7 @@
         .button{
             position: absolute;
             right: 20px;
-            top: 30px;
+            top: 80px;
             padding: 8px 15px;
             background-color: white;
             border: 1px solid gray;
@@ -151,6 +165,19 @@
         }
             .button span{font-size: 20px;}
             .button:hover{opacity: 0.5;}
+
+        .home{
+            position: absolute;
+            right: 20px;
+            top: 30px;
+            padding: 8px 28px;
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 50px;
+            z-index: 1;
+        }
+            .home span{font-size: 20px;}
+            .home:hover{opacity: 0.5;}
 
         /* contents */
         #section{background-image: none; width: 100%; height: 100%; overflow: hidden;}
