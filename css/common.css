@@ -31,3 +31,5 @@
   font-weight: normal;
   font-style: normal;
 }
+
+p, span, div, a{font-family: 'NanumGothic';}
