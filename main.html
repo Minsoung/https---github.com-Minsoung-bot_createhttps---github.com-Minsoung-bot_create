@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>one top</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/import.css">
-    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
 
 </head>
 
@@ -104,10 +104,10 @@
                 <li class="menu"> <a></a>
                     <ul class="hide">
                         <ul class="side-tab"> 
-                            <li><a href="javascript:" OnClick='side(1);' id='side_button1'></a></li>
-                            <li><a href="javascript:" OnClick='side(2);' id='side_button2'></a></li>
-                            <li><a href="javascript:" OnClick='side(3);' id='side_button3'></a></li>
-                            <li><a href="javascript:" OnClick='side(4);' id='side_button4'></a></li>
+                            <li><a href="javascript:" OnClick='side(5);' id='side_button1'></a></li>
+                            <li><a href="javascript:" OnClick='side(6);' id='side_button2'></a></li>
+                            <li><a href="javascript:" OnClick='side(7);' id='side_button3'></a></li>
+                            <li><a href="javascript:" OnClick='side(8);' id='side_button4'></a></li>
                         </ul>
                     </ul>
                 </li>
@@ -163,10 +163,10 @@
                 <li class="menu"> <a>3성 원거리</a>
                     <ul class="hide">
                         <ul class="side-tab"> 
-                            <li><a href="javascript:" OnClick='side(1);' id='side_button1'></a></li>
-                            <li><a href="javascript:" OnClick='side(2);' id='side_button2'></a></li>
-                            <li><a href="javascript:" OnClick='side(3);' id='side_button3'></a></li>
-                            <li><a href="javascript:" OnClick='side(4);' id='side_button4'></a></li>
+                            <li><a href="javascript:" OnClick='side(5);' id='side_button1'></a></li>
+                            <li><a href="javascript:" OnClick='side(6);' id='side_button2'></a></li>
+                            <li><a href="javascript:" OnClick='side(7);' id='side_button3'></a></li>
+                            <li><a href="javascript:" OnClick='side(8);' id='side_button4'></a></li>
                         </ul>
                     </ul>
                 </li>
@@ -276,10 +276,14 @@
     </section>
 
     <!-- 가운데 세션 -->
-    <section id="midde">
-        <button type="button" class="drawing"><img src="/drawing.png" alt="그림판"/></button>
+    <section id="middle">
+        <div id="side0">
+            <img src="/onetop.png" alt="onetop"/>
+        </div>
+        
         <div id="side1">
             <img src="/02.png" alt="이미지"/>
+            <button type="button" class="drawing" id="dtn_drawing"><img src="/drawing.png" alt="그림판"/></button>
         </div>
     </section>
 
@@ -291,7 +295,7 @@
 
     <!-- 메뉴 -->
     <script language>
-        premier(1); //처음에 활성화 시킬 탭 번호를 인수로 설정
+        premier(0); //처음에 활성화 시킬 탭 번호를 인수로 설정
         function premier(n) {
             for(var i = 1; i < 7; i++) {
                 obj = document.getElementById('premier'+i);
@@ -314,7 +318,7 @@
     <script language>
         side(0); //처음에 활성화 시킬 탭 번호를 인수로 설정
         function side(n) {
-            for(var i = 1; i < 10; i++) {
+            for(var i = 0; i < 10; i++) {
                 obj = document.getElementById('side'+i);
                 menu = document.getElementById('side'+i);
                 if ( n == i ) {

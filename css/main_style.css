@@ -41,10 +41,11 @@
 #sub2_nav1 .outer .inner ul.inner-tab li:first-child{padding-left: 0; background: none;}
 #sub2_nav1 .outer .inner ul.inner-tab li:last-child{padding-right: 0;}
 
-#left_side{border: 0px solid red; width: 12%; height: 100%; overflow: hidden; position: relative; float: left;}
+#left_side{border: 0px solid red; width: 12%; height: 100%; overflow: hidden; position: relative; float: left; border-right: 2px solid gray; border-style: dotted;}
 
 
 /* 왼쪽 사이드 */
+
 .sidenav {
     /* border:1px solid green; */
     height: 100%;
@@ -105,13 +106,14 @@
     }
 
 /* 가운데 세션 */
-#midde{width: 75%; height: 100%; float: left; overflow: hidden; position: relative;}
+#middle{width: 75%; height: 100%; float: left; overflow: hidden; position: relative;}
 
     /* 그림판 */
     .drawing{position: absolute; right: 10px; top: 10px; background: none;}
     .drawing img{width: 50px; height: 50px; margin: 0px !important;}
+
     /* 가운데 이미지 */
-    #midde img{display: block; margin: 20px auto 0 auto;}
+    #middle img{display: block; margin: 20px auto 0 auto;}
 
 
 /* 오른쪽 사이드 */
