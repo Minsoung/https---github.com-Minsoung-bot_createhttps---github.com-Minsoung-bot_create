@@ -48,6 +48,8 @@ client.on('message', msg => {
         client.commands.get(command).User_job(msg, arms_name, Discord);
     } else if (command == '가입신청') {
         client.commands.get(command).User_Add(msg, Discord);
+    } else if (command == '영토전타이머') {
+        client.commands.get(command).War_Timer_20(msg,Discord);
     }
 
 })
