@@ -5,15 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/import.css">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script> <!--jquery -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- Axios (클라이언트 IP)-->
+    <script type="text/javascript" src="/survey.js"></script>
     <title>영토전 설문지</title>
 </head>
 
 <body>
     <section id="section">
         <div>
-            <form>
+            <form name="surveyForm">
                 <div id="outer">
-                    <button type="button" class="button"><span>제출 하기</span></button>
+                    <button type="button" class="button" id="submit"><span>제출 하기</span></button>
                     <button type="button" class="home" onclick="location.href='/'"><span>홈으로</span></button>
                     <div id="container">
                         <div class="c1">
@@ -25,7 +28,7 @@
                             <div class="title">게임 닉네임</div>
 
                             <div class="inputtext">
-                                <input type="text" maxlength="50" placeholder="ex. 서군"/>
+                                <input id="nickname" type="text" maxlength="50" placeholder="ex. 서군"/>
                             </div>
                         </div>
 
@@ -33,7 +36,7 @@
                             <div class="title">디스코드 닉네임</div>
 
                             <div class="inputtext">
-                                <input type="text" maxlength="50" placeholder="ex. ○○○#0000"/>
+                                <input id="discordNickname" type="text" maxlength="50" placeholder="ex. ○○○#0000"/>
                             </div>
                             <p class="coment">※ 디스코드 왼쪽 하단에 있습니다.</p>
                         </div>
@@ -42,11 +45,11 @@
                             <div class="title">레벨</div>
 
                             <div class="inputtext">
-                                <input type="number" maxlength="4" placeholder="ex. 123"/>
+                                <input id="level" type="number" placeholder="ex. 123"/>
                             </div>
                         </div>
 
-                        <div class="c1">
+                        <div class="c1 radioDiv">
                             <div class="title">영토전 원하는 포지션</div>
 
                             <div class="inputckeck">
@@ -63,7 +66,7 @@
                             </div>
                         </div>
 
-                        <div class="c1">
+                        <div class="c1 radioDiv">
                             <div class="title">가문</div>
                             <div class="inputckeck">
                                 <p class="familyship">
@@ -97,9 +100,9 @@
                             <div class="title">선호 병종</div>
 
                             <div class="inputtext1">
-                                <input type="text" maxlength="50" placeholder="ex. 신책"/>
-                                <input type="text" maxlength="50" placeholder="ex. 신책"/>
-                                <input type="text" maxlength="50" placeholder="ex. 신책"/>
+                                <input class="hobby" type="text" maxlength="50" placeholder="ex. 신책"/>
+                                <input class="hobby" type="text" maxlength="50" placeholder="ex. 신책"/>
+                                <input class="hobby" type="text" maxlength="50" placeholder="ex. 신책"/>
                             </div>
                         </div>
                     </div><!--//container-->
@@ -115,7 +118,7 @@
                         <!--------------------
                             1번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">스위스 할버드병</div>
 
                             <div class="inputckeck">
@@ -144,7 +147,7 @@
                             </div>
                         </div>
 
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">스위스 알파인 할버드병(진급)</div>
 
                             <div class="inputckeck">
@@ -172,7 +175,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">유가 창병</div>
                             
                             <div class="inputckeck">
@@ -204,7 +207,7 @@
                         <!--------------------
                             2번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">척가군 돌격대</div>
 
                             <div class="inputckeck">
@@ -232,7 +235,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">경기 철위영</div>
 
                             <div class="inputckeck">
@@ -260,7 +263,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">몰타 검방패병 시종</div>
 
                             <div class="inputckeck">
@@ -292,7 +295,7 @@
                         <!--------------------
                             3번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">천동 장창병</div>
 
                             <div class="inputckeck">
@@ -320,7 +323,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">천동 투창 장사</div>
 
                             <div class="inputckeck">
@@ -348,7 +351,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">신무 거대 방패 진영</div>
 
                             <div class="inputckeck">
@@ -380,7 +383,7 @@
                         <!--------------------
                             4번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">팔레르모 검방패병</div>
 
                             <div class="inputckeck">
@@ -408,7 +411,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">펜릴 늑대 전사</div>
 
                             <div class="inputckeck">
@@ -436,7 +439,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">영서 수도사</div>
 
                             <div class="inputckeck">
@@ -468,7 +471,7 @@
                         <!--------------------
                             5번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">캐틀란 백파이퍼</div>
 
                             <div class="inputckeck">
@@ -508,7 +511,7 @@
                         <!--------------------
                             1번째 줄 원거리
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">다르다넬 불화살 사수</div>
 
                             <div class="inputckeck">
@@ -536,7 +539,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">갈리아 십자궁수</div>
 
                             <div class="inputckeck">
@@ -564,7 +567,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">우림 우위 사성영</div>
                             
                             <div class="inputckeck">
@@ -596,7 +599,7 @@
                         <!--------------------
                             2번째 줄 원거리
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">우림 좌위 사성영</div>
 
                             <div class="inputckeck">
@@ -624,7 +627,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">후스 지원 화승총수</div>
 
                             <div class="inputckeck">
@@ -652,7 +655,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">파주 사성영</div>
 
                             <div class="inputckeck">
@@ -684,7 +687,7 @@
                         <!--------------------
                             3번째 줄 원거리
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">파주 연노영</div>
 
                             <div class="inputckeck">
@@ -712,7 +715,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">진원 화승총병</div>
 
                             <div class="inputckeck">
@@ -740,7 +743,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">바르호 사냥꾼</div>
 
                             <div class="inputckeck">
@@ -772,7 +775,7 @@
                         <!--------------------
                             4번째 줄 원거리
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">예니체리 장총부대</div>
 
                             <div class="inputckeck">
@@ -800,7 +803,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">바실레우스 화염병 투척수</div>
 
                             <div class="inputckeck">
@@ -840,7 +843,7 @@
                         <!--------------------
                             1번째 줄 기병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">내만 호위대</div>
 
                             <div class="inputckeck">
@@ -868,7 +871,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">걸안 바투루</div>
 
                             <div class="inputckeck">
@@ -896,7 +899,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">변방 수비대</div>
                             
                             <div class="inputckeck">
@@ -936,7 +939,7 @@
                         <!--------------------
                             1번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">스위스 영광 할버드병</div>
 
                             <div class="inputckeck">
@@ -964,7 +967,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">진충 장창영</div>
 
                             <div class="inputckeck">
@@ -992,7 +995,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">무위 철인대</div>
                             
                             <div class="inputckeck">
@@ -1024,7 +1027,7 @@
                         <!--------------------
                             2번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">요동 중갑대</div>
 
                             <div class="inputckeck">
@@ -1052,7 +1055,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">라고냐 투창병</div>
 
                             <div class="inputckeck">
@@ -1080,7 +1083,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">양양 투창 사사</div>
 
                             <div class="inputckeck">
@@ -1112,7 +1115,7 @@
                         <!--------------------
                             3번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">몰타 창방패병 경비대</div>
 
                             <div class="inputckeck">
@@ -1140,7 +1143,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">몰타 충성 경비대(진급)</div>
 
                             <div class="inputckeck">
@@ -1168,7 +1171,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">몰타 도보전 기사</div>
 
                             <div class="inputckeck">
@@ -1200,7 +1203,7 @@
                         <!--------------------
                             4번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">몰타 원정 기사(진급)</div>
 
                             <div class="inputckeck">
@@ -1228,7 +1231,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">달단 돌진 사사</div>
 
                             <div class="inputckeck">
@@ -1256,7 +1259,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">베네치아 도심 창병</div>
 
                             <div class="inputckeck">
@@ -1288,7 +1291,7 @@
                         <!--------------------
                             5번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">오스만 검방패병</div>
 
                             <div class="inputckeck">
@@ -1316,7 +1319,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">바이킹 광전사</div>
 
                             <div class="inputckeck">
@@ -1344,7 +1347,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">백군 수비대</div>
 
                             <div class="inputckeck">
@@ -1376,7 +1379,7 @@
                         <!--------------------
                             6번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">황야의 도끼 투척수</div>
 
                             <div class="inputckeck">
@@ -1404,7 +1407,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">클레이모어 고원 검사</div>
 
                             <div class="inputckeck">
@@ -1444,7 +1447,7 @@
                         <!--------------------
                             1번째 줄 원거리
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">브리튼 장궁수</div>
 
                             <div class="inputckeck">
@@ -1472,7 +1475,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">천웅 신궁영</div>
 
                             <div class="inputckeck">
@@ -1500,7 +1503,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">비엔나 화승총 근위군</div>
                             
                             <div class="inputckeck">
@@ -1532,7 +1535,7 @@
                         <!--------------------
                             2번째 줄 원거리
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">노밀 화승총영</div>
 
                             <div class="inputckeck">
@@ -1572,7 +1575,7 @@
                         <!--------------------
                             1번째 줄 기병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">작센 창기병</div>
 
                             <div class="inputckeck">
@@ -1600,7 +1603,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">작센 설원 창기병(진급)</div>
 
                             <div class="inputckeck">
@@ -1628,7 +1631,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">정원 패도 기병</div>
                             
                             <div class="inputckeck">
@@ -1660,7 +1663,7 @@
                         <!--------------------
                             2번째 줄 기병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">유림 표기장군영</div>
 
                             <div class="inputckeck">
@@ -1688,7 +1691,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">오랑캐 매의 기사</div>
 
                             <div class="inputckeck">
@@ -1716,7 +1719,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">시파히 기병</div>
                             
                             <div class="inputckeck">
@@ -1756,7 +1759,7 @@
                         <!--------------------
                             1번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">백산흑수 철부도</div>
 
                             <div class="inputckeck">
@@ -1784,7 +1787,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">예니체리 궁궐호위대</div>
 
                             <div class="inputckeck">
@@ -1812,7 +1815,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">시그룬 호위대</div>
                             
                             <div class="inputckeck">
@@ -1844,7 +1847,7 @@
                         <!--------------------
                             2번째 줄 보병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">신책 도군</div>
 
                             <div class="inputckeck">
@@ -1884,7 +1887,7 @@
                         <!--------------------
                             1번째 줄 원거리
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">아필린 방패석궁병</div>
 
                             <div class="inputckeck">
@@ -1912,7 +1915,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">불랑기 화승총병</div>
 
                             <div class="inputckeck">
@@ -1940,7 +1943,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">신기 오천영</div>
                             
                             <div class="inputckeck">
@@ -1972,7 +1975,7 @@
                         <!--------------------
                             2번째 줄 원거리
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">아르노 화포 보병</div>
 
                             <div class="inputckeck">
@@ -2000,7 +2003,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">아필린 방패석궁병</div>
 
                             <div class="inputckeck">
@@ -2028,7 +2031,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">바실레우스 화염 방사 호위대</div>
                             
                             <div class="inputckeck">
@@ -2060,7 +2063,7 @@
                         <!--------------------
                             3번째 줄 원거리
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">신기 오천영</div>
 
                             <div class="inputckeck">
@@ -2088,7 +2091,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">콜레흐 사냥꾼</div>
 
                             <div class="inputckeck">
@@ -2128,7 +2131,7 @@
                         <!--------------------
                             1번째 줄 기병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">헝가리 표기장군</div>
 
                             <div class="inputckeck">
@@ -2156,7 +2159,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">폴란드 윙드후사르</div>
 
                             <div class="inputckeck">
@@ -2184,7 +2187,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">관녕 철기병</div>
                             
                             <div class="inputckeck">
@@ -2216,7 +2219,7 @@
                         <!--------------------
                             2번째 줄 기병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">관녕 철기병 진북(진급)</div>
 
                             <div class="inputckeck">
@@ -2244,7 +2247,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">몰타 기사</div>
 
                             <div class="inputckeck">
@@ -2272,7 +2275,7 @@
                                 <span>숙련도 최상</span>
                             </div>
                         </div>
-                        <div class="c3_last">
+                        <div class="c3_last radioDiv">
                             <div class="title">파주 석궁 기병영</div>
                             
                             <div class="inputckeck">
@@ -2304,7 +2307,7 @@
                         <!--------------------
                             3번째 줄 기병
                         -------------------->
-                        <div class="c3">
+                        <div class="c3 radioDiv">
                             <div class="title">칸 케식 경비대</div>
 
                             <div class="inputckeck">

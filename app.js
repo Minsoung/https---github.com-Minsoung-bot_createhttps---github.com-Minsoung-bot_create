@@ -40,6 +40,8 @@ handleDisconnect();
 app.listen(3000, '0.0.0.0');
 
 app.use(express.static(__dirname + '/css'));
+app.use(express.static(__dirname + '/js'));
+app.use(express.static(__dirname + '/commands'));
 app.use(express.static(__dirname + '/img'));
 app.use(express.static(__dirname + '/font'));
 
@@ -71,11 +73,13 @@ app.get('/survey', function(req,res) {
     // console.log(ip);
 
     //res.send("<h1>"+ip+"</h1>");
-
+    
     res.sendFile(__dirname +'/survey.html'); 
 })
 
-
+app.post('/survey_submit', function(req, res) {
+    console.log('test');
+});
 
 /*
 const con = myslq.createConnection({
