@@ -11,6 +11,7 @@
     "google-spreadsheet": "^3.1.15",
     "googleapis": "^39.2.0",
     "mysql": "^2.18.1",
+    "node-schedule": "^2.1.0",
     "nodemon": "^2.0.15",
     "open": "^8.4.0",
     "pm2": "^5.2.0",
