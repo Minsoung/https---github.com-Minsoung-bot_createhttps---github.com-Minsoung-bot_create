@@ -4,14 +4,16 @@ const fs = require('fs');
 var express = require('express')
 var app = express();
 
-const con = myslq.createConnection({
-    host : 'localhost'
-  , user : 'root' 
-  , password : '1234'
-  , database : 'botDB'
-});
+ let con = "";
 
 function handleDisconnect() {
+    con = myslq.createConnection({
+        host : 'localhost'
+      , user : 'root' 
+      , password : '1234'
+      , database : 'botDB'
+    });
+
     con.connect(function(err) {
         if (err) { 
             console.log('error when connecting to db:', err);

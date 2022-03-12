@@ -1,15 +1,17 @@
 const myslq = require('mysql');
 const db_Master = require('./db_config.json');
 
-const con = myslq.createConnection({
-    host : db_Master.host
-  , user : db_Master.user
-  , password : db_Master.password
-  , database : db_Master.database
-  , multipleStatements: true
-});
+let con = "";
 
 function handleDisconnect() {
+     con = myslq.createConnection({
+        host : db_Master.host
+      , user : db_Master.user
+      , password : db_Master.password
+      , database : db_Master.database
+      , multipleStatements: true
+    });
+
     con.connect(function(err) {
         if (err) { 
             console.log('error when connecting to db:', err);
