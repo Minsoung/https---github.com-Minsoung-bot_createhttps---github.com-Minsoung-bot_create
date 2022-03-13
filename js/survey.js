@@ -11,19 +11,83 @@ $(document).ready(function() {
 
             if (response != false) {
                 response.then((value) => {
-                    var form = document.createElement("form");
+                    $('#tempForm').remove();
+                    let form = document.createElement("form");
                     
+                    form.setAttribute("id", "tempForm");
                     form.setAttribute("charset", "UTF-8");
                     form.setAttribute("method", "Post");  //Post 방식
                     form.setAttribute("action", "/survey_submit"); //요청 보낼 주소
 
-                    console.log(form);
+                    let ip = createInput('ip');
+                    ip.setAttribute('value', value);
+                    form.appendChild(ip);
+
+                    let username = createInput('username');
+                    username.setAttribute('value', $('#nickname').val());
+                    form.appendChild(username);
+                    
+                    // discord nickname # discriminator
+                    let val = '';
+                    val = $('#discordNickname').val();
+                    
+                    let discordNickname = createInput('discordNickname');
+                    discordNickname.setAttribute('value', val);
+                    form.appendChild(discordNickname);
+                    
+                    let first = createInput('first');
+                    first.setAttribute('value', val.split('#')[0]);
+                    form.appendChild(first);
+
+                    let discriminator = createInput('discriminator');
+                    discriminator.setAttribute('value', val.split('#')[1]);
+                    form.appendChild(discriminator);
+
+                    let level = createInput('level');
+                    level.setAttribute('value', $('#level').val());
+                    form.appendChild(level);
+
+                    let hobby1 = createInput('hobby1');
+                    hobby1.setAttribute('value', $('#hobby1').val());
+                    form.appendChild(hobby1);
+
+                    let hobby2 = createInput('hobby2');
+                    hobby2.setAttribute('value', $('#hobby2').val());
+                    form.appendChild(hobby2);
+
+                    let hobby3 = createInput('hobby3');
+                    hobby3.setAttribute('value', $('#hobby3').val());
+                    form.appendChild(hobby3);
+                    
+                    $('.radioDiv').each(function(index, value) {
+                        let id = $(this).attr('id');
+
+                        $(this).find('input[type=radio]').each(function(index2, value2) {
+                            let chkFlag = $(this).is(':checked');
+                            
+                            if (chkFlag) {console.log(id);
+                                let temp = createInput(id);
+                                temp.setAttribute('value', $(this).val());
+                                form.appendChild(temp);
+                                return;
+                            }
+                        });
+                    });
+
                     document.body.appendChild(form);
                     form.submit();
                 });
             }
         }
     });
+
+    function createInput(name) {
+        let temp = document.createElement('input');
+        temp.setAttribute('type', 'hidden');
+        temp.setAttribute('name', name);
+
+        return temp;
+    }
 
     // 유효성 검증
     function ufn_validation() {
@@ -68,25 +132,33 @@ $(document).ready(function() {
         }
 
         // 라디오 체크 여부 확인
-        let result = $('.radioDiv').each(function(value, index) {
-            let bFlag = false;
+        let bFlag = false;
+        let bObj  = null;
+        let result = $('.radioDiv').each(function(index, value) {
+            let hFlag = false;
 
-            $(this).find('input[type=radio]').each(function(value2, index2) {
+            $(this).find('input[type=radio]').each(function(index2, value2) {
                 let chkFlag = $(this).is(':checked');
-
+                
                 if (chkFlag) {
-                    bFlag = true;
+                    hFlag = true;
                     return false;
                 }
             });
 
-            if (!bFlag) {
+            if (!hFlag) {
                 $(this).attr('tabindex', -1).focus();
+                ufn_showWarning('N');
+                bFlag = true;
                 return false;
             }
         });
 
-        return true;
+        if (bFlag) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     // 경고 메세지 출력

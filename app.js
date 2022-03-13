@@ -45,6 +45,9 @@ app.use(express.static(__dirname + '/commands'));
 app.use(express.static(__dirname + '/img'));
 app.use(express.static(__dirname + '/font'));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.get('/', function(req,res) {  
 
     var requestIp = require('request-ip');
@@ -74,12 +77,91 @@ app.get('/survey', function(req,res) {
 
     //res.send("<h1>"+ip+"</h1>");
     
-    res.sendFile(__dirname +'/survey.html'); 
+    res.sendFile(__dirname +'/survey.html');
 })
 
 app.post('/survey_submit', function(req, res) {
-    console.log('test');
-});
+    let ip = req.body.ip;
+    delete req.body.ip;
+
+    let username = req.body.username;
+    delete req.body.username;
+
+    let discordNickname = req.body.discordNickname;
+    delete req.body.discordNickname;
+
+    let first = req.body.first;
+    delete req.body.first;
+
+    let discriminator = req.body.discriminator;
+    delete req.body.discriminator;
+
+    let level = req.body.level;
+    delete req.body.level;
+
+    let hobby1 = req.body.hobby1;
+    delete req.body.hobby1;
+
+    let hobby2 = req.body.hobby2;
+    delete req.body.hobby2;
+
+    let hobby3 = req.body.hobby3;
+    delete req.body.hobby3;
+
+    let position = req.body.position;
+    delete req.body.position;
+
+    let family = req.body.family;
+    delete req.body.family;
+    /*
+    let sql = "";
+    let valueArray = new Array();
+
+    sql  = "INSERT INTO SURVEY";
+    sql += "(IP, ID, NICKNAME_D, NICKNAME_P, POSITION_CD, DROUGHTY_CD, PREFERENCE_ARMY1, PREFERENCE_ARMY2, PREFERENCE_ARMY3)";
+    sql += " VALUES";
+    sql += "(?, '', ?, ?, ?, ?, ?, ?, ?)";
+
+    valueArray[0] = ip;
+    valueArray[1] = discordNickname;
+    valueArray[2] = username;
+    valueArray[3] = position;
+    valueArray[4] = family;
+    valueArray[5] = hobby1;
+    valueArray[6] = hobby2;
+    valueArray[7] = hobby3;
+
+    con.query(sql, valueArray,function(err, result, fields) {
+        if (err) throw err;
+    });
+
+    for(let key in req.body) {
+        let sql2 = "";
+        let valueArray2 = new Array();
+
+        sql2  = "INSERT INTO USER_PROFICIENCY";
+        sql2 += "(IP, ARMY_CD, PROFICIENCY_CD)";
+        sql2 += " VALUES";
+        sql2 += "(?, ?, ?)";
+
+        valueArray2[0] = ip;
+        valueArray2[1] = key.replace('c', '');
+        valueArray2[2] = req.body[key];
+
+        con.query(sql2, valueArray2,function(err, result, fields) {
+            if (err) throw err;
+        });
+    }
+*/
+
+    res.send("<script>alert('설문지가 저장되었습니다. 지금 보고있는 창을 닫겠습니다.'); location.href='/close'</script>");
+    //window.close();
+})
+
+app.get('/close', function(req,res) {
+    //res.send('<script>window.close();</script>');
+    res.sendFile(__dirname +'/function_html/close.html');
+})
 
 /*
 const con = myslq.createConnection({
