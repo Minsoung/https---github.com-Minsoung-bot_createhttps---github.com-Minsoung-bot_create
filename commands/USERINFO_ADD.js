@@ -12,7 +12,9 @@ UserInfo_add = function(msg, Discord) {
     
     con.query(sql, [value],function(err, result, fields) {
         if (err) throw err;
-        
+
+        var DROUGHTY_VALUE = result[0].DROUGHTY;
+
         if (result[0].COUNT == 0) {
             var board = {
                 Title : "가입신청 실패"
@@ -55,13 +57,13 @@ UserInfo_add = function(msg, Discord) {
 
                     var DROUGHTY_NAME = "";
                 
-                    if (result[0].DROUGHTY_CD == 1 || result[0].DROUGHTY_CD == 2 || result[0].DROUGHTY_CD == 3) {
+                    if (DROUGHTY_VALUE == 1 || DROUGHTY_VALUE == 2 || DROUGHTY_VALUE == 3) {
                         DROUGHTY_NAME = "Goguryeo[가문원]";
-                    } else if (result[0].DROUGHTY_CD == 4) {
+                    } else if (DROUGHTY_VALUE == 4) {
                         DROUGHTY_NAME = "전설[가문원]";
-                    } else if (result[0].DROUGHTY_CD == 5) {
+                    } else if (DROUGHTY_VALUE == 5) {
                         DROUGHTY_NAME = "Bretonnia[가문원]";
-                    } else if (result[0].DROUGHTY_CD == 6) {
+                    } else if (DROUGHTY_VALUE == 6) {
                         DROUGHTY_NAME = "HEAVEN[가문원]";
                     }
                     
