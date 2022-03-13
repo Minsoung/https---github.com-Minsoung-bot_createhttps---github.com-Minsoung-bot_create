@@ -15,7 +15,7 @@ UserInfo_add = function(msg, Discord) {
         if (result[0].COUNT == 0) {
             var board = {
                 Title : "가입신청 실패"
-              , Stirng_value : "설문지를 작성해주세요."
+              , Stirng_value : "설문지를 작성해주세요.\n\https://6112-112-171-4-239.ngrok.io/survey"
               , Color : "RED"
             }
 
@@ -39,14 +39,20 @@ UserInfo_add = function(msg, Discord) {
         
 
             con.query(sql2, value2,function(err, result, fields) {
-                if (err) throw err;
-
-                var board = {
-                    Title : "가입완료"
-                  , Stirng_value : "가입이 완료되었습니다."
-                  , Color : "RED"
+                if (err) {
+                    var board = {
+                        Title : "이미 등록된 사용자입니다."
+                        , Stirng_value : "이미 가입이 완료된 사용자입니다."
+                        , Color : "RED"
+                    }
+                } else {
+                    var board = {
+                        Title : "가입완료"
+                        , Stirng_value : "가입이 완료되었습니다."
+                        , Color : "BLUE"
+                    }
                 }
-    
+
                 gfn_Send_Msg(msg, Discord, board);
                 return;
             });

@@ -6,7 +6,7 @@ $(document).ready(function() {
         e.preventDefault();
         let bFlag = ufn_validation();
 
-        if (!bFlag) {
+        if (bFlag) {
             const response = getIpClient();
 
             if (response != false) {
@@ -65,7 +65,7 @@ $(document).ready(function() {
                         $(this).find('input[type=radio]').each(function(index2, value2) {
                             let chkFlag = $(this).is(':checked');
                             
-                            if (chkFlag) {console.log(id);
+                            if (chkFlag) {
                                 let temp = createInput(id);
                                 temp.setAttribute('value', $(this).val());
                                 form.appendChild(temp);
@@ -197,4 +197,10 @@ $(document).ready(function() {
     
         return false;
     }
+});
+
+$(window).bind("pageshow", function(event) {
+    event.preventDefault();
+    $('#tempForm').remove();
+    $('#surveyForm')[0].reset(); 
 });

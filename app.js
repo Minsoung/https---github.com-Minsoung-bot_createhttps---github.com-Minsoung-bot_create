@@ -1,6 +1,5 @@
 const myslq = require('mysql');
 const fs = require('fs');
-
 var express = require('express')
 var app = express();
 
@@ -113,9 +112,10 @@ app.post('/survey_submit', function(req, res) {
 
     let family = req.body.family;
     delete req.body.family;
-    /*
+    
     let sql = "";
     let valueArray = new Array();
+    let bFlag = false;
 
     sql  = "INSERT INTO SURVEY";
     sql += "(IP, ID, NICKNAME_D, NICKNAME_P, POSITION_CD, DROUGHTY_CD, PREFERENCE_ARMY1, PREFERENCE_ARMY2, PREFERENCE_ARMY3)";
@@ -132,35 +132,42 @@ app.post('/survey_submit', function(req, res) {
     valueArray[7] = hobby3;
 
     con.query(sql, valueArray,function(err, result, fields) {
-        if (err) throw err;
+        if (err) {
+            res.send("<script>alert('이미 저장된 설문지가 존재합니다.'); location.href='/'</script>");
+        } else {
+            console.log("SURVEY INSERT COMPLETE");
+            let keyLen = Object.keys(req.body).length;
+            let index = 0;
+
+            for (let key in req.body) {
+                let sql2 = "";
+                let valueArray2 = new Array();
+        
+                sql2  = "INSERT INTO USER_PROFICIENCY";
+                sql2 += "(IP, ARMY_CD, PROFICIENCY_CD)";
+                sql2 += " VALUES";
+                sql2 += "(?, ?, ?)";
+        
+                valueArray2[0] = ip;
+                valueArray2[1] = key.replace('c', '');
+                valueArray2[2] = req.body[key];
+        
+                con.query(sql2, valueArray2,function(err, result, fields) {
+                    if (err) {
+                        res.send("<script>alert('설문지 저장에 실패하였습니다.'); location.href='/'</script>");
+                        return false;
+                    } else {
+                        index = index + 1;
+                        console.log("USER_PROFICIENCY INSERT COMPLETE");
+
+                        if (index == keyLen) {
+                            res.send("<script>alert('설문지가 저장되었습니다.'); location.href='/'</script>");
+                        }
+                    }
+                });
+            }
+        }
     });
-
-    for(let key in req.body) {
-        let sql2 = "";
-        let valueArray2 = new Array();
-
-        sql2  = "INSERT INTO USER_PROFICIENCY";
-        sql2 += "(IP, ARMY_CD, PROFICIENCY_CD)";
-        sql2 += " VALUES";
-        sql2 += "(?, ?, ?)";
-
-        valueArray2[0] = ip;
-        valueArray2[1] = key.replace('c', '');
-        valueArray2[2] = req.body[key];
-
-        con.query(sql2, valueArray2,function(err, result, fields) {
-            if (err) throw err;
-        });
-    }
-*/
-
-    res.send("<script>alert('설문지가 저장되었습니다. 지금 보고있는 창을 닫겠습니다.'); location.href='/close'</script>");
-    //window.close();
-})
-
-app.get('/close', function(req,res) {
-    //res.send('<script>window.close();</script>');
-    res.sendFile(__dirname +'/function_html/close.html');
 })
 
 /*
