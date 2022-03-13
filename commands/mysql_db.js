@@ -29,8 +29,8 @@ function handleDisconnect() {
             throw err;
         } 
     });
+
+    module.exports = con;
 }
 
 handleDisconnect();
-
-module.exports = con;
