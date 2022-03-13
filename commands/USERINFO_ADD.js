@@ -5,9 +5,10 @@ UserInfo_add = function(msg, Discord) {
 
     sql  = "SELECT COUNT(NICKNAME_D) AS COUNT, IP AS USER_IP, DROUGHTY_CD AS DROUGHTY";
     sql += " FROM SURVEY";
-    sql += " WHERE NICKNAME_D = ?";
+    sql += " WHERE ID = ?";
 
-    var value = msg.member.user.username + "#" + msg.member.user.discriminator;
+    //var value = msg.member.user.username + "#" + msg.member.user.discriminator;
+    var value = msg.member.id;
     
     con.query(sql, [value],function(err, result, fields) {
         if (err) throw err;
@@ -34,7 +35,7 @@ UserInfo_add = function(msg, Discord) {
             value2[1] = msg.member.user.username;
             value2[2] = msg.member.user.discriminator;
             value2[3] = msg.member.nickname;
-            value2[4] = value;
+            value2[4] = msg.member.user.username + "#" + msg.member.user.discriminator;
             value2[5] = result[0].USER_IP;
         
 
@@ -51,6 +52,21 @@ UserInfo_add = function(msg, Discord) {
                         , Stirng_value : "가입이 완료되었습니다."
                         , Color : "BLUE"
                     }
+
+                    var DROUGHTY_NAME = "";
+                
+                    if (result[0].DROUGHTY_CD == 1 || result[0].DROUGHTY_CD == 2 || result[0].DROUGHTY_CD == 3) {
+                        DROUGHTY_NAME = "Goguryeo[가문원]";
+                    } else if (result[0].DROUGHTY_CD == 4) {
+                        DROUGHTY_NAME = "전설[가문원]";
+                    } else if (result[0].DROUGHTY_CD == 5) {
+                        DROUGHTY_NAME = "Bretonnia[가문원]";
+                    } else if (result[0].DROUGHTY_CD == 6) {
+                        DROUGHTY_NAME = "HEAVEN[가문원]";
+                    }
+                    
+                    msg.member.roles.remove(msg.guild.roles.cache.find(c => c.name === "가입대기").id);
+                    msg.member.roles.add(msg.guild.roles.cache.find(c => c.name === DROUGHTY_NAME).id);
                 }
 
                 gfn_Send_Msg(msg, Discord, board);

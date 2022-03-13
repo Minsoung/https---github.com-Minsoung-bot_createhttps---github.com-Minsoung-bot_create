@@ -30,6 +30,8 @@ client.on('message', msg => {
     console.log(msg.content);
     console.log("-------------------------");
 
+
+
     let command = value.shift();
     let arms_name = "";
 
@@ -50,6 +52,8 @@ client.on('message', msg => {
         client.commands.get(command).User_Add(msg, Discord);
     } else if (command == '영토전타이머') {
         client.commands.get(command).War_Timer_20(msg,Discord);
+    } else if (command == '키발급') {   
+        client.commands.get(command).User_Key(msg, Discord);
     }
 
 })
