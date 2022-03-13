@@ -67,14 +67,19 @@ app.get('/', function(req,res) {
 })
 
 app.get('/survey', function(req,res) {
+    var requestIp = require('request-ip');
 
-    // var requestIp = require('request-ip');
+    let ip = requestIp.getClientIp(req);
 
-    // let ip = requestIp.getClientIp(req);
+    console.log(ip);
 
-    // console.log(ip);
+    var sql = "INSERT INTO IPLOG(IP, CREATED) VALUES(?,NOW())";
 
-    //res.send("<h1>"+ip+"</h1>");
+    con.query(sql, [ip],function(err, result, fields){
+        if (err) throw err;
+
+        console.log(result);
+    });
     
     res.sendFile(__dirname +'/survey.html');
 })

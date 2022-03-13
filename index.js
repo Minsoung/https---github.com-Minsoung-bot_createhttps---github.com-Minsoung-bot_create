@@ -54,6 +54,8 @@ client.on('message', msg => {
         client.commands.get(command).War_Timer_20(msg,Discord);
     } else if (command == '키발급') {   
         client.commands.get(command).User_Key(msg, Discord);
+    } else if (command == '참가') {   
+        client.commands.get(command).War_Fed_Add(msg, Discord);
     }
 
 })
