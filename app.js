@@ -118,18 +118,19 @@ app.post('/survey_submit', function(req, res) {
     let bFlag = false;
 
     sql  = "INSERT INTO SURVEY";
-    sql += "(IP, ID, NICKNAME_D, NICKNAME_P, POSITION_CD, DROUGHTY_CD, PREFERENCE_ARMY1, PREFERENCE_ARMY2, PREFERENCE_ARMY3)";
+    sql += "(IP, ID, NICKNAME_D, NICKNAME_P, LEVEL, POSITION_CD, DROUGHTY_CD, PREFERENCE_ARMY1, PREFERENCE_ARMY2, PREFERENCE_ARMY3)";
     sql += " VALUES";
-    sql += "(?, '', ?, ?, ?, ?, ?, ?, ?)";
+    sql += "(?, '', ?, ?, ?, ?, ?, ?, ?, ?)";
 
     valueArray[0] = ip;
     valueArray[1] = discordNickname;
     valueArray[2] = username;
-    valueArray[3] = position;
-    valueArray[4] = family;
-    valueArray[5] = hobby1;
-    valueArray[6] = hobby2;
-    valueArray[7] = hobby3;
+    valueArray[3] = level;
+    valueArray[4] = position;
+    valueArray[5] = family;
+    valueArray[6] = hobby1;
+    valueArray[7] = hobby2;
+    valueArray[8] = hobby3;
 
     con.query(sql, valueArray,function(err, result, fields) {
         if (err) {
