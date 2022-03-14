@@ -42,7 +42,7 @@ User_War_Fed_Add = function(msg, Discord) {
     con.query(sql, [value,value],function(err, result, fields) {
         if (err) throw err;
 
-        if (gfn_isNull(result)) {
+        if (gfn_isNull(result[0][0]) ) {
             var board = {
                 Title : "신청 실패"
               , Stirng_value : "설문지를 작성해주세요.\n\https://6112-112-171-4-239.ngrok.io/survey"
