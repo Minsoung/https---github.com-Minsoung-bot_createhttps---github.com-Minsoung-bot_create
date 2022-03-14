@@ -47,7 +47,7 @@ gfn_nvlChage = function(value, chagevalue) {
 gfn_Send_Msg = function(msg, Discord, board) {
     const embed = new Discord.MessageEmbed()
     .setTitle(board.Title)
-    .setDescription(board.Stirng_value)
+    .setDescription(board.String_value)
     .setColor(board.Color)
 
     return msg.channel.send({embeds : [embed]});
