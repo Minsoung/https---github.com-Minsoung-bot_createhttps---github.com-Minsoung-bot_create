@@ -15,24 +15,28 @@
 		<div class="outer">
 			<div class="inner">
 				<ul class="inner-tab">
-                    <li><a href="javascript:" OnClick='premier(1);' id='premier_button1'>home</a></li>
-                    <li><a href="/survey">설문지 이동</a></li>
-                    <li><a href="javascript:" OnClick='premier(2);' id='premier_button2'>지도</a></li>
-                    <li><a href="javascript:" OnClick='premier(3);' id='premier_button3'>각종 Tip</a></li>
-                    <li><a href="javascript:" OnClick='premier(4);' id='premier_button4'>병종</a></li>
-                    <li><a href="javascript:" OnClick='premier(5);' id='premier_button5'>장수무기</a></li>
+                    <li><a href="javascript:" OnClick='premier(1);' id='premier_button1'>OneTop</a></li>
+
+                    <div>
+                        <li><a href="/survey">설문지 이동</a></li>
+                        <li><a href="javascript:" OnClick='premier(2);' id='premier_button2'>지도</a></li>
+                        <li><a href="javascript:" OnClick='premier(3);' id='premier_button3'>각종 Tip</a></li>
+                        <li><a href="javascript:" OnClick='premier(4);' id='premier_button4'>병종</a></li>
+                        <li><a href="javascript:" OnClick='premier(5);' id='premier_button5'>장수무기</a></li>
+                    </div>
                 </ul>
 			</div><!--//inner-->
 		</div><!--//outer-->
     </section><!--//sub2_nav1-->
 </header>
 <body>
+    <!-- home -->
     <div id='premier1'>
-        <video src="/intro.mp4" loop autoplay muted="muted" type="video/mp4"></video>
+        <section id="middle">
+            <video src="/Trailer_Paragon.mp4" loop autoplay controls muted="muted" type="video/mp4"></video>
+        </section>
     </div>
-    
 
-    <!-- 왼쪽 사이드 세션 -->
     <!-- 지도 -->
     <div id='premier2'>
         <div id="mySidenav" class="sidenav">
@@ -146,7 +150,7 @@
                 } else {
                     obj.style.display = "none";
                     menu.style.background="";
-                    menu.style.color="#000";
+                    menu.style.color="#fff";
                 }
             }
         }

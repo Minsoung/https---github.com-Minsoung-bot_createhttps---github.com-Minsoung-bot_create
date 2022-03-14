@@ -32,4 +32,42 @@
   font-style: normal;
 }
 
+/*Noto Sans KR regular*/
+
+@font-face {
+  font-family: 'notokr-regular';
+  src: url('/NotoKR-Regular/notokr-regular.eot');
+  src: url('/NotoKR-Regular/notokr-regular.eot?#iefix') format('embedded-opentype'),
+       url('/NotoKR-Regular/notokr-regular.woff2') format('woff2'),
+       url('/NotoKR-Regular/notokr-regular.woff') format('woff'),
+       url('/NotoKR-Regular/notokr-regular.ttf') format('truetype'),
+       url('/NotoKR-Regular/notokr-regular.svg#notokr-regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'notokr-bold';
+  src: url('/NotoKR-Bold/notokr-bold.eot');
+  src: url('/NotoKR-Bold/notokr-bold.eot?#iefix') format('embedded-opentype'),
+       url('/NotoKR-Bold/notokr-bold.woff2') format('woff2'),
+       url('/NotoKR-Bold/notokr-bold.woff') format('woff'),
+       url('/NotoKR-Bold/notokr-bold.ttf') format('truetype'),
+       url('/NotoKR-Bold/notokr-bold.svg#notokr-bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Heaters';
+  src: url('/Heaters/Heaters.eot');
+  src: url('/Heaters/Heaters.eot?#iefix') format('embedded-opentype'),
+       url('/Heaters/Heaters.svg#Heaters') format('svg'),
+       url('/Heaters/Heaters.ttf') format('truetype'),
+       url('/Heaters/Heaters.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 p, span, div, a{font-family: 'NanumGothic';}
