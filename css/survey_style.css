@@ -27,13 +27,13 @@
     .home:hover{opacity: 0.5;}
 
 /* contents */
-#section{background-image: url(/survey.jpg); width: 100%; height: 100vh; overflow: hidden;}
+#section{background-image: url(/survey.jpg); width: 100%; height: 100%; overflow: hidden;}
 
-#section > div{width: 100%; height: 110%; overflow: scroll;}
+#section > div{width: 100%; height: 100%; overflow: scroll;}
 
 #outer{width: 90%; margin: 0 auto; margin-top: 50px; overflow: hidden;}
 
-#inner{overflow: hidden;}
+#inner{overflow: hidden; width: 100%; height: 100%;}
 
 #section #container{width: 50%; height: 100%; margin: 0 auto;} 
 
@@ -51,7 +51,10 @@
 
     .c1 h1{font-size: 35px;}
 
-    .c1 h5{text-align: right; color: gray;}
+    .c1 h4{color: gray; margin-top: 20px; font-weight:bold;}
+        .c1 h4 > p{float: left;}
+
+    .c1 h5{text-align: right; color: gray; margin-top: 10px;}
 
     .c1 .title{font-size: 24px;  font-weight: bold;}
 
@@ -104,7 +107,7 @@
 
 /* 병종 선호도 */
 .c3{
-    width: 30%;
+    width: 21.25%;
     float: left;
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #dadce0;
@@ -117,7 +120,7 @@
     margin-bottom: 15px;
 }
 .c3_last{
-    width: 30%;
+    width: 21.25%;
     float: left;
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #dadce0;
@@ -129,10 +132,10 @@
     margin-right: 0%;
 }
 
-.c3:last-child{margin-bottom: 150px;}
+.c3:last-child{margin-bottom: 15px;}
 
     .c3 .title,
-    .c3_last .title{font-size: 24px;  font-weight: bold;}
+    .c3_last .title{font-size: 20px;  font-weight: bold;}
 
     /* 체크박스 input */
     
@@ -143,7 +146,7 @@
     .c3_last .inputckeck input{width: 20px; height: 20px;}
 
     .c3 .inputckeck span,
-    .c3_last .inputckeck span{font-size: 20px;}
+    .c3_last .inputckeck span{font-size: 16px;}
 
 
     /****************
@@ -248,5 +251,5 @@
             margin-right: 0%;
             margin-bottom: 15px;
         }  
-        .c3:last-child{margin-bottom: 150px;}   
+        .c3:last-child{margin-bottom: 15px;}   
     }
