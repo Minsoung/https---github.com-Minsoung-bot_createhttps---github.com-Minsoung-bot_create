@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/import.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>  <!--jquery -->
+    <title>키입력</title>
+</head>
+
+<body>
+    <section id="section">
+        
+    </section><!--//section-->
+
+    <script>
+        let key = prompt("키입력");
+
+        if (key != "") {
+            $('#tempForm').remove();
+            let form = document.createElement("form");
+            
+            form.setAttribute("id", "tempForm");
+            form.setAttribute("charset", "UTF-8");
+            form.setAttribute("method", "Get");  //Post 방식
+            form.setAttribute("action", "/survey"); //요청 보낼 주소
+
+            let temp = document.createElement('input');
+            temp.setAttribute('type', 'hidden');
+            temp.setAttribute('name', 'key');
+            temp.setAttribute('value', key);
+            form.appendChild(temp);
+            
+            document.body.appendChild(form);
+            form.submit();
+        } else {
+            location.href="/";
+        }
+    </script>
+</body>
+</html>

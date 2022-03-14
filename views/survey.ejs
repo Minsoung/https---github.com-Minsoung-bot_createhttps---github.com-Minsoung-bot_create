@@ -1,0 +1,2351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/import.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>  <!--jquery -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!-- Axios (클라이언트 IP)-->
+    <script type="text/javascript" src="/survey.js"></script>
+    <title>영토전 설문지 UPDATE</title>
+</head>
+
+<body>
+    <section id="section">
+        <div>
+            <form name="surveyForm" id="surveyForm">
+                <div id="outer">
+                    <button type="button" class="button" id="submit"><span>제출 하기</span></button>
+                    <button type="button" class="home" onclick="location.href='/'"><span>홈으로</span></button>
+                    <div id="container">
+                        <div class="c1">
+                            <h1>영토전 설문지</h1>
+                            <h4><p>※</p> <p>작성시 pc와 휴대폰은 동일 인터넷을 추천드립니다.<br/> 다를시 재작성을 해야할수도있습니다.</p></h4>
+                            <h5>made in 서군</h5>
+                        </div>
+
+                        <div class="c1">
+                            <div class="title">게임 닉네임</div>
+
+                            <div class="inputtext">
+                                <input id="nickname" type="text" maxlength="50" placeholder="ex. 서군"/>
+                            </div>
+                        </div>
+
+                        <div class="c1">
+                            <div class="title">디스코드 닉네임</div>
+
+                            <div class="inputtext">
+                                <input id="discordNickname" type="text" maxlength="50" placeholder="ex. ○○○#0000"/>
+                            </div>
+                            <p class="coment">※ 디스코드 왼쪽 하단에 있습니다.</p>
+                        </div>
+
+                        <div class="c1">
+                            <div class="title">레벨</div>
+
+                            <div class="inputtext">
+                                <input id="level" type="number" placeholder="ex. 123"/>
+                            </div>
+                        </div>
+
+                        <div class="c1 radioDiv" id="position">
+                            <div class="title">영토전 원하는 포지션</div>
+
+                            <div class="inputckeck">
+                                <p class="familyship">
+                                    <input type="radio" name="position" value="1"/>
+                                    <span>공격</span>
+                                </p>
+                                <p class="familyship">
+                                    <input type="radio" name="position" value="2"/>
+                                    <span>수비</span>
+                                </p>
+
+                                <p class="coment">※ 상황에 따라 변경될 수 있습니다.</p>
+                            </div>
+                        </div>
+
+                        <div class="c1 radioDiv" id="family">
+                            <div class="title">가문</div>
+                            <div class="inputckeck">
+                                <p class="familyship">
+                                    <input type="radio" name="family" value="1"/>
+                                    <span>GoguryeoⅠ</span>
+                                </p>
+                                <p class="familyship">
+                                    <input type="radio" name="family" value="2"/>
+                                    <span>GoguryeoⅡ</span>
+                                </p>
+                                <p class="familyship">
+                                    <input type="radio" name="family" value="3"/>
+                                    <span>GoguryeoⅢ</span>
+                                </p><br/>
+                                <p class="familyship">
+                                    <input type="radio" name="family" value="4"/>
+                                    <span>전설</span>
+                                </p>
+                                <p class="familyship">
+                                    <input type="radio" name="family" value="5"/>
+                                    <span>Bretonnia</span>
+                                </p>
+                                <p class="familyship">
+                                    <input type="radio" name="family" value="6"/>
+                                    <span>Heaven</span>
+                                <p>
+                            </div>
+                        </div>
+
+                        <div class="c1">
+                            <div class="title">선호 병종</div>
+
+                            <div class="inputtext1">
+                                <input id="hobby1" type="text" maxlength="50" placeholder="ex. 신책"/>
+                                <input id="hobby2" type="text" maxlength="50" placeholder="ex. 신책"/>
+                                <input id="hobby3" type="text" maxlength="50" placeholder="ex. 신책"/>
+                            </div>
+                        </div>
+                    </div><!--//container-->
+
+
+                    <!-- 3성 보병 타이틀 -->
+                    <div class="c2 blue">
+                        <div class="title">3성 보병</div>
+                    </div>
+
+                    <div id="inner">
+
+                        <!--------------------
+                            1번째 줄 보병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c301">
+                            <div class="title">스위스 할버드병</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="1" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="1" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="1" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="1" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="1" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="1" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3 radioDiv" id="c302">
+                            <div class="title">스위스 알파인 할버드병(진급)</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="2" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="2" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="2" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="2" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="2" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="2" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c303">
+                            <div class="title">유가 창병</div>
+                            
+                            <div class="inputckeck">
+                                <input type="radio" name="3" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="3" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="3" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="3" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="3" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="3" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        
+                        <div class="c3_last radioDiv" id="c304">
+                            <div class="title">척가군 돌격대</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="4" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="4" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="4" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="4" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="4" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="4" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <!--------------------
+                            2번째 줄 보병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c305">
+                            <div class="title">경기 철위영</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="5" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="5" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="5" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="5" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="5" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="5" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c306">
+                            <div class="title">몰타 검방패병 시종</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="6" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="6" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="6" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="6" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="6" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="6" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3 radioDiv" id="c307">
+                            <div class="title">천동 장창병</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="7" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="7" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="7" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="7" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="7" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="7" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c308">
+                            <div class="title">천동 투창 장사</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="8" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="8" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="8" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="8" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="8" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="8" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        
+                        <!--------------------
+                            3번째 줄 보병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c309">
+                            <div class="title">신무 거대 방패 진영</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="9" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="9" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="9" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="9" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="9" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="9" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        
+                        <div class="c3 radioDiv" id="c310">
+                            <div class="title">팔레르모 검방패병</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="10" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="10" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="10" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="10" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="10" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="10" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c311">
+                            <div class="title">펜릴 늑대 전사</div>
+
+                           <div class="inputckeck">
+                                <input type="radio" name="11" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="11" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="11" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="11" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="11" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="11" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3_last radioDiv" id="c312">
+                            <div class="title">영서 수도사</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="12" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="12" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="12" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="12" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="12" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="12" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <!--------------------
+                            5번째 줄 보병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c313">
+                            <div class="title">캐틀란 백파이퍼</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="13" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="13" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="13" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="13" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="13" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="13" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3성 원거리 타이틀 -->
+                    <div class="c2 blue">
+                        <div class="title">3성 원거리</div>
+                    </div>
+
+                    <div id="inner">
+
+                        <!--------------------
+                            1번째 줄 원거리
+                        -------------------->
+                        <div class="c3 radioDiv" id="c331">
+                            <div class="title">다르다넬 불화살 사수</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="14" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="14" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="14" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="14" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="14" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="14" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c332">
+                            <div class="title">갈리아 십자궁수</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="15" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="15" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="15" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="15" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="15" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="15" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c333">
+                            <div class="title">우림 우위 사성영</div>
+                            
+                            <div class="inputckeck">
+                                <input type="radio" name="16" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="16" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="16" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="16" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="16" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="16" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c334">
+                            <div class="title">우림 좌위 사성영</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="17" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="17" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="17" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="17" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="17" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="17" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                         <!--------------------
+                            2번째 줄 원거리
+                        -------------------->
+                        <div class="c3 radioDiv" id="c335">
+                            <div class="title">후스 지원 화승총수</div>
+
+                           <div class="inputckeck">
+                                <input type="radio" name="18" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="18" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="18" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="18" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="18" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="18" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c336">
+                            <div class="title">파주 사성영</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="19" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="19" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="19" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="19" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="19" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="19" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3 radioDiv" id="c337">
+                            <div class="title">파주 연노영</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="20" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="20" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="20" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="20" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="20" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="20" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c338">
+                            <div class="title">진원 화승총병</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="21" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="21" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="21" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="21" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="21" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="21" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <!--------------------
+                            3번째 줄 원거리
+                        -------------------->
+                        <div class="c3 radioDiv" id="c339">
+                            <div class="title">바르호 사냥꾼</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="22" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="22" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="22" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="22" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="22" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="22" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        
+                        <div class="c3 radioDiv" id="c340">
+                            <div class="title">예니체리 장총부대</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="23" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="23" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="23" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="23" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="23" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="23" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c341">
+                            <div class="title">바실레우스 화염병 투척수</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="24" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="24" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="24" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="24" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="24" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="24" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3성 기병 타이틀 -->
+                    <div class="c2 blue">
+                        <div class="title">3성 기병</div>
+                    </div>
+
+                    <div id="inner">
+
+                        <!--------------------
+                            1번째 줄 기병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c361">
+                            <div class="title">내만 호위대</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="25" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="25" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="25" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="25" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="25" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="25" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c362">
+                            <div class="title">걸안 바투루</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="26" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="26" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="26" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="26" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="26" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="26" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c363">
+                            <div class="title">변방 수비대</div>
+                            
+                            <div class="inputckeck">
+                                <input type="radio" name="27" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="27" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="27" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="27" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="27" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="27" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4성 보병 타이틀 -->
+                    <div class="c2 purple">
+                        <div class="title">4성 보병</div>
+                    </div>
+
+                    <div id="inner">
+
+                        <!--------------------
+                            1번째 줄 보병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c401">
+                            <div class="title">스위스 영광 할버드병</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="28" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="28" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="28" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="28" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="28" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="28" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c402">
+                            <div class="title">진충 장창영</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="29" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="29" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="29" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="29" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="29" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="29" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c403">
+                            <div class="title">무위 철인대</div>
+                            
+                            <div class="inputckeck">
+                                <input type="radio" name="30" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="30" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="30" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="30" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="30" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="30" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c404">
+                            <div class="title">요동 중갑대</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="31" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="31" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="31" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="31" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="31" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="31" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <!--------------------
+                            2번째 줄 보병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c405">
+                            <div class="title">라고냐 투창병</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="32" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="32" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="32" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="32" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="32" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="32" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3 radioDiv" id="c406">
+                            <div class="title">양양 투창 사사</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="33" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="33" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="33" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="33" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="33" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="33" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3 radioDiv" id="c407">
+                            <div class="title">몰타 창방패병 경비대</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="34" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="34" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="34" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="34" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="34" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="34" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c408">
+                            <div class="title">몰타 충성 경비대(진급)</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="35" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="35" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="35" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="35" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="35" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="35" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <!--------------------
+                            3번째 줄 보병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c409">
+                            <div class="title">몰타 도보전 기사</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="36" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="36" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="36" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="36" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="36" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="36" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+    
+                        <div class="c3 radioDiv" id="c410">
+                            <div class="title">몰타 원정 기사(진급)</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="37" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="37" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="37" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="37" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="37" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="37" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3 radioDiv" id="c411">
+                            <div class="title">달단 돌진 사사</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="38" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="38" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="38" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="38" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="38" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="38" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c412">
+                            <div class="title">베네치아 도심 창병</div>
+
+                           <div class="inputckeck">
+                                <input type="radio" name="39" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="39" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="39" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="39" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="39" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="39" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <!--------------------
+                            4번째 줄 보병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c413">
+                            <div class="title">오스만 검방패병</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="40" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="40" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="40" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="40" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="40" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="40" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3 radioDiv" id="c414">
+                            <div class="title">바이킹 광전사</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="41" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="41" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="41" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="41" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="41" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="41" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3 radioDiv" id="c415">
+                            <div class="title">백군 수비대</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="42" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="42" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="42" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="42" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="42" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="42" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c416">
+                            <div class="title">황야의 도끼 투척수</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="43" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="43" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="43" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="43" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="43" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="43" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <!--------------------
+                            5번째 줄 보병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c417">
+                            <div class="title">클레이모어 고원 검사</div>
+
+                           <div class="inputckeck">
+                                <input type="radio" name="44" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="44" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="44" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="44" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="44" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="44" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4성 원거리 타이틀 -->
+                    <div class="c2 purple">
+                        <div class="title">4성 원거리</div>
+                    </div>
+
+                    <div id="inner">
+
+                        <!--------------------
+                            1번째 줄 원거리
+                        -------------------->
+                        <div class="c3 radioDiv" id="c431">
+                            <div class="title">브리튼 장궁수</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="45" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="45" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="45" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="45" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="45" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="45" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c432">
+                            <div class="title">천웅 신궁영</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="46" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="46" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="46" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="46" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="46" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="46" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c433">
+                            <div class="title">비엔나 화승총 근위군</div>
+                            
+                            <div class="inputckeck">
+                                <input type="radio" name="47" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="47" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="47" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="47" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="47" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="47" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c434">
+                            <div class="title">노밀 화승총영</div>
+
+                           <div class="inputckeck">
+                                <input type="radio" name="48" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="48" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="48" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="48" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="48" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="48" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4성 기병 타이틀 -->
+                    <div class="c2 purple">
+                        <div class="title">4성 기병</div>
+                    </div>
+
+                    <div id="inner">
+
+                        <!--------------------
+                            1번째 줄 기병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c461">
+                            <div class="title">작센 창기병</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="49" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="49" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="49" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="49" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="49" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="49" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c462">
+                            <div class="title">작센 설원 창기병(진급)</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="50" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="50" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="50" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="50" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="50" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="50" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c463">
+                            <div class="title">정원 패도 기병</div>
+                            
+                            <div class="inputckeck">
+                                <input type="radio" name="51" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="51" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="51" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="51" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="51" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="51" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c464">
+                            <div class="title">유림 표기장군영</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="52" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="52" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="52" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="52" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="52" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="52" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <!--------------------
+                            2번째 줄 기병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c465">
+                            <div class="title">오랑캐 매의 기사</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="53" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="53" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="53" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="53" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="53" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="53" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c466">
+                            <div class="title">시파히 기병</div>
+                            
+                           <div class="inputckeck">
+                                <input type="radio" name="54" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="54" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="54" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="54" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="54" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="54" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5성 보병 타이틀 -->
+                    <div class="c2 yellow">
+                        <div class="title">5성 보병</div>
+                    </div>
+
+                    <div id="inner">
+
+                        <!--------------------
+                            1번째 줄 보병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c501">
+                            <div class="title">백산흑수 철부도</div>
+
+                           <div class="inputckeck">
+                                <input type="radio" name="55" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="55" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="55" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="55" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="55" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="55" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c502">
+                            <div class="title">예니체리 궁궐호위대</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="56" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="56" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="56" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="56" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="56" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="56" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c503">
+                            <div class="title">시그룬 호위대</div>
+                            
+                           <div class="inputckeck">
+                                <input type="radio" name="57" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="57" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="57" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="57" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="57" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="57" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c504">
+                            <div class="title">신책 도군</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="58" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="58" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="58" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="58" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="58" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="58" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5성 원거리 타이틀 -->
+                    <div class="c2 yellow">
+                        <div class="title">5성 원거리</div>
+                    </div>
+
+                    <div id="inner">
+
+                        <!--------------------
+                            1번째 줄 원거리
+                        -------------------->
+                        <div class="c3 radioDiv" id="c531">
+                            <div class="title">아필린 방패석궁병</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="59" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="59" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="59" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="59" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="59" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="59" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c532">
+                            <div class="title">불랑기 화승총병</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="60" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="60" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="60" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="60" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="60" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="60" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c533">
+                            <div class="title">신기 오천영</div>
+                            
+                           <div class="inputckeck">
+                                <input type="radio" name="61" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="61" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="61" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="61" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="61" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="61" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c534">
+                            <div class="title">아르노 화포 보병</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="62" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="62" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="62" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="62" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="62" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="62" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <!--------------------
+                            2번째 줄 원거리
+                        -------------------->
+                        <div class="c3 radioDiv" id="c535">
+                            <div class="title">바실레우스 화염 방사 호위대</div>
+                            
+                            <div class="inputckeck">
+                                <input type="radio" name="63" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="63" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="63" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="63" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="63" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="63" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3 radioDiv" id="c536">
+                            <div class="title">콜레흐 사냥꾼</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="64" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="64" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="64" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="64" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="64" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="64" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5성 기병 타이틀 -->
+                    <div class="c2 yellow">
+                        <div class="title">5성 기병</div>
+                    </div>
+
+                    <div id="inner">
+
+                        <!--------------------
+                            1번째 줄 기병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c561">
+                            <div class="title">헝가리 표기장군</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="65" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="65" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="65" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="65" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="65" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="65" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c562">
+                            <div class="title">폴란드 윙드후사르</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="66" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="66" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="66" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="66" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="66" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="66" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                        <div class="c3 radioDiv" id="c563">
+                            <div class="title">관녕 철기병</div>
+                            
+                            <div class="inputckeck">
+                                <input type="radio" name="67" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="67" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="67" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="67" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="67" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="67" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3_last radioDiv" id="c564">
+                            <div class="title">관녕 철기병 진북(진급)</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="68" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="68" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="68" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="68" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="68" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="68" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <!--------------------
+                            2번째 줄 기병
+                        -------------------->
+                        <div class="c3 radioDiv" id="c565">
+                            <div class="title">몰타 기사</div>
+
+                            <div class="inputckeck">
+                                <input type="radio" name="69" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="69" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="69" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="69" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="69" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="69" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3 radioDiv" id="c566">
+                            <div class="title">파주 석궁 기병영</div>
+                            
+                           <div class="inputckeck">
+                                <input type="radio" name="70" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="70" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="70" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="70" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="70" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="70" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+
+                        <div class="c3 radioDiv" id="c567">
+                            <div class="title">칸 케식 경비대</div>
+
+                           <div class="inputckeck">
+                                <input type="radio" name="71" value="0" checked="checked"/>
+                                <span>병종이 없다</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="71" value="1"/>
+                                <span>숙련도 최하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="71" value="2"/>
+                                <span>숙련도 하</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="71" value="3"/>
+                                <span>숙련도 중</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="71" value="4"/>
+                                <span>숙련도 상</span>
+                            </div>
+                            <div class="inputckeck">
+                                <input type="radio" name="71" value="5"/>
+                                <span>숙련도 최상</span>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--//outer-->
+            </form>
+        </div>
+    </section><!--//section-->
+    
+    <script>
+        $(document).ready(function () {
+            let list = "<%=JSON.stringify(data)%>";
+            list = list.replaceAll('&#34;', '\"');
+            list = JSON.parse(list);
+
+            $("#nickname").val(list.NICKNAME_P);
+            $("#discordNickname").val(list.NICKNAME_D);
+            $("#level").val(list.LEVEL);
+            $("#hobby1").val(list.PREFERENCE_ARMY1);
+            $("#hobby2").val(list.PREFERENCE_ARMY2);
+            $("#hobby3").val(list.PREFERENCE_ARMY3);
+
+            delete list.NICKNAME_P;
+            delete list.NICKNAME_D;
+            delete list.LEVEL;
+            delete list.PREFERENCE_ARMY1;
+            delete list.PREFERENCE_ARMY2;
+            delete list.PREFERENCE_ARMY3;
+
+            let position_cd = list.POSITION_CD;
+            $("#position").find("input[type=radio]").each(function(index, value) {
+                if ($(value).val() == position_cd) {
+                    $(value).prop("checked", true);
+                    delete list.POSITION_CD;
+                    return false;
+                }
+            });
+
+            let droughty_cd = list.DROUGHTY_CD;
+            $("#family").find("input[type=radio]").each(function(index, value) {
+                if ($(value).val() == droughty_cd) {
+                    $(value).prop("checked", true);
+                    delete list.DROUGHTY_CD;
+                    return false;
+                }
+            });
+
+            $('.radioDiv').each(function(index, value) {
+                let id = $(this).attr('id');
+                if (id == 'position' || id == 'family') {
+                    
+                } else {
+                    let proficiency_cd = list[id];
+
+                    $(this).find('input[type=radio]').each(function(index2, value2) {
+                        if ($(value2).val() == proficiency_cd) {
+                            $(value2).prop("checked", true);
+                            delete list[id];
+                            return false;
+                        }
+                    });
+                }
+            });
+
+            if (list.UPDATE) {
+                $("#submit").val("UPDATE");
+                delete list.UPDATE;
+            }
+        });
+    </script>
+</body>
+</html>

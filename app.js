@@ -1,6 +1,7 @@
 const myslq = require('mysql');
 const fs = require('fs');
 var express = require('express')
+
 var app = express();
 
  let con = "";
@@ -47,6 +48,9 @@ app.use(express.static(__dirname + '/font'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+
 app.get('/', function(req,res) {  
 
     var requestIp = require('request-ip');
@@ -80,11 +84,58 @@ app.get('/survey', function(req,res) {
 
         console.log(result);
     });
-    
-    res.sendFile(__dirname +'/survey.html');
+
+    let sql2 = "";
+    sql2  = "SELECT EXISTS (SELECT IP FROM SURVEY WHERE IP = ? LIMIT 1) AS SUCCESS;";
+
+    if (req.query.key|| null || undefined || 0 || NaN) {
+        sql2  = "SELECT A.ARMY_CD, A.PROFICIENCY_CD, B.NICKNAME_D, B.NICKNAME_P, B.LEVEL, B.POSITION_CD, B.DROUGHTY_CD, B.PREFERENCE_ARMY1, B.PREFERENCE_ARMY2, B.PREFERENCE_ARMY3, '2' AS SUCCESS";
+        sql2 += " FROM USER_PROFICIENCY AS A, SURVEY AS B";
+        sql2 += " WHERE A.IP = ? AND B.IP = ?;";
+    }
+
+    con.query(sql2, [ip, ip],function(err, result, fields) {
+        if (err) {
+            res.send("<script>alert('error'); location.href='/'</script>");
+            return false;
+        } else {
+            if (result[0].SUCCESS == 0) {
+                res.sendFile(__dirname +'/survey.html');
+            } else if (result[0].SUCCESS == 1) {
+                res.sendFile(__dirname +'/key_confirm.html');
+            } else {
+                var context = {'UPDATE' : true};
+                context['LEVEL'] = result[0].LEVEL;
+                context['NICKNAME_P'] = result[0].NICKNAME_P;
+                context['NICKNAME_D'] = result[0].NICKNAME_D;
+                context['POSITION_CD'] = result[0].POSITION_CD;
+                context['DROUGHTY_CD'] = result[0].DROUGHTY_CD;
+                context['PREFERENCE_ARMY1'] = result[0].PREFERENCE_ARMY1;
+                context['PREFERENCE_ARMY2'] = result[0].PREFERENCE_ARMY2;
+                context['PREFERENCE_ARMY3'] = result[0].PREFERENCE_ARMY3;
+
+                for (let i = 0; i < result.length; i++) {
+                    context['c' + result[i].ARMY_CD] = result[i].PROFICIENCY_CD;
+                }
+                
+                // data라는 이름으로 전달
+                // ejs 파일에서는 data[1].a 와 같은 형식으로 사용
+                res.render('survey.ejs', {'data' : context}, function(err ,html){
+                    if (err){
+                        console.log(err)
+                    }
+                    
+                    res.end(html) // 응답 종료
+                })
+            }
+        }
+    });
 })
 
 app.post('/survey_submit', function(req, res) {
+    let update = req.body.UPDATE;
+    delete req.body.UPDATE;
+
     let ip = req.body.ip;
     delete req.body.ip;
 
@@ -135,28 +186,53 @@ app.post('/survey_submit', function(req, res) {
             let valueArray = new Array();
             let bFlag = false;
         
-            sql  = "INSERT INTO SURVEY";
-            sql += "(IP, USER_KEY, ID, NICKNAME_D, NICKNAME_P, LEVEL, POSITION_CD, DROUGHTY_CD, PREFERENCE_ARMY1, PREFERENCE_ARMY2, PREFERENCE_ARMY3)";
-            sql += " VALUES";
-            sql += "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        
-            valueArray[0] = ip;
-            valueArray[1] = USER_KEY;
-            valueArray[2] = USER_ID;
-            valueArray[3] = discordNickname;
-            valueArray[4] = username;
-            valueArray[5] = level;
-            valueArray[6] = position;
-            valueArray[7] = family;
-            valueArray[8] = hobby1;
-            valueArray[9] = hobby2;
-            valueArray[10] = hobby3;
+            if (update == "UPDATE") {
+                sql  = "UPDATE SURVEY";
+                sql += " SET NICKNAME_D=?, NICKNAME_P=?, LEVEL=?, POSITION_CD=?, DROUGHTY_CD=?, PREFERENCE_ARMY1=?, PREFERENCE_ARMY1=2, PREFERENCE_ARMY3=?";
+                sql += " WHERE IP=? AND USER_KEY=?";
+
+                valueArray[0] = discordNickname;
+                valueArray[1] = username;
+                valueArray[2] = level;
+                valueArray[3] = position;
+                valueArray[4] = family;
+                valueArray[5] = hobby1;
+                valueArray[6] = hobby2;
+                valueArray[7] = hobby3;
+                valueArray[8] = ip;
+                valueArray[9] = USER_KEY;
+            } else {
+                sql  = "INSERT INTO SURVEY";
+                sql += "(IP, USER_KEY, ID, NICKNAME_D, NICKNAME_P, LEVEL, POSITION_CD, DROUGHTY_CD, PREFERENCE_ARMY1, PREFERENCE_ARMY2, PREFERENCE_ARMY3)";
+                sql += " VALUES";
+                sql += "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+                valueArray[0] = ip;
+                valueArray[1] = USER_KEY;
+                valueArray[2] = USER_ID;
+                valueArray[3] = discordNickname;
+                valueArray[4] = username;
+                valueArray[5] = level;
+                valueArray[6] = position;
+                valueArray[7] = family;
+                valueArray[8] = hobby1;
+                valueArray[9] = hobby2;
+                valueArray[10] = hobby3;
+            }
         
             con.query(sql, valueArray,function(err, result, fields) {
-                if (err) {
-                    res.send("<script>alert('이미 저장된 설문지가 존재합니다.'); location.href='/'</script>");
+                if (err) {console.log(err);
+                    if (update == "UPDATE") {
+                        res.send("<script>alert('설문지 수정에 실패하였습니다. 다시 시도해주세요.'); window.localStorage.setItem('backMessage', 1); window.history.back(-1);</script>");
+                    } else {
+                        res.send("<script>alert('이미 저장된 설문지가 존재합니다.'); window.localStorage.setItem('backMessage', 1); window.history.back(-1);</script>");
+                    }
                 } else {
-                    console.log("SURVEY INSERT COMPLETE");
+                    if (update == "UPDATE") {
+                        console.log("SURVEY UPDATE COMPLETE");
+                    } else {
+                        console.log("SURVEY INSERT COMPLETE");
+                    }
                     let keyLen = Object.keys(req.body).length;
                     let index = 0;
         
@@ -164,24 +240,39 @@ app.post('/survey_submit', function(req, res) {
                         let sql2 = "";
                         let valueArray2 = new Array();
                 
-                        sql2  = "INSERT INTO USER_PROFICIENCY";
-                        sql2 += "(IP, ID, ARMY_CD, PROFICIENCY_CD)";
-                        sql2 += " VALUES";
-                        sql2 += "(?, ?, ?, ?)";
-                
-                        valueArray2[0] = ip;
-                        valueArray2[1] = USER_ID;
-                        valueArray2[2] = key.replace('c', '');
-                        valueArray2[3] = req.body[key];
-                
+                        if (update == "UPDATE") {
+                            sql2  = "UPDATE USER_PROFICIENCY";
+                            sql2 += " SET PROFICIENCY_CD=?";
+                            sql2 += " WHERE IP=? AND ARMY_CD=?";
+                            
+                            valueArray2[0] = req.body[key];
+                            valueArray2[1] = ip;
+                            valueArray2[2] = key.replace('c', '');
+                        } else {
+                            sql2  = "INSERT INTO USER_PROFICIENCY";
+                            sql2 += "(IP, ID, ARMY_CD, PROFICIENCY_CD)";
+                            sql2 += " VALUES";
+                            sql2 += "(?, ?, ?, ?)";
+                            
+                            valueArray2[0] = ip;
+                            valueArray2[1] = USER_ID;
+                            valueArray2[2] = key.replace('c', '');
+                            valueArray2[3] = req.body[key];
+                        }
+
                         con.query(sql2, valueArray2,function(err, result, fields) {
                             if (err) {
                                 res.send("<script>alert('설문지 저장에 실패하였습니다.'); location.href='/'</script>");
                                 return false;
                             } else {
                                 index = index + 1;
-                                console.log("USER_PROFICIENCY INSERT COMPLETE");
-        
+
+                                if (update == "UPDATE") {
+                                    console.log("USER_PROFICIENCY UPDATE COMPLETE");
+                                } else {
+                                    console.log("USER_PROFICIENCY INSERT COMPLETE");
+                                }
+
                                 if (index == keyLen) {
                                     res.send("<script>alert('설문지가 저장되었습니다.'); location.href='/'</script>");
                                 }
