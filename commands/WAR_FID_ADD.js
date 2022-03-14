@@ -45,7 +45,7 @@ User_War_Fed_Add = function(msg, Discord) {
         if (gfn_isNull(result[0][0]) ) {
             var board = {
                 Title : "신청 실패"
-              , Stirng_value : "설문지를 작성해주세요.\n\https://6112-112-171-4-239.ngrok.io/survey"
+              , String_value : "설문지를 작성해주세요.\n\https://6112-112-171-4-239.ngrok.io/survey"
               , Color : "RED"
             }
 
@@ -79,7 +79,7 @@ User_War_Fed_Add = function(msg, Discord) {
                 if (err) {
                     var board = {
                         Title : "참가 확인"
-                        , Stirng_value : `${msg.author}님은 영토전 등록되어있습니다.`
+                        , String_value : `${msg.author}님은 영토전 등록되어있습니다.`
                         , Color : "RED"
                     }
 
@@ -132,7 +132,7 @@ User_War_Fed_Add = function(msg, Discord) {
 
                         var board = {
                             Title : "참여 성공"
-                            , Stirng_value : `${msg.author}님 영토전 등록되었습니다.`
+                            , String_value : `${msg.author}님 영토전 등록되었습니다.`
                             , Color : "BLUE"
                         }
     
