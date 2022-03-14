@@ -31,13 +31,13 @@ UserInfo_key = function(msg, Discord) {
                 if (err) {
                     var board = {
                         Title : "키 발급이 되어있습니다"
-                        , Stirng_value : "키 값 : " + user_key + "\n\n 설문지를 작성해주세요.\n\https://6112-112-171-4-239.ngrok.io/survey"
+                        , String_value : "키 값 : " + user_key + "\n\n 설문지를 작성해주세요.\n\https://6112-112-171-4-239.ngrok.io/survey"
                         , Color : "RED"
                     }
                 } else {
                     var board = {
                         Title : "키발급 완료"
-                        , Stirng_value : "키 값 : " + value2[1] + "\n\n 설문지를 작성해주세요.\n\https://6112-112-171-4-239.ngrok.io/survey"
+                        , String_value : "키 값 : " + value2[1] + "\n\n 설문지를 작성해주세요.\n\https://6112-112-171-4-239.ngrok.io/survey"
                         , Color : "BLUE"
                     }
                 }
@@ -47,7 +47,7 @@ UserInfo_key = function(msg, Discord) {
         } else {
             var board = {
                 Title : "키 발급이 되어있습니다"
-                , Stirng_value : "키 값 :" + user_key + "\n\n 설문지를 작성해주세요.\n\https://6112-112-171-4-239.ngrok.io/survey"
+                , String_value : "키 값 :" + user_key + "\n\n 설문지를 작성해주세요.\n\https://6112-112-171-4-239.ngrok.io/survey"
                 , Color : "RED"
             }
 
