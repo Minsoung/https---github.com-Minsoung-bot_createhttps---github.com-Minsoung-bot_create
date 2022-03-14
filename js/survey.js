@@ -1,6 +1,17 @@
 $(document).ready(function() {
     const lMaxLength = 5; // Level 입력 최대값
 
+    if (localStorage.getItem('update')) {
+        for(let i = 0; i < window.localStorage.length; i++) {
+            // key 찾기
+            const key = window.localStorage.key(i);
+            // value 찾기
+            const value = window.localStorage.getItem(key);
+            // 결과 출력
+            console.log(key + " : " + value );
+        }
+    }
+
     // 제출하기
     $('#submit').click(function(e) {
         e.preventDefault();
@@ -18,6 +29,12 @@ $(document).ready(function() {
                     form.setAttribute("charset", "UTF-8");
                     form.setAttribute("method", "Post");  //Post 방식
                     form.setAttribute("action", "/survey_submit"); //요청 보낼 주소
+
+                    if ($("#submit").val() == "UPDATE") {
+                        let update = createInput('UPDATE');
+                        update.setAttribute('value', "UPDATE");
+                        form.appendChild(update);
+                    }
 
                     let ip = createInput('ip');
                     ip.setAttribute('value', value);
@@ -202,5 +219,10 @@ $(document).ready(function() {
 $(window).bind("pageshow", function(event) {
     event.preventDefault();
     $('#tempForm').remove();
-    $('#surveyForm')[0].reset(); 
+
+    if (window.localStorage.getItem('backMessage') == 1) {
+        window.localStorage.removeItem('backMessage');
+    } else {
+        $('#surveyForm')[0].reset(); 
+    }
 });
