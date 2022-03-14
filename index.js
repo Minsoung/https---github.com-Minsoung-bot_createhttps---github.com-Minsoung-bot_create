@@ -44,14 +44,19 @@ client.on('message', msg => {
         command = '장비';
     }
   
+    let timer_name = "";
+    if (command == '영토전타이머' || command == '설문지타이머') {
+        timer_name = command;
+        command = '타이머';
+    }
     if (!client.commands.has(command)) return;
 
     if (command == '장비') {
         client.commands.get(command).User_job(msg, arms_name, Discord);
     } else if (command == '가입신청') {
         client.commands.get(command).User_Add(msg, Discord);
-    } else if (command == '영토전타이머') {
-        client.commands.get(command).War_Timer_20(msg,Discord);
+    } else if (command == '타이머') {
+        client.commands.get(command).War_Timer_20(msg, timer_name, Discord);
     } else if (command == '키발급') {   
         client.commands.get(command).User_Key(msg, Discord);
     } else if (command == '참가') {   
