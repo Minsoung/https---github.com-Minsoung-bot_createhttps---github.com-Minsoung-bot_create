@@ -32,7 +32,7 @@
 	/* padding: 3vh 0; */
 }
 
-#sub2_nav1 .outer .inner ul.inner-tab > div{width: 75%; height: 100%; margin: 0 auto; line-height: 60px; background-color: rgba(170, 170, 170, 0.5);}
+#sub2_nav1 .outer .inner ul.inner-tab > div{width: 75%; height: 100%; margin: 0 auto; line-height: 50px; background-color: rgba(0, 0, 0, 0.3);}
 
 #sub2_nav1 .outer .inner ul.inner-tab li{
     width: 200px;
@@ -44,7 +44,7 @@
 	margin-right: -0.36vw;
 }
 #sub2_nav1 .outer .inner ul.inner-tab li a{
-	font-family: 'notokr-regular';
+	font-family: 'NanumGothicExtraBold';
 	/* font-size: 24px; */
 	font-size: 1.5vw;
     color: white;
