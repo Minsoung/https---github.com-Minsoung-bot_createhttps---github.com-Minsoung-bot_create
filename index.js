@@ -30,8 +30,6 @@ client.on('message', msg => {
     console.log(msg.content);
     console.log("-------------------------");
 
-
-
     let command = value.shift();
     let arms_name = "";
 

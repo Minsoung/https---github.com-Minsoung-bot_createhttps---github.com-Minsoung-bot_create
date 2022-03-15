@@ -53,6 +53,16 @@ gfn_Send_Msg = function(msg, Discord, board) {
     return msg.channel.send({embeds : [embed]});
 }
 
+// 디스코드에 메세지 값 설정 개인 디스코드 메세지에 출력
+// 김민성
+gfn_Send_Msg_Dm = function(msg, Discord, board) {
+    const embed = new Discord.MessageEmbed()
+    .setTitle(board.Title)
+    .setDescription(board.String_value)
+    .setColor(board.Color)
+
+    return msg.member.send({embeds : [embed]});
+}
 
 module.exports = {
     name : "함수" 
