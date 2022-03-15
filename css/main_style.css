@@ -21,7 +21,7 @@
 	margin: 0 auto;
 }
 #sub2_nav1 .outer .inner{
-	width: 83%;
+	width: 70%;
 	height: 100%;
 	margin: 0 auto;
 }
@@ -32,7 +32,7 @@
 	/* padding: 3vh 0; */
 }
 
-#sub2_nav1 .outer .inner ul.inner-tab > div{width: 75%; height: 100%; margin: 0 auto; line-height: 50px; background-color: rgba(0, 0, 0, 0.3);}
+#sub2_nav1 .outer .inner ul.inner-tab > div{width: 90%; height: 100%; margin: 0 auto; line-height: 50px; background-color: rgba(0, 0, 0, 0.3);}
 
 #sub2_nav1 .outer .inner ul.inner-tab li{
     width: 200px;
@@ -59,52 +59,38 @@
 #premier1{position: absolute; left: 0px; top: 0px; width: 100%; height: 100vh; overflow: hidden;}
     #premier1 > #middle{width: 100%;}
 
-    #premier1 > #middle video{margin: 0 auto; display: block; width: 63%; margin-top: 100px;}
+    #premier1 > #middle video{margin: 0 auto; display: block; width: 63%; margin-top: 50px;}
 
 /* 왼쪽 사이드 */
-#premier2{border: 0px solid red; width: 100%; height: 100%; overflow: hidden; float: left; border-right: 2px solid gray; border-style: dotted;}
-
-ul.tabs li{
-    /* border: 5px solid red; */
-    font-family: 'NanumGothic';
-    /* font-size: 28px; */
-    font-size: 1vw;
-    /* margin-top: 20px; */
-    margin-top: 3vh;
-    text-align: center;
-    color: #818181;
-
-}
-ul.tabs li:hover{color: #f1f1f1;}
-
-ul.tabs li.current{color: #fff;}
+.side{border: 0px solid red; width: 100%; height: 100%; overflow: hidden; float: left; border-right: 2px solid gray; border-style: dotted;}
 
 .sidenav {
     /* border:1px solid green; */
     height: 100%;
-    width: 12%;
+    width: 15%;
     z-index: 1;
-    background-color:rgba(0, 0, 0, 0.9);
+    background-color:rgba(0, 0, 0, 0.4);
     transition: 0.5s;  
     overflow: auto;
     float: left;
-    padding-top: 100px;
+    padding-top: 200px;
 }
+/* 스크롤 없애기 */
 .sidenav::-webkit-scrollbar{ display:none; }
 
     .sidenav a {
         /* border:1px solid blue; */
         /* padding: 8px 8px 8px 32px; */
         text-decoration: none;
-        font-family: 'NanumGothicBold';
+        font-family: 'notokr-bold';
         /* font-size: 50px; */
-        font-size: 2vw;
-        color: #818181;
+        font-size: 1vw;
+        color: #272727;
         display: block;
         transition: 0.3s;
         text-align: center;
         /* margin-top: 60px; */
-        margin-top: 4vh;
+        margin-top: 3vh;
     }
     
     .sidenav a:hover {
@@ -129,32 +115,51 @@ ul.tabs li.current{color: #fff;}
 .hide {
     display:none;
 }
-    .hide a{
+    ul.tabs li{
         /* border: 5px solid red; */
-        font-family: 'NanumGothic';
+        font-family: 'notokr-bold';
         /* font-size: 28px; */
         font-size: 1vw;
         /* margin-top: 20px; */
-        margin-top: 3vh;
+        margin-top: 2vh;
+        text-align: center;
+        color: #757575;
+    
     }
+    ul.tabs li:last-child{padding-bottom: 20px;}
+    ul.tabs li:hover{color: #8a8a8a;}
+    
+    ul.tabs li.current{color: rgb(150, 150, 150);}
 
 /* 가운데 세션 */
-#middle{width: 75%; height: 100%; float: left; overflow: hidden; padding-top: 100px; margin: 0 auto;}
+#middle{width: 70%; height: 100%; float: left;  margin: 200PX auto 0 auto; overflow: auto;}
 
-.tab-content{display: none;}
+/* 스크롤 없애기 */
+#middle::-webkit-scrollbar{ display:none; }
+
+
+.tab-content{display: none; width: 90%; height: 100%; margin: 0 auto; background-color: #fff; padding-bottom: 200px;}
 
 .tab-content.current{display: inherit;}
-
+    #middle .img{position: relative; margin-bottom: 50px;}
     /* 그림판 */
-    .drawing{position: absolute; right: 10px; top: 10px; background: none;}
-    .drawing img{width: 50px; height: 50px; margin: 0px !important;}
+    .draw{position: absolute; right: 10px; top: 10px; overflow: auto; border: 1px solid black;}
+    .drawing{background: none; font-family: 'NanumGothicExtraBold'; font-size: 20px; padding: 5px;}
 
     /* 가운데 이미지 */
-    #middle img{display: block; margin: 20px auto 0 auto;}
+    #middle img{display: block; margin: 0 auto;}
 
 
 /* 오른쪽 사이드 */
-#right_side{width: 13%; height: 100%; float: left; overflow: hidden; border-left: 2px solid gray; border-style: dotted;}
+#right_side{
+    width: 15%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.4);
+    transition: 0.5s;  
+    overflow: auto;
+    float: left;
+    padding-top: 200px;
+}
 
 
     /****************
@@ -190,7 +195,7 @@ ul.tabs li.current{color: #fff;}
             /* padding: 3vh 0; */
         }
 
-        #sub2_nav1 .outer .inner ul.inner-tab > div{width: 100%; height: 100%; margin: 0 auto; line-height: 60px; background-color: rgba(170, 170, 170, 0.5);}
+        #sub2_nav1 .outer .inner ul.inner-tab > div{width: 100%; height: 100%; margin: 0 auto; line-height: 60px; background-color: rgba(0, 0, 0, 0.3);}
 
         #sub2_nav1 .outer .inner ul.inner-tab li{
             width: 15vw;
@@ -206,5 +211,5 @@ ul.tabs li.current{color: #fff;}
         #premier1{position: absolute; left: 0px; top: 0px; width: 100%; height: 100vh; overflow: hidden;}
         #premier1 > #middle{width: 100%;}
 
-        #premier1 > #middle video{margin: 0 auto; display: block; width: 95%; margin-top: 100px;}
+        #premier1 > #middle video{margin: 0 auto; display: block; width: 95%; margin-top: 2vh;}
     }
