@@ -4,7 +4,7 @@
 #premier4{background-image: url(/안녕.jpg); width: 100%; height: 100vh; background-size: cover;}
 #premier5{background-image: url(/tip.jpg); width: 100%; height: 100vh; background-size: cover;}
 /* 상단 메뉴 */
-#sub2_nav1{
+#main_nav1{
 	border: 0px solid blue;
 	width: 100%;
 	/* height: 95px; */
@@ -15,26 +15,26 @@
     z-index: 1;
     background-color: rgba(255, 255, 255, 0);
 }
-#sub2_nav1 .outer{
+#main_nav1 .outer{
 	width: 100%;
 	height: 100%;
 	margin: 0 auto;
 }
-#sub2_nav1 .outer .inner{
+#main_nav1 .outer .inner{
 	width: 70%;
 	height: 100%;
 	margin: 0 auto;
 }
-#sub2_nav1 .outer .inner ul.inner-tab{
+#main_nav1 .outer .inner ul.inner-tab{
 	border: 0px solid yellow;
 	text-align: center;
 	/* padding: 30px 0; */
 	/* padding: 3vh 0; */
 }
 
-#sub2_nav1 .outer .inner ul.inner-tab > div{width: 90%; height: 100%; margin: 0 auto; line-height: 50px; background-color: rgba(0, 0, 0, 0.3);}
+#main_nav1 .outer .inner ul.inner-tab > div{width: 90%; height: 100%; margin: 0 auto; line-height: 50px; background-color: rgba(0, 0, 0, 0.3);}
 
-#sub2_nav1 .outer .inner ul.inner-tab li{
+#main_nav1 .outer .inner ul.inner-tab li{
     width: 200px;
 	border: 0px solid #fff;
 	display: inline-block;
@@ -43,23 +43,24 @@
 	/* margin-right: -7px; */
 	margin-right: -0.36vw;
 }
-#sub2_nav1 .outer .inner ul.inner-tab li a{
+#main_nav1 .outer .inner ul.inner-tab li a{
 	font-family: 'NanumGothicExtraBold';
 	/* font-size: 24px; */
 	font-size: 1.5vw;
     color: white;
 }
 
-#sub2_nav1 .outer .inner ul.inner-tab > li:first-child{width: 100%;}
-#sub2_nav1 .outer .inner ul.inner-tab > li:first-child a{font-family: 'Heaters'; font-size: 120px; line-height: 125px; color: black !important;}
+#main_nav1 .outer .inner ul.inner-tab > li:first-child{width: 100%;}
+#main_nav1 .outer .inner ul.inner-tab > li:first-child a{font-family: 'Heaters'; font-size: 120px; line-height: 125px; color: black !important;}
 
-#sub2_nav1 .outer .inner ul.inner-tab li:last-child{padding-right: 0;}
+#main_nav1 .outer .inner ul.inner-tab li:last-child{padding-right: 0;}
 
 /* home */
 #premier1{position: absolute; left: 0px; top: 0px; width: 100%; height: 100vh; overflow: hidden;}
+
     #premier1 > #middle{width: 100%;}
 
-    #premier1 > #middle video{margin: 0 auto; display: block; width: 63%; margin-top: 50px;}
+    #premier1 > #middle video{margin: 0 auto; display: block; width: 63%; margin-top: 2vh;}
 
 /* 왼쪽 사이드 */
 .side{border: 0px solid red; width: 100%; height: 100%; overflow: hidden; float: left; border-right: 2px solid gray; border-style: dotted;}
@@ -167,7 +168,7 @@
     *****************/
 
     @media all and (max-width:1411px){
-        #sub2_nav1{
+        #main_nav1{
             border: 0px solid blue;
             width: 100%;
             /* height: 95px; */
@@ -178,26 +179,26 @@
             z-index: 1;
             background-color: rgba(255, 255, 255, 0);
         }
-        #sub2_nav1 .outer{
+        #main_nav1 .outer{
             width: 100%;
             height: 100%;
             margin: 0 auto;
         }
-        #sub2_nav1 .outer .inner{
+        #main_nav1 .outer .inner{
             width: 95%;
             height: 100%;
             margin: 0 auto;
         }
-        #sub2_nav1 .outer .inner ul.inner-tab{
+        #main_nav1 .outer .inner ul.inner-tab{
             border: 0px solid yellow;
             text-align: center;
             /* padding: 30px 0; */
             /* padding: 3vh 0; */
         }
 
-        #sub2_nav1 .outer .inner ul.inner-tab > div{width: 100%; height: 100%; margin: 0 auto; line-height: 60px; background-color: rgba(0, 0, 0, 0.3);}
+        #main_nav1 .outer .inner ul.inner-tab > div{width: 100%; height: 100%; margin: 0 auto; line-height: 60px; background-color: rgba(0, 0, 0, 0.3);}
 
-        #sub2_nav1 .outer .inner ul.inner-tab li{
+        #main_nav1 .outer .inner ul.inner-tab li{
             width: 15vw;
             border: 0px solid #fff;
             display: inline-block;
@@ -205,6 +206,13 @@
             /* padding: 0 2.5vw; */
             /* margin-right: -7px; */
             margin-right: -0.36vw;
+        }
+
+        #main_nav1 .outer .inner ul.inner-tab li a{
+            font-family: 'NanumGothicExtraBold';
+            /* font-size: 24px; */
+            font-size: 3vw;
+            color: white;
         }
 
         /* home */
