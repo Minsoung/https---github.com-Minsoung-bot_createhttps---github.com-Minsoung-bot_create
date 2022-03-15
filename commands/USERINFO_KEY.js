@@ -24,20 +24,27 @@ UserInfo_key = function(msg, Discord) {
             sql2 += "(?, ?, ?)";
 
             value2[0] = msg.member.id;
-            value2[1] = msg.member.id + + msg.member.user.discriminator+msg.member.user.avatar[0];
+            value2[1] = msg.member.id + + msg.member.user.discriminator;
+
+            if (gfn_isNull(msg.member.user.avatar)) {
+                value2[1] += "nl";
+            } else {    
+                value2[1] += msg.member.user.avatar[0]
+            }
+
             value2[2] = msg.member.user.username + "#" + msg.member.user.discriminator;
             
             con.query(sql2, value2,function(err, result, fields) {
                 if (err) {
                     var board = {
                         Title : "키 발급이 되어있습니다"
-                        , String_value : "키 값 : " + user_key + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n\https://6112-112-171-4-239.ngrok.io/key_confirm"
+                        , String_value : "키 값 : " + user_key + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n https://6112-112-171-4-239.ngrok.io/key_confirm"
                         , Color : "RED"
                     }
                 } else {
                     var board = {
                         Title : "키발급 완료"
-                        , String_value : "키 값 : " + value2[1] + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n\https://6112-112-171-4-239.ngrok.io/key_confirm"
+                        , String_value : "키 값 : " + value2[1] + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n https://6112-112-171-4-239.ngrok.io/key_confirm"
                         , Color : "BLUE"
                     }
                 }
@@ -47,7 +54,7 @@ UserInfo_key = function(msg, Discord) {
         } else {
             var board = {
                 Title : "키 발급이 되어있습니다"
-                , String_value : "키 값 :" + user_key + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n\https://6112-112-171-4-239.ngrok.io/key_confirm"
+                , String_value : "키 값 :" + user_key + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n https://6112-112-171-4-239.ngrok.io/key_confirm"
                 , Color : "RED"
             }
 
