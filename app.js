@@ -317,9 +317,9 @@ app.post('/survey_submit', function(req, res) {
                                     let valueArray3 = new Array();
 
                                     sql3  = "INSERT INTO USER_IPLOG";
-                                    sql3 += "(ID, IP)";
+                                    sql3 += "(ID, IP, CREATED)";
                                     sql3 += " VALUES";
-                                    sql3 += "(?, ?)";
+                                    sql3 += "(?, ?, ,NOW())";
 
                                     valueArray3[0] = USER_ID;
                                     valueArray3[1] = ip;
