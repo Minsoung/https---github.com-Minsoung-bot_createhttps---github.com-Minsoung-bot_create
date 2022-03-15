@@ -220,7 +220,7 @@ $(window).bind("pageshow", function(event) {
     event.preventDefault();
     $('#tempForm').remove();
 
-    if (window.localStorage.getItem('backMessage') == 1) {
+    if (window.localStorage.getItem('backMessage') == 1 || $("#submit").val() == "UPDATE") {
         window.localStorage.removeItem('backMessage');
     } else {
         $('#surveyForm')[0].reset(); 

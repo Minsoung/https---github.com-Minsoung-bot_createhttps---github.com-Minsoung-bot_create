@@ -86,12 +86,14 @@ app.get('/survey', function(req,res) {
     });
 
     let sql2 = "";
+    let chk_value = false;
     sql2  = "SELECT EXISTS (SELECT IP FROM SURVEY WHERE IP = ? LIMIT 1) AS SUCCESS;";
 
     if (req.query.key|| null || undefined || 0 || NaN) {
+        chk_value = true;
         sql2  = "SELECT A.ARMY_CD, A.PROFICIENCY_CD, B.NICKNAME_D, B.NICKNAME_P, B.LEVEL, B.POSITION_CD, B.DROUGHTY_CD, B.PREFERENCE_ARMY1, B.PREFERENCE_ARMY2, B.PREFERENCE_ARMY3, '2' AS SUCCESS";
         sql2 += " FROM USER_PROFICIENCY AS A, SURVEY AS B";
-        sql2 += " WHERE A.IP = ? AND B.IP = ?;";
+        sql2 += " WHERE A.IP = ? AND B.IP = ? AND B.USER_KEY = '" + req.query.key + "';";
     }
 
     con.query(sql2, [ip, ip],function(err, result, fields) {
@@ -99,6 +101,13 @@ app.get('/survey', function(req,res) {
             res.send("<script>alert('error'); location.href='/'</script>");
             return false;
         } else {
+            if (chk_value) {
+                if (result[0] == "" || result[0] == null || result[0] == undefined || result[0] == "null") {
+                    res.send("<script> alert('키 값을 확인 및 발급해주세요.[신규작성으로 이동합니다.]'); location.href='/survey_insert'; </script>");
+                    return;
+                }
+            }
+
             if (result[0].SUCCESS == 0) {
                 res.sendFile(__dirname +'/survey.html');
             } else if (result[0].SUCCESS == 1) {
@@ -130,6 +139,24 @@ app.get('/survey', function(req,res) {
             }
         }
     });
+})
+
+app.get('/survey_insert', function(req,res) {
+    var requestIp = require('request-ip');
+
+    let ip = requestIp.getClientIp(req);
+
+    console.log(ip);
+
+    var sql = "INSERT INTO IPLOG(IP, CREATED) VALUES(?,NOW())";
+
+    con.query(sql, [ip],function(err, result, fields){
+        if (err) throw err;
+
+        console.log(result);
+    });
+
+    res.sendFile(__dirname +'/survey.html');
 })
 
 app.post('/survey_submit', function(req, res) {
@@ -178,7 +205,7 @@ app.post('/survey_submit', function(req, res) {
 
     con.query(sql3, nick_value,function(err, result, fields) {
         if (result[0].COUNT == 0) {
-            res.send("<script>alert('키 값이 없습니다. 키 발급 후 설문지를 작성을 해주세요. 혹은 디스코드 닉네임을 다시 확인해주세요.'); location.href='/survey'</script>");
+            res.send("<script>alert('키 값이 없습니다. 키 발급 후 설문지를 작성을 해주세요. 혹은 디스코드 닉네임을 다시 확인해주세요.'); window.localStorage.setItem('backMessage', 1); window.history.back(-1);</script>");
         } else {
             let USER_KEY = result[0].USER_KEY;
             let USER_ID = result[0].USER_ID;
@@ -188,7 +215,7 @@ app.post('/survey_submit', function(req, res) {
         
             if (update == "UPDATE") {
                 sql  = "UPDATE SURVEY";
-                sql += " SET NICKNAME_D=?, NICKNAME_P=?, LEVEL=?, POSITION_CD=?, DROUGHTY_CD=?, PREFERENCE_ARMY1=?, PREFERENCE_ARMY1=2, PREFERENCE_ARMY3=?";
+                sql += " SET NICKNAME_D=?, NICKNAME_P=?, LEVEL=?, POSITION_CD=?, DROUGHTY_CD=?, PREFERENCE_ARMY1=?, PREFERENCE_ARMY2=?, PREFERENCE_ARMY3=?";
                 sql += " WHERE IP=? AND USER_KEY=?";
 
                 valueArray[0] = discordNickname;
