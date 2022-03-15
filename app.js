@@ -65,7 +65,7 @@ app.get('/', function(req,res) {
     con.query(sql, [ip],function(err, result, fields){
         if (err) throw err;
 
-        console.log(result);
+        //console.log(result);
     });
 
     res.sendFile(__dirname +'/main.html');
@@ -165,7 +165,7 @@ app.get('/key_confirm', function(req,res) {
     con.query(sql, [ip],function(err, result, fields){
         if (err) throw err;
 
-        console.log(result);
+        //console.log(result);
     });
 
     res.sendFile(__dirname +'/key_confirm.html');
