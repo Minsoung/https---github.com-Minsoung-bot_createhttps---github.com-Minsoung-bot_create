@@ -47,8 +47,16 @@ UserInfo_key = function(msg, Discord) {
                         , String_value : "키 값 : " + value2[1] + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n https://6112-112-171-4-239.ngrok.io/key_confirm"
                         , Color : "BLUE"
                     }
+
+                    var board2 = {
+                        Title : "키발급 완료"
+                        , String_value : "개인 디스코드 메세지(DM)을 확인해주세요."
+                        , Color : "BLUE"
+                    }
+
+                    gfn_Send_Msg(msg, Discord, board2);
                 }
-                
+
                 gfn_Send_Msg_Dm(msg, Discord, board);
                 return;
             });
