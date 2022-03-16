@@ -124,7 +124,7 @@ $(document).ready(function() {
             return false;
         } else {
             // 디스코드 닉네임 형식 체크
-            const expr = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+#[0-9]{4,4}$/;
+            const expr = /^[\s|\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\$%&\\\=\(\'\"|ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|]+#[0-9]{4,4}$/;
             if (!expr.test(discordNicknameVal)) {
                 discordNicknameObj.focus();
                 ufn_showWarning('M', '형식에 맞게 입력해주세요. ex) ○○○#0000');

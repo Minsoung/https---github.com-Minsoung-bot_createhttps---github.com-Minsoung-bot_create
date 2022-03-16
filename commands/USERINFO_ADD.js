@@ -18,7 +18,7 @@ UserInfo_add = function(msg, Discord) {
         if (result[0].COUNT == 0) {
             var board = {
                 Title : "가입신청 실패"
-              , String_value : "설문지를 작성해주세요. 혹은 $키발급부터 해주세요. \n https://6112-112-171-4-239.ngrok.io/survey"
+              , String_value : "설문지를 작성해주세요. 혹은 $키발급부터 해주세요. \n https://6112-112-171-4-239.ngrok.io/key_confirm"
               , Color : "RED"
             }
 

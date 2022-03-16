@@ -48,6 +48,7 @@ UserInfo_key = function(msg, Discord) {
                         , Color : "BLUE"
                     }
                 }
+                
                 gfn_Send_Msg_Dm(msg, Discord, board);
                 return;
             });

@@ -106,7 +106,7 @@ app.get('/survey', function(req,res) {
 
                 sql3  = "SELECT A.ARMY_CD, A.PROFICIENCY_CD, B.NICKNAME_D, B.NICKNAME_P, B.LEVEL, B.POSITION_CD, B.DROUGHTY_CD, B.PREFERENCE_ARMY1, B.PREFERENCE_ARMY2, B.PREFERENCE_ARMY3, '2' AS SUCCESS";
                 sql3 += " FROM USER_PROFICIENCY AS A, SURVEY AS B";
-                sql3 += " WHERE B.USER_KEY = '" + req.query.key + "';";
+                sql3 += " WHERE A.ID = B.ID AND B.USER_KEY = '" + req.query.key + "';";
 
                 con.query(sql3, [],function(err, result, fields) {
                     if (err) {
