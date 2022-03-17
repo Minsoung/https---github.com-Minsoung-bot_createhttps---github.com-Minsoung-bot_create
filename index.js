@@ -18,6 +18,10 @@ client.once('ready', ()=>{
     console.log('보리 봇 준비 완료');
 })
 
+client.on("error", (err) => {
+    handleDisconnect();
+});
+
 
 client.on('message', msg => {
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
