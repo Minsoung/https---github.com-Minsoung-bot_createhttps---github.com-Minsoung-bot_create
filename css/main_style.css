@@ -4,16 +4,20 @@
 #premier4{background-image: url(/안녕.jpg); width: 100%; height: 100vh; background-size: cover;}
 #premier5{background-image: url(/tip.jpg); width: 100%; height: 100vh; background-size: cover;}
 /* 상단 메뉴 */
+
+header{border:0px solid red; width:100%; height:auto; position:absolute; left:0; top:0; z-index:2;}
+
 #main_nav1{
 	border: 0px solid blue;
 	width: 100%;
 	/* height: 95px; */
-	height: 10%;
+	height: auto;
 	/* margin-top: 50px; */
     position: absolute;
     left: 0; top: 0;
     z-index: 1;
     background-color: rgba(255, 255, 255, 0);
+    
 }
 #main_nav1 .outer{
 	width: 100%;
@@ -27,12 +31,11 @@
 }
 #main_nav1 .outer .inner ul.inner-tab{
 	border: 0px solid yellow;
-	text-align: center;
-	/* padding: 30px 0; */
-	/* padding: 3vh 0; */
+	
+	padding: 3vh 0;
 }
 
-#main_nav1 .outer .inner ul.inner-tab > div{width: 90%; height: 100%; margin: 0 auto; line-height: 50px; background-color: rgba(0, 0, 0, 0.3);}
+#main_nav1 .outer .inner ul.inner-tab > div{width: 90%; height: 100%; margin: 0 auto; line-height: 50px; background-color: rgba(0, 0, 0, 0.3); text-align: center;}
 
 #main_nav1 .outer .inner ul.inner-tab li{
     width: 200px;
@@ -50,8 +53,8 @@
     color: white;
 }
 
-#main_nav1 .outer .inner ul.inner-tab > li:first-child{width: 100%;}
-#main_nav1 .outer .inner ul.inner-tab > li:first-child a{font-family: 'Heaters'; font-size: 120px; line-height: 125px; color: black !important;}
+#main_nav1 .outer .inner ul.inner-tab > li:first-child{width: 100%; text-align: center;}
+#main_nav1 .outer .inner ul.inner-tab > li:first-child a{font-family: 'Heaters'; font-size: 10vw; line-height: 125px; color: black !important;}
 
 #main_nav1 .outer .inner ul.inner-tab li:last-child{padding-right: 0;}
 
@@ -62,9 +65,11 @@
 
     #premier1 > #middle video{margin: 0 auto; display: block; width: 63%; margin-top: 2vh;}
 
-/* 왼쪽 사이드 */
-.side{border: 0px solid red; width: 100%; height: 100%; overflow: hidden; float: left; border-right: 2px solid gray; border-style: dotted;}
 
+/* pc 모바일 삭제 */
+#mobile{display: none;}
+
+/* 왼쪽 사이드 */
 .sidenav {
     /* border:1px solid green; */
     height: 100%;
@@ -133,16 +138,18 @@
     ul.tabs li.current{color: rgb(150, 150, 150);}
 
 /* 가운데 세션 */
-#middle{width: 70%; height: 100%; float: left;  margin: 200PX auto 0 auto; overflow: auto;}
+#middle{width: 70%; height: 100%; float: left;  padding-top: 250px;}
+
+#middle .outer{width: 100%; height: 100%; overflow: scroll;}
 
 /* 스크롤 없애기 */
-#middle::-webkit-scrollbar{ display:none; }
+#middle .outer::-webkit-scrollbar{ display:none; }
 
-
-.tab-content{display: none; width: 90%; height: 100%; margin: 0 auto; background-color: #fff; padding-bottom: 200px;}
+.tab-content{display: none; width: 90%; height: 100%; margin: 0 auto; background-color: #fff;}
 
 .tab-content.current{display: inherit;}
     #middle .img{position: relative; margin-bottom: 50px;}
+
     /* 그림판 */
     .draw{position: absolute; right: 10px; top: 10px; overflow: auto; border: 1px solid black;}
     .drawing{background: none; font-family: 'NanumGothicExtraBold'; font-size: 20px; padding: 5px;}
@@ -168,11 +175,12 @@
     *****************/
 
     @media all and (max-width:1411px){
+        
         #main_nav1{
             border: 0px solid blue;
             width: 100%;
             /* height: 95px; */
-            height: 10%;
+            height: auto;
             /* margin-top: 50px; */
             position: absolute;
             left: 0; top: 0;
@@ -191,12 +199,11 @@
         }
         #main_nav1 .outer .inner ul.inner-tab{
             border: 0px solid yellow;
-            text-align: center;
             /* padding: 30px 0; */
-            /* padding: 3vh 0; */
+            padding: 0vh 0;
         }
 
-        #main_nav1 .outer .inner ul.inner-tab > div{width: 100%; height: 100%; margin: 0 auto; line-height: 60px; background-color: rgba(0, 0, 0, 0.3);}
+        #main_nav1 .outer .inner ul.inner-tab > div{width: 100%; height: 100%; margin: 0 auto; line-height: 60px; background-color: rgba(0, 0, 0, 0.3); text-align: center;}
 
         #main_nav1 .outer .inner ul.inner-tab li{
             width: 15vw;
@@ -208,16 +215,119 @@
             margin-right: -0.36vw;
         }
 
+        #main_nav1 .outer .inner ul.inner-tab > li:first-child{width: auto;}
+
         #main_nav1 .outer .inner ul.inner-tab li a{
             font-family: 'NanumGothicExtraBold';
             /* font-size: 24px; */
             font-size: 3vw;
             color: white;
         }
+        #main_nav1 .outer .inner ul.inner-tab > li:first-child a{
+            font-family: 'Heaters';
+            font-size: 25vw;
+            line-height: 120px;
+            color: black !important;
+        }
+
+        /* 모바일 사이드 */
+        .sidenav{display: none;}
+        #right_side{display: none;}
+        #mobile{display: block;}
+
+        #mobile{border:0px solid red; width:100%; height:auto; position:absolute; left:0; top:5vh; z-index:2;}
+
+            #mobile div.outer{
+                border:0px solid blue;
+                width:95%;
+                height:100%;
+                margin:0 auto;
+            }
+            #mobile div.outer #qnb{border: 0px solid blue; float:right;}
+            #mobile div.outer #qnb .mobilesidenav {
+                /* border:1px solid green; */
+                height: 100%;
+                width: 0;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                right: 0;
+                background-color:rgba(0, 0, 0, 0.8);
+                overflow-x: hidden;
+                transition: 0.5s;
+                padding-top: 5%;
+            }
+            
+            #mobile div.outer #qnb .mobilesidenav a {
+                /* border:1px solid blue; */
+                /* padding: 8px 8px 8px 32px; */
+                text-decoration: none;
+                font-family: 'NanumGothicBold';
+                /* font-size: 50px; */
+                font-size: 5vw;
+                color: #818181;
+                display: block;
+                transition: 0.3s;
+                text-align: center;
+                /* margin-top: 60px; */
+                margin-top: 6vh;
+            }
+                
+            #mobile div.outer #qnb .mobilesidenav a:hover {
+                color: #f1f1f1;
+            }
+                
+            #mobile div.outer #qnb .mobilesidenav a.closebtn {
+                /* border:1px solid red; */
+                position: absolute;
+                /* top: -60px; */
+                top: -7vh;
+                /* right: 120px; */
+                right: 1.85vw;
+                /* font-size: 50px; */
+                font-size: 13.33vw;
+            }
+            
+            #mobile div.outer #qnb .mobilesidenav .menu a {
+                cursor:pointer;
+            }
+            #mobile div.outer #qnb .mobilesidenav .menu .hide {
+                display:none;
+            }
+            #mobile div.outer #qnb .mobilesidenav .menu .hide li{
+                /* border: 5px solid red; */
+                font-family: 'NanumGothic';
+                /* font-size: 28px; */
+                font-size: 3vw;
+                /* margin-top: 20px; */
+                margin-top: 3vh;
+                color: white;
+            }
 
         /* home */
         #premier1{position: absolute; left: 0px; top: 0px; width: 100%; height: 100vh; overflow: hidden;}
         #premier1 > #middle{width: 100%;}
 
         #premier1 > #middle video{margin: 0 auto; display: block; width: 95%; margin-top: 2vh;}
+
+        /* 가운데 세션 */
+        #middle{width: 100%; height: 100%; float: left;  padding-top: 25vh;}
+
+        #middle .outer{width: 100%; height: 100%; overflow: scroll;}
+
+        /* 스크롤 없애기 */
+        #middle .outer::-webkit-scrollbar{ display:none; }
+
+
+        .tab-content{display: none; width: 95%; height: 100%; margin: 0 auto; background-color: #fff;}
+
+        .tab-content.current{display: inherit;}
+            #middle .img{position: relative; margin-bottom: 50px;}
+
+            /* 그림판 없애기*/
+            .draw{display: none;}
+            .drawing{background: none; font-family: 'NanumGothicExtraBold'; font-size: 20px; padding: 5px;}
+
+            /* 가운데 이미지 */
+            #middle img{display: block; margin: 0 auto;}
     }

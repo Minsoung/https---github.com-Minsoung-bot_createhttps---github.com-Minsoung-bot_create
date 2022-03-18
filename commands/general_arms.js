@@ -51,7 +51,7 @@ ufn_arms = function(msg, arms_name, Discord) {
 
                         var board = {
                               Title : arms_name
-                            , Stirng_value : Text_Value
+                            , String_value : Text_Value
                             , Color : "WHITE"
                         }
 
