@@ -338,6 +338,11 @@ app.post('/survey_submit', function(req, res) {
     });
 })
 
+app.get('/popup', function(req,res) {
+    res.sendFile(__dirname +'/popup.html');
+})
+
+
 /*
 const con = myslq.createConnection({
     host : 'localhost'
