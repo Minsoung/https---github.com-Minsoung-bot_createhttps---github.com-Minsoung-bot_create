@@ -10,6 +10,7 @@ const sheet_client = new google.auth.JWT(
 
 const con = require('./mysql_db');
 
+// 영토전 참가자 추가
 User_War_Fed_Add = function(msg, Discord) {
     var sql = "";
 
@@ -40,7 +41,10 @@ User_War_Fed_Add = function(msg, Discord) {
     var value = msg.member.id;
 
     con.query(sql, [value,value],function(err, result, fields) {
-        if (err) throw err;
+        if (err) {
+            console.log(err);
+            con.handleDisconnect();
+        } 
 
         if (gfn_isNull(result[0][0]) ) {
             var board = {

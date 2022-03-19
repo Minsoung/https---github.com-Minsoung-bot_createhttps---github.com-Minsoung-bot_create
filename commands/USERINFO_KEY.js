@@ -1,5 +1,6 @@
 const con = require('./mysql_db');
 
+//$키발급 입력시 사용자 키 값 추가
 UserInfo_key = function(msg, Discord) {
     var sql = "";
 
@@ -10,7 +11,10 @@ UserInfo_key = function(msg, Discord) {
     var value = msg.member.id;
 
     con.query(sql, [value],function(err, result, fields) {
-        if (err) throw err;
+        if (err) {
+            console.log(err);
+            con.handleDisconnect();
+        } 
 
         var user_key = result[0].USER_KEY;
 

@@ -3,11 +3,12 @@ const client = new Discord.Client({ intents: [Discord.Intents.FLAGS.GUILDS, Disc
 const fs = require('fs');
 const {token ,prefix} = require('./config.json');
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('js'));
+const con = require('./commands/mysql_db');
 
 client.commands = new Discord.Collection();
 
 for (const file of commandFiles) {
-    if (file == "mysql_db.js") continue;
+    if (file == "mysql_db.js" || file == "google_db.js") continue;
 
     const command = require(`./commands/${file}`);
     console.log(command);
@@ -19,7 +20,7 @@ client.once('ready', ()=>{
 })
 
 client.on("error", (err) => {
-    handleDisconnect();
+    con.handleDisconnect();
 });
 
 
@@ -47,7 +48,8 @@ client.on('message', msg => {
     }
   
     let timer_name = "";
-    if (command == '영토전타이머' || command == '설문지타이머') {
+
+    if (command == '영토전타이머' || command == '설문지타이머') { 
         timer_name = command;
         command = '타이머';
     }
@@ -61,8 +63,16 @@ client.on('message', msg => {
         client.commands.get(command).War_Timer_20(msg, timer_name, Discord);
     } else if (command == '키발급') {   
         client.commands.get(command).User_Key(msg, Discord);
-    } else if (command == '참가') {   
+    } else if (command == '참가') {
+        if (msg.channelId != '938828779483189298') {
+            return msg.channel.send("영토전 채널 -> 영토전-참가조사에서 $참가를 입력해주세요.");
+        }
         client.commands.get(command).War_Fed_Add(msg, Discord);
+    } else if (command == '출석') {   
+        if (msg.channelId != '938828779483189298') {
+            return msg.channel.send("영토전 채널 -> 영토전-참가조사에서 $출석를 입력해주세요.");
+        }
+        client.commands.get(command).War_Fed_Attendance(msg, Discord);
     }
 
 })
