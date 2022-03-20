@@ -12,14 +12,14 @@
 canvas{
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
     cursor: pointer;
 }
 /* 툴모음 전체 박스 */
 .tools{
     max-width: 1000px;
     margin: 0 auto;
-    margin-top:30px;
+    margin-top:10px;
     display: flex;
     justify-content:center;
     flex-direction: row;
@@ -60,7 +60,7 @@ canvas{
 /* 펜크기 */
 .pen-range{
     align-self: center;
-    margin:0 10px;  
+    margin:0 10px;
 }
     </style>
 </head>
@@ -74,11 +74,12 @@ canvas{
         <div onclick="change_color(this)" class="color-field" style="background: green;"></div>
         <div onclick="change_color(this)" class="color-field" style="background: yellow;"></div>
 
-         <!-- 컬러피커  -->
+        <!-- 컬러피커  -->
         <input onInput="draw_color= this.value" type="color" class="color-picker" style="width:70px">
         <!-- 펜굵기 조절 -->
-        <input type="range" min="1" max="100" class="pen-range"
-              onInput="draw_width=this.value">
+        <input type="range" min="1" max="10" class="pen-range" onInput="draw_width=this.value" value="2">
+        
+
         <!-- 되돌리기, 지우기, 다운로드 버튼  -->
         <button onclick="undo_last()"type="button" class="button">되돌리기</button>
         <button onclick="clear_canvas()" type="button" class="button">지우기</button>
@@ -115,7 +116,7 @@ canvas{
     // 캔버스 설정
     var canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth - 0;
-    canvas.height = window.innerHeight - 10;
+    canvas.height = window.innerHeight - 100;
     
     var context = canvas.getContext("2d");
     
@@ -165,9 +166,9 @@ canvas{
             context.lineTo(event.clientX - canvas.offsetLeft,
                         event.clientY - canvas.offsetTop);
             context.strokeStyle = draw_color;
-            context.lineWidth =draw_width;
-            context.lineCap ="round";
-            context.lineJoin ="round";
+            context.lineWidth = draw_width;
+            context.lineCap = "round";
+            context.lineJoin = "round";
             context.stroke();
         }
     }
@@ -176,7 +177,7 @@ canvas{
         if (is_drawing){
             context.stroke();
             context.closePath();
-            is_drawing =false;
+            is_drawing = false;
         }
         event.preventDefault();
     }
@@ -185,8 +186,8 @@ canvas{
     function clear_canvas(){
         setImg();
 
-        restore_array=[];
-        index =-1;
+        restore_array = [];
+        index = -1;
     }
 
     // 뒤로가기
@@ -215,7 +216,7 @@ canvas{
 
     function saveImage(){
         var a = canvas.toDataURL("image/png");
-        document.getElementById("image").value=a;
+        document.getElementById("image").value = a;
         document.getElementById("frm").submit(); 
     }
 </script>
