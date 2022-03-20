@@ -1,39 +1,25 @@
 /* 제출하기 버튼 */
-.button{
-    position: absolute;
-    right: 110px;
-    top: 110px;
-    padding: 13px 20px;
-    background-color: white;
-    border: 1px solid gray;
-    border-radius: 50px;
-    z-index: 1;
-}
-    .button span{font-size: 26px;}
-    .button:hover{opacity: 0.5;}
+.buttoninner{width: 100%; text-align: center; position: absolute; bottom: 20px;}
+    .button{
 
-/* 홈으로 이동 */
-.home{
-    position: absolute;
-    right: 110px;
-    top: 40px;
-    padding: 13px 37px;
-    background-color: white;
-    border: 1px solid gray;
-    border-radius: 50px;
-    z-index: 1;
-}
-    .home span{font-size: 26px;}
-    .home:hover{opacity: 0.5;}
+        padding: 13px 20px;
+        background-color: white;
+        border-radius: 50px;
+        z-index: 1;
+    }
+        .button span{font-size: 26px;}
+        .button:hover{opacity: 0.5;}
 
 /* contents */
-#section{background-image: url(/survey.jpg); width: 100%; height: 100%; overflow: hidden;}
+#section{background-image: url(/survey.jpg); width: 100%; height: 100%; background-size: cover;}
 
 #section > div{width: 100%; height: 100%; overflow: scroll;}
 
-#outer{width: 90%; margin: 0 auto; margin-top: 50px; overflow: hidden;}
+#outer{width: 90%; margin: 0 auto; margin-top: 50px;}
 
 #inner{overflow: hidden; width: 100%; height: 100%;}
+
+#inner:last-child{padding-bottom: 100px; position: relative;}
 
 #section #container{width: 50%; height: 100%; margin: 0 auto;} 
 
@@ -107,7 +93,7 @@
 
 /* 병종 선호도 */
 .c3{
-    width: 21.25%;
+    width: 15%;
     float: left;
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #dadce0;
@@ -116,11 +102,11 @@
     page-break-inside: avoid;
     word-wrap: break-word;
     font-family: 'NanumGothic';
-    margin-right: 5%;
+    margin-right: 2%;
     margin-bottom: 15px;
 }
 .c3_last{
-    width: 21.25%;
+    width: 15%;
     float: left;
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #dadce0;
@@ -135,18 +121,18 @@
 .c3:last-child{margin-bottom: 15px;}
 
     .c3 .title,
-    .c3_last .title{font-size: 20px;  font-weight: bold;}
+    .c3_last .title{font-size: 0.8vw;  font-weight: bold; margin-bottom: 1.4vh;}
 
     /* 체크박스 input */
     
     .c3 .inputckeck,
-    .c3_last .inputckeck{width: 100%; margin-left: 2px; margin-top: 20px;}
+    .c3_last .inputckeck{width: 100%; margin-left: 2px; margin-top: 0.8vh;}
 
     .c3 .inputckeck input,
-    .c3_last .inputckeck input{width: 20px; height: 20px;}
+    .c3_last .inputckeck input{width: 0.6vw; height: 0.6vw;}
 
     .c3 .inputckeck span,
-    .c3_last .inputckeck span{font-size: 16px;}
+    .c3_last .inputckeck span{font-size: 0.7vw;}
 
 
     /****************
