@@ -142,10 +142,8 @@
 	@media all and (max-width:1411px){
 
         /* 제출하기 버튼 */
+        .buttoninner{width: 100%; text-align: center; position: absolute; bottom: 20px;}
         .button{
-            position: absolute;
-            right: 20px;
-            top: 80px;
             padding: 8px 15px;
             background-color: white;
             border: 1px solid gray;
@@ -177,7 +175,7 @@
 
         #section #container{width: 100%; height: 100%; margin: 0 auto;} 
 
-        #inner:last-child{margin-bottom: 100px;}
+        #inner:last-child{padding-bottom: 100px;}
 
         .c1{
             background-color: rgba(255, 255, 255, 0.9);
