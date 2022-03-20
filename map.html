@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>One Top</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/import.css">
+    <script src="https://code.jquery.com/jquery-1.8.2.min.js"></script>
+
+    <!-- 파비콘 아이콘 -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+    <script>
+    function showPopup(){
+        openWin = window.open('/popup', 'new', '');
+        openWin.document.getElementById("cInput").src = document.getElementById("imgpath").src;
+    }
+    </script>
+</head>
+
+<body>
+    <header>
+        <!-- 상단 메뉴 -->
+        <section id="main_nav1">
+            <div class="outer">
+                <div class="inner">
+                    <ul class="inner-tab">
+                         <li><a href="/"><img src="/logow.png" alt="logo"/></a></li>
+     
+                         <div>
+                             <li><a href="/key_confirm">SURVEY</a></li>
+                             <li><a href="/map">MAP</a></li>
+                             <li><a href="/tip">TIP</a></li>
+                             <li><a href="/unit">UNIT</a></li>
+                             <li><a href="/weapon">WEAPON</a></li>
+                         </div>
+                    </ul>
+                </div><!--//inner-->
+            </div><!--//outer-->
+        </section><!--//main_nav1-->
+   </header>
+
+    <!-- 지도 -->
+    <div id='premier2' class="premiermenu">
+        <div id="mySidenav" class="sidenav">
+            <li class="menu"> <a>map</a>
+                <ul class="hide">
+                    <ul class="tabs">
+                        <li class="tab-link" data-tab="tab-1">castle</li>
+                        <li class="tab-link" data-tab="tab-2">Village</li>
+                        <li class="tab-link" data-tab="tab-3">The gateway</li>
+                    </ul>
+                </ul>
+            </li>
+
+            <li class="menu"> <a>map</a>
+                <ul class="hide">
+                    <ul class="tabs">
+                        <li class="tab-link" data-tab="tab-4">castle</li>
+                        <li class="tab-link" data-tab="tab-5">Village</li>
+                        <li class="tab-link" data-tab="tab-6">The gateway</li>
+                    </ul>
+                </ul>
+            </li>
+
+            <li class="menu"> <a>map</a>
+                <ul class="hide">
+                    <ul class="tabs">
+                        <li class="tab-link" data-tab="tab-7">castle</li>
+                        <li class="tab-link" data-tab="tab-8">Village</li>
+                        <li class="tab-link" data-tab="tab-9">The gateway</li>
+                    </ul>
+                </ul>
+            </li>
+
+            <li class="menu"> <a>map</a>
+                <ul class="hide">
+                    <ul class="tabs">
+                        <li class="tab-link" data-tab="tab-10">castle</li>
+                        <li class="tab-link" data-tab="tab-11">Village</li>
+                        <li class="tab-link" data-tab="tab-12">The gateway</li>
+                    </ul>
+                </ul>
+            </li>
+
+            <li class="menu"> <a>map</a>
+                <ul class="hide">
+                    <ul class="tabs">
+                        <li class="tab-link" data-tab="tab-">castle</li>
+                        <li class="tab-link" data-tab="tab-">Village</li>
+                        <li class="tab-link" data-tab="tab-">The gateway</li>
+                    </ul>
+                </ul>
+            </li>
+        </div>
+        
+
+        <!-- 가운데 세션 -->
+        <section id="middle">
+            <div class="outer">
+                <div class="inner">
+                    <div id="tab-1" class="tab-content">
+                        <div class="img">
+                            <div class="draw">
+                                <button type="button" class="drawing" id="dtn_drawing">그림</button>
+                            </div>
+                            <img src="/02.png" alt="이미지" id="imgpath" onclick="showPopup();"/>
+                        </div>
+                        
+                        <div class="img">
+                            <div class="draw">
+                                <button type="button" class="drawing" id="dtn_drawing">그림</button>
+                            </div>
+                            <img src="/02.png" alt="이미지"/>
+                        </div>
+
+                        <div class="img">
+                            <div class="draw">
+                                <button type="button" class="drawing" id="dtn_drawing">그림</button>
+                            </div>
+                            <img src="/02.png" alt="이미지"/>
+                        </div>
+                    </div>
+            
+                    <div id="tab-2" class="tab-content">
+                        
+                    </div>
+                </div><!--//inner-->
+            </div><!--//outer-->
+        </section>
+
+        <!-- 오른쪽 사이드 -->
+        <section id="right_side">
+
+        </section>
+
+        <!-- 모바일 사이드 -->
+        <div id="mobile">
+            <div class="outer">
+                <div id="qnb"><span style="cursor:pointer" onclick="openNav('mobileSidenav0')"><img src="/menu.png"> </span>
+                    <div id="mobileSidenav0" class="mobilesidenav">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav('mobileSidenav0')">&times;</a>
+                        <li class="menu"> <a>map</a>
+                            <ul class="hide">
+                                <ul class="tabs">
+                                    <li class="tab-link" data-tab="tab-1" onclick="closeNav('mobileSidenav0')">castle</li>
+                                    <li class="tab-link" data-tab="tab-2" onclick="closeNav('mobileSidenav0')">Village</li>
+                                    <li class="tab-link" data-tab="tab-3" onclick="closeNav('mobileSidenav0')">The gateway</li>
+                                </ul>
+                            </ul>
+                        </li>
+            
+                        <li class="menu"> <a>map</a>
+                            <ul class="hide">
+                                <ul class="tabs">
+                                    <li class="tab-link" data-tab="tab-4" onclick="closeNav('mobileSidenav0')">castle</li>
+                                    <li class="tab-link" data-tab="tab-5" onclick="closeNav('mobileSidenav0')">Village</li>
+                                    <li class="tab-link" data-tab="tab-6" onclick="closeNav('mobileSidenav0')">The gateway</li>
+                                </ul>
+                            </ul>
+                        </li>
+            
+                        <li class="menu"> <a>map</a>
+                            <ul class="hide">
+                                <ul class="tabs">
+                                    <li class="tab-link" data-tab="tab-7" onclick="closeNav('mobileSidenav0')">castle</li>
+                                    <li class="tab-link" data-tab="tab-8" onclick="closeNav('mobileSidenav0')">Village</li>
+                                    <li class="tab-link" data-tab="tab-9" onclick="closeNav('mobileSidenav0')">The gateway</li>
+                                </ul>
+                            </ul>
+                        </li>
+            
+                        <li class="menu"> <a>map</a>
+                            <ul class="hide">
+                                <ul class="tabs">
+                                    <li class="tab-link" data-tab="tab-10" onclick="closeNav('mobileSidenav0')">castle</li>
+                                    <li class="tab-link" data-tab="tab-11" onclick="closeNav('mobileSidenav0')">Village</li>
+                                    <li class="tab-link" data-tab="tab-12" onclick="closeNav('mobileSidenav0')">The gateway</li>
+                                </ul>
+                            </ul>
+                        </li>
+            
+                        <li class="menu"> <a>map</a>
+                            <ul class="hide">
+                                <ul class="tabs">
+                                    <li class="tab-link" data-tab="tab-" onclick="closeNav('mobileSidenav0')">castle</li>
+                                    <li class="tab-link" data-tab="tab-" onclick="closeNav('mobileSidenav0')">Village</li>
+                                    <li class="tab-link" data-tab="tab-" onclick="closeNav('mobileSidenav0')">The gateway</li>
+                                </ul>
+                            </ul>
+                        </li>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </div>
+    
+    <!-- 메뉴 중메뉴 슬라이드 -->
+    <script>
+        $(document).ready(function(){ 
+            $(".menu>a").click(function(){
+                var submenu = $(this).next("ul");
+                if( submenu.is(":visible") ){ 
+                    submenu.slideUp();
+                }else{
+                    submenu.slideDown();
+                }
+            });
+        });
+    </script>
+
+    <!-- 왼쪽 사이드 탭 -->
+    <script language>
+        $(document).ready(function(){
+	
+            $('ul.tabs li').click(function(){
+                var tab_id = $(this).attr('data-tab');
+
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
+
+                $(this).addClass('current');
+                $("#"+tab_id).addClass('current');
+            })
+
+        });
+    </script>
+
+    <!--모바일 사이드 메뉴 -->
+    <script>
+        
+        function openNav(openmenu) {
+            
+            document.getElementById(openmenu).style.width = "100%";
+            
+        }
+        
+        function closeNav(closemenu) {
+            document.getElementById(closemenu).style.width = "0";
+        }
+    </script>
+
+    
+</body>
+</html>
