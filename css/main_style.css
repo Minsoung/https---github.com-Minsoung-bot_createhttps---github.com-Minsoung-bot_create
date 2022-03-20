@@ -112,15 +112,15 @@ header{border:0px solid red; width:100%; height:auto; position:absolute; left:0;
         right: 6.25vw;
         /* font-size: 60px; */
         font-size: 3.13vw;
-}
+    }
 
     .sidenav .menu a {
         cursor:pointer;
     }
 
-.hide {
-    display:none;
-}
+        .hide {
+            display:none;
+        }
     ul.tabs li{
         /* border: 5px solid red; */
         font-family: 'notokr-bold';
@@ -137,6 +137,7 @@ header{border:0px solid red; width:100%; height:auto; position:absolute; left:0;
     
     ul.tabs li.current{color: rgb(150, 150, 150);}
 
+    #premier5 .tab-link{cursor:pointer;}
 /* 가운데 세션 */
 #middle{width: 70%; height: 100%; float: left;  padding-top: 250px;}
 
