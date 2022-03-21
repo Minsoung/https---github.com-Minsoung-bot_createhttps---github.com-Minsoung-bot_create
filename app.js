@@ -71,6 +71,22 @@ app.get('/', function(req,res) {
     res.sendFile(__dirname +'/main.html');
 })
 
+app.get('/map', function(req,res) {
+    res.sendFile(__dirname +'/map.html');
+})
+
+app.get('/tip', function(req,res) {
+    res.sendFile(__dirname +'/tip.html');
+})
+
+app.get('/unit', function(req,res) {
+    res.sendFile(__dirname +'/unit.html');
+})
+
+app.get('/weapon', function(req,res) {
+    res.sendFile(__dirname +'/weapon.html');
+})
+
 app.get('/survey', function(req,res) {
     var requestIp = require('request-ip');
 
