@@ -18,7 +18,6 @@ User_War_Fed_Attendance = function(msg, Discord) {
     con.query(sql, [value],function(err, result, fields) {
         if (err) {
             console.log(err);
-            con.handleDisconnect();
         } 
 
         console.log(result[0]);
