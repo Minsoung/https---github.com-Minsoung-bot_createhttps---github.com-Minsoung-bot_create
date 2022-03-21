@@ -3,7 +3,7 @@ const db_Master = require('./db_config.json');
 
 let con = "";
 
-function handleDisconnect() {
+function handleDisconnect() { 
      con = myslq.createConnection({
         host : db_Master.host
       , user : db_Master.user
