@@ -1,224 +1,160 @@
 <html>
 <head>
-    <title>TEST POPUP</title>
-
-    <style>
-        *{
-    margin: 0;
-    padding: 0;
-    outline: 0;
-}
-/* 캔버스 설정 */
-canvas{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    cursor: pointer;
-}
-/* 툴모음 전체 박스 */
-.tools{
-    max-width: 1000px;
-    margin: 0 auto;
-    margin-top:10px;
-    display: flex;
-    justify-content:center;
-    flex-direction: row;
-}
-
-/* 툴 컬러 버튼 */
-.tools .color-field{
-    height:40px;
-    width: 40px;  
-    min-height:40px;
-    min-width: 40px;
-    cursor:pointer;
-    border-radius: 50%;
-    display: inline-block;
-    box-sizing:border-box;
-    border: 2px solid white;
-    align-self:center;
-}
-
-/* 되돌리기,지우기,다운로드 버튼 */
-.tools .button{
-    align-self: center;
-    width:100px;
-    height:40px;
-    border: 2px solid white;
-    cursor :pointer;
-    color: white;
-    background:#222;
-    font-weight: bold;
-    margin:0 6px;
-}
-/* 컬러피커 */
-.color-picker{
-    align-self: center;
-    margin:0 10px;
-    height:50px;
-}
-/* 펜크기 */
-.pen-range{
-    align-self: center;
-    margin:0 10px;
-}
-    </style>
+  <meta charset="utf-8">
+  <title>말 그대로 캔버스 — 말 그대로 캔버스 v0.5.2 문서 - HTML5 드로잉 보드 - 웹 브라우저의 MS 그림판</title>
+  <link rel="stylesheet" href="lib/better.css" type="text/css">
+  <link rel="stylesheet" href="lib/pygments.css" type="text/css">
+  <script async="" src="//www.google-analytics.com/analytics.js"></script>
+  <script id="documentation_options" data-url_root="./" src="lib/documentation_options.js"></script>
+  <script src="lib/jquery.js"></script>
+  <script src="lib/underscore.js"></script>
+  <script src="lib/doctools.js"></script>
+  <script src="lib/language_data.js"></script>
+  <link rel="index" title="색인" href="genindex.html">
+  <link rel="search" title="검색" href="search.html">
+  <link rel="next" title="설치 중" href="installing.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Finger+Paint" type="text/css">
+  <link rel="stylesheet" href="lib/style.css" type="text/css">
+  <link rel="stylesheet" href="lib/css/literallycanvas.css" type="text/css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react-with-addons.js" type="text/javascript"></script>
+  <script src="lib/js/fastclick.js" type="text/javascript"></script>
+  <script src="lib/js/literallycanvas.js" type="text/javascript"></script>
+  <script src="lib/docs.js" type="text/javascript"></script>
+  
 </head>
+
 <body>
-    <canvas id="canvas">
-    </canvas>
-    <div class="tools">
-        <!-- 컬러칩 -->
-        <div onclick="change_color(this)" class="color-field" style="background: red;"></div>
-        <div onclick="change_color(this)" class="color-field" style="background: blue;"></div>
-        <div onclick="change_color(this)" class="color-field" style="background: green;"></div>
-        <div onclick="change_color(this)" class="color-field" style="background: yellow;"></div>
-
-        <!-- 컬러피커  -->
-        <input onInput="draw_color= this.value" type="color" class="color-picker" style="width:70px">
-        <!-- 펜굵기 조절 -->
-        <input type="range" min="1" max="10" class="pen-range" onInput="draw_width=this.value" value="2">
-        
-
-        <!-- 되돌리기, 지우기, 다운로드 버튼  -->
-        <button onclick="undo_last()"type="button" class="button">되돌리기</button>
-        <button onclick="clear_canvas()" type="button" class="button">지우기</button>
-        <button onclick="save()" type="button" class="button">다운로드</button>
+  <div class="my-drawing literally toolbar-at-top">
+    <div class="lc-drawing with-gui" style="background-color: whitesmoke;"><canvas width="657"
+        style="width: 657px; height: 367px;" height="367"></canvas><canvas width="657"
+        style="background-color: transparent; width: 657px; height: 367px;" height="367"></canvas></div>
+    <div class="lc-picker">
+      <div class="lc-picker-contents" data-reactid=".0">
+        <div class="lc-pick-tool toolbar-button thin-button selected"
+          style="background-image:url(/lib/img/pencil.png);" title="연필" data-reactid=".0.0:$0"></div>
+        <div class="lc-pick-tool toolbar-button thin-button" style="background-image:url(/lib/img/eraser.png);"
+          title="지우개" data-reactid=".0.0:$1"></div>
+        <div class="lc-pick-tool toolbar-button thin-button" style="background-image:url(/lib/img/line.png);"
+          title="선" data-reactid=".0.0:$2"></div>
+        <div class="lc-pick-tool toolbar-button thin-button"
+          style="background-image:url(/lib/img/rectangle.png);" title="직사각형" data-reactid=".0.0:$3"></div>
+        <div class="lc-pick-tool toolbar-button thin-button" style="background-image:url(/lib/img/ellipse.png);"
+          title="타원" data-reactid=".0.0:$4"></div>
+        <div class="lc-pick-tool toolbar-button thin-button" style="background-image:url(/lib/img/text.png);"
+          title="텍스트" data-reactid=".0.0:$5"></div>
+        <div class="lc-pick-tool toolbar-button thin-button" style="background-image:url(/lib/img/polygon.png);"
+          title="다각형" data-reactid=".0.0:$6"></div>
+        <div class="lc-pick-tool toolbar-button thin-button" style="background-image:url(/lib/img/pan.png);"
+          title="팬" data-reactid=".0.0:$7"></div>
+        <div class="lc-pick-tool toolbar-button thin-button"
+          style="background-image:url(/lib/img/eyedropper.png);" title="스포이드" data-reactid=".0.0:$8"></div>
+        <div class="toolbar-button thin-button disabled" data-reactid=".0.1"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;" data-reactid=".0.2">
+          <div class="lc-color-pickers" data-reactid=".0.2.0">
+            <div class="color-well" style="float:left;text-align:center;" data-reactid=".0.2.0.0"><label
+                data-reactid=".0.2.0.0.0">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">뇌졸중</font>
+                </font>
+              </label><br data-reactid=".0.2.0.0.1">
+              <div class="color-well-color-container" style="background-color:white;" data-reactid=".0.2.0.0.2">
+                <div class="color-well-checker color-well-checker-top-left" data-reactid=".0.2.0.0.2.0"></div>
+                <div class="color-well-checker color-well-checker-bottom-right" style="left:50%;top:50%;"
+                  data-reactid=".0.2.0.0.2.1"></div>
+                <div class="color-well-color" style="background-color:hsla(0, 0%, 0%, 1);" data-reactid=".0.2.0.0.2.2">
+                </div>
+              </div>
+            </div>
+            <div class="color-well" style="float:left;text-align:center;" data-reactid=".0.2.0.1"><label
+                data-reactid=".0.2.0.1.0">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">채우다</font>
+                </font>
+              </label><br data-reactid=".0.2.0.1.1">
+              <div class="color-well-color-container" style="background-color:white;" data-reactid=".0.2.0.1.2">
+                <div class="color-well-checker color-well-checker-top-left" data-reactid=".0.2.0.1.2.0"></div>
+                <div class="color-well-checker color-well-checker-bottom-right" style="left:50%;top:50%;"
+                  data-reactid=".0.2.0.1.2.1"></div>
+                <div class="color-well-color" style="background-color:hsla(0, 0%, 100%, 1);"
+                  data-reactid=".0.2.0.1.2.2"> </div>
+              </div>
+            </div>
+            <div class="color-well" style="float:left;text-align:center;" data-reactid=".0.2.0.2"><label
+                data-reactid=".0.2.0.2.0">
+                <font style="vertical-align: inherit;">
+                  <font style="vertical-align: inherit;">bg</font>
+                </font>
+              </label><br data-reactid=".0.2.0.2.1">
+              <div class="color-well-color-container" style="background-color:white;" data-reactid=".0.2.0.2.2">
+                <div class="color-well-checker color-well-checker-top-left" data-reactid=".0.2.0.2.2.0"></div>
+                <div class="color-well-checker color-well-checker-bottom-right" style="left:50%;top:50%;"
+                  data-reactid=".0.2.0.2.2.1"></div>
+                <div class="color-well-color" style="background-color:whiteSmoke;" data-reactid=".0.2.0.2.2.2"> </div>
+              </div>
+            </div>
+          </div>
+          <div class="lc-undo-redo" data-reactid=".0.2.1">
+            <div class="lc-undo toolbar-button thin-button" title="실행 취소"
+              style="background-image:url(/lib/img/undo.png);" data-reactid=".0.2.1.0"></div>
+            <div class="lc-redo toolbar-button thin-button disabled" title="다시 하다"
+              style="background-image:url(/lib/img/redo.png);" data-reactid=".0.2.1.1"></div>
+          </div>
+          <div class="lc-zoom" data-reactid=".0.2.2">
+            <div class="lc-zoom-out toolbar-button thin-button" title="축소"
+              style="background-image:url(/lib/img/zoom-out.png);" data-reactid=".0.2.2.0"></div>
+            <div class="lc-zoom-in toolbar-button thin-button" title="확대"
+              style="background-image:url(/lib/img/zoom-in.png);" data-reactid=".0.2.2.1"></div>
+          </div>
+          <div class="lc-clear toolbar-button fat-button" data-reactid=".0.2.3">
+            <font style="vertical-align: inherit;">
+              <font style="vertical-align: inherit;">분명한</font>
+            </font>
+          </div>
+        </div>
+      </div>
     </div>
-
-<script>
-    function setImg(){
-        var img = new Image();
-        img.src = opener.document.getElementById("imgpath").src;
-
-        // 그림판 다시 그리기
-        context.fillStyle = "white";
-        context.clearRect(0,0,canvas.width, canvas.height);
-        context.fillRect(0,0,canvas.width, canvas.height);
-
-        // 이미지 생성
-        img.onload = function(){
-            var _width = img.width;
-            var _left;
-            if (window.screenLeft < 0) {
-                    _left = Math.ceil(( window.screen.width*-1 - _width)/2);
-            } else {
-                    _left = Math.ceil((window.screen.width - _width)/2);
-            }
-            
-            context.drawImage(img, _left, 0);
-        }
-
-        let start_background_color ="whitesmoke";
-        context.fillStyle = start_background_color;
-    }
-
-    // 캔버스 설정
-    var canvas = document.getElementById("canvas");
-    canvas.width = window.innerWidth - 0;
-    canvas.height = window.innerHeight - 100;
-    
-    var context = canvas.getContext("2d");
-    
-    setImg();
-    // 펜설정, 컬러 굵기 
-    let draw_color ="black";
-    let draw_width = "2";
-    let is_drawing = false;
-
-    // 이전으로 돌리기 // 빈배열을 만든다.
-    let restore_array =[];
-    let index = -1;
-
-    // 컬러변경
-    function change_color(element){
-        draw_color = element.style.background;
-    }
-
-    canvas.addEventListener("touchstart",start, false);
-    canvas.addEventListener("touchmove",draw, false);
-    canvas.addEventListener("mousedown",start, false);
-    canvas.addEventListener("mousemove",draw, false);
-
-    canvas.addEventListener("touchend",stop, false);
-    canvas.addEventListener("mouseup",stop, false);
-    canvas.addEventListener("mouseout",stop, false);
-
-
-    // 이미지 그리는 부분
-    function start(event){
-        is_drawing = true;
-        context.beginPath();
-        context.moveTo(event.clientX - canvas.offsetLeft,
-                    event.clientY - canvas.offsetTop);
-        event.preventDefault();
-
-        // 이전것 저장해두기 // 이벤트가 마우스아웃이 아닐때 마우스가 안에 있을때 위치값 저장.
-        if(event.type != 'mouseout'){
-        restore_array.push(context.getImageData(0,0,canvas.width, canvas.height));
-        index += 1;
-        }
-        console.log(restore_array);
-    }
-
-    function draw(event){
-        if(is_drawing){
-            context.lineTo(event.clientX - canvas.offsetLeft,
-                        event.clientY - canvas.offsetTop);
-            context.strokeStyle = draw_color;
-            context.lineWidth = draw_width;
-            context.lineCap = "round";
-            context.lineJoin = "round";
-            context.stroke();
-        }
-    }
-    
-    function stop(event){
-        if (is_drawing){
-            context.stroke();
-            context.closePath();
-            is_drawing = false;
-        }
-        event.preventDefault();
-    }
-
-    // 지우기
-    function clear_canvas(){
-        setImg();
-
-        restore_array = [];
-        index = -1;
-    }
-
-    // 뒤로가기
-    function undo_last(){
-        if(index <=0){
-            clear_canvas();
-        }else{
-            index -= 1;
-            restore_array.pop();
-            context.putImageData(restore_array[index],0,0);
-        }
-    }
-
-    // 저장하기
-    function save(){
-        canvas.toBlob((blob)=>{
-
-            const a = document.createElement('a');
-            document.body.append(a);
-            a.download ='export{timestamp}.png';
-            a.href= URL.createObjectURL(blob);
-            a.click();
-            a.remove();
-        });
-    }
-
-    function saveImage(){
-        var a = canvas.toDataURL("image/png");
-        document.getElementById("image").value = a;
-        document.getElementById("frm").submit(); 
-    }
-</script>
+    <div class="lc-options horz-toolbar">
+      <div data-reactid=".1">
+        <div data-reactid=".1.$1">
+          <div class="square-toolbar-button" data-reactid=".1.$1.0"><svg width="26" height="26" version="1.1"
+              data-reactid=".1.$1.0.0">
+              <circle cx="13" cy="13" r="0.5" data-reactid=".1.$1.0.0.0"></circle>
+            </svg></div>
+        </div>
+        <div data-reactid=".1.$2">
+          <div class="square-toolbar-button" data-reactid=".1.$2.0"><svg width="26" height="26" version="1.1"
+              data-reactid=".1.$2.0.0">
+              <circle cx="13" cy="13" r="1" data-reactid=".1.$2.0.0.0"></circle>
+            </svg></div>
+        </div>
+        <div data-reactid=".1.$5">
+          <div class="square-toolbar-button selected" data-reactid=".1.$5.0"><svg width="26" height="26" version="1.1"
+              data-reactid=".1.$5.0.0">
+              <circle cx="13" cy="13" r="2.5" data-reactid=".1.$5.0.0.0"></circle>
+            </svg></div>
+        </div>
+        <div data-reactid=".1.$10">
+          <div class="square-toolbar-button" data-reactid=".1.$10.0"><svg width="26" height="26" version="1.1"
+              data-reactid=".1.$10.0.0">
+              <circle cx="13" cy="13" r="5" data-reactid=".1.$10.0.0.0"></circle>
+            </svg></div>
+        </div>
+        <div data-reactid=".1.$20">
+          <div class="square-toolbar-button" data-reactid=".1.$20.0"><svg width="26" height="26" version="1.1"
+              data-reactid=".1.$20.0.0">
+              <circle cx="13" cy="13" r="10" data-reactid=".1.$20.0.0.0"></circle>
+            </svg></div>
+        </div>
+        <div data-reactid=".1.$30">
+          <div class="square-toolbar-button" data-reactid=".1.$30.0"><svg width="26" height="26" version="1.1"
+              data-reactid=".1.$30.0.0">
+              <circle cx="13" cy="13" r="15" data-reactid=".1.$30.0.0.0"></circle>
+            </svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>

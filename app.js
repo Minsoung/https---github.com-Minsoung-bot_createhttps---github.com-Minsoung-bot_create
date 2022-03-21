@@ -45,6 +45,7 @@ app.use(express.static(__dirname + '/commands'));
 app.use(express.static(__dirname + '/img'));
 app.use(express.static(__dirname + '/font'));
 app.use(express.static(__dirname + '/favicon_ico'));
+app.use(express.static(__dirname + '/literallycanvas-0.5.2'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -356,6 +357,7 @@ app.post('/survey_submit', function(req, res) {
 
 app.get('/popup', function(req,res) {
     res.sendFile(__dirname +'/popup.html');
+    console.log(__dirname + "/literallycanvas-0.5.2")
 })
 
 
