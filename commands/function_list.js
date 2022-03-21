@@ -1,5 +1,5 @@
 // Null 확인 값이 null이면 true 아니면 false 값을 반환
-// 김민성
+// 김민성 
 gfn_isNull = function(value) {
     if (value == 'undefined' || value == "" || value == null || value == undefined || value == "null") {
         return true;
