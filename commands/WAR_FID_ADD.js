@@ -1,13 +1,6 @@
 const {google} = require( "googleapis");
-const keys = require("./chuno-user-list-24392807906a.json");
-
-const sheet_client = new google.auth.JWT(
-    keys.client_email
-  , null
-  , keys.private_key
-  , ['https://www.googleapis.com/auth/spreadsheets']  // 사용자 시트 및 해당 속성에 대한 읽기/쓰기 액세스 허용
-);
-
+const sheet_client = require('./google_db');
+const google_Master = require('./google_config.json');
 const con = require('./mysql_db');
 
 // 영토전 참가자 추가
@@ -116,10 +109,10 @@ User_War_Fed_Add = function(msg, Discord) {
                         if (err) throw err;
 
                         var sheet_value = {
-                            spreadsheetId : '1nKpH5gyS3B9eqDoJ5DXdJF8hHeF4rghvbPh8gGmP0nw'
+                            spreadsheetId : google_Master.spreadsheetId
                             , range : range_value
                             , auth  : sheet_client
-                            , valueInputOption : 'USER_ENTERED'
+                            , valueInputOption : google_Master.valueInputOption
                             , values : USER_WAR_ADD
                         };
                         
