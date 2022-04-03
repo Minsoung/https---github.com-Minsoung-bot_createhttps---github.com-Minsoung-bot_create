@@ -17,6 +17,7 @@ for (const file of commandFiles) {
 
 client.once('ready', ()=>{
     console.log('보리 봇 준비 완료');
+    Schedule_Update();
 })
 
 client.on("error", (err) => {
