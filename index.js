@@ -17,7 +17,7 @@ for (const file of commandFiles) {
 
 client.once('ready', ()=>{
     console.log('보리 봇 준비 완료');
-    Schedule_Update();
+    //Schedule_Update();
 })
 
 client.on("error", (err) => {
@@ -65,15 +65,17 @@ client.on('message', msg => {
     } else if (command == '키발급') {   
         client.commands.get(command).User_Key(msg, Discord);
     } else if (command == '참가') {
-        if (msg.channelId != '938828779483189298') {
-            return msg.channel.send("영토전 채널 -> 영토전-참가조사에서 $참가를 입력해주세요.");
+        if (msg.channelId != '897821651297775627') {
+            return msg.channel.send("영토전 채널 -> 참가조사에서 $참가를 입력해주세요.");
         }
         client.commands.get(command).War_Fed_Add(msg, Discord);
     } else if (command == '출석') {   
-        if (msg.channelId != '938828779483189298') {
-            return msg.channel.send("영토전 채널 -> 영토전-참가조사에서 $출석를 입력해주세요.");
+        if (msg.channelId != '897821651297775627') {
+            return msg.channel.send("영토전 채널 -> 참가조사에서 $출석를 입력해주세요.");
         }
         client.commands.get(command).War_Fed_Attendance(msg, Discord);
+    } else if (command == '도움말') {   
+        client.commands.get(command).Discord_Help(msg, Discord);
     }
 
 })
