@@ -67,8 +67,8 @@ UserInfo_add = function(msg, Discord) {
                         DROUGHTY_NAME = "HEAVEN[가문원]";
                     }
                     
-                    msg.member.roles.remove(msg.guild.roles.cache.find(c => c.name === "가입대기").id); // 사용자 가입대기 역할 제거 
-                    msg.member.roles.add(msg.guild.roles.cache.find(c => c.name === DROUGHTY_NAME).id); // 해당 디스코드에서 가문에 해당하는 역할 추가
+                    //msg.member.roles.remove(msg.guild.roles.cache.find(c => c.name === "가입대기").id); // 사용자 가입대기 역할 제거 
+                    //msg.member.roles.add(msg.guild.roles.cache.find(c => c.name === DROUGHTY_NAME).id); // 해당 디스코드에서 가문에 해당하는 역할 추가
                 }
 
                 gfn_Send_Msg(msg, Discord, board);

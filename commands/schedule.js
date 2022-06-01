@@ -13,7 +13,7 @@ Schedule_Update = function(msg, Discord) {
     //run.second = 30;//test time
 
     let timer = schedule.scheduleJob(run, function() {
-      var sql = "";
+        var sql = "";
 
         const googleSheets = google.sheets({version : "v4"});
 
@@ -23,22 +23,22 @@ Schedule_Update = function(msg, Discord) {
         let response = "";//파티편성_ONE!D2:D175";
 
         for (var i = 0; i < 175; i++) {
-          User_Nick_Name.push({range: `파티편성_ONE!D${Number(i + 2)}`, values: [["미정자"]]});
+            User_Nick_Name.push({range: `파티편성_ONE!D${Number(i + 2)}`, values: [["미정자"]]});
         }
 
         sheet_value = {
-              spreadsheetId : google_Master.spreadsheetId
+            spreadsheetId : google_Master.spreadsheetId
             , auth  : sheet_client
             , valueInputOption : google_Master.valueInputOption
         };
 
         request = {
-          spreadsheetId : sheet_value.spreadsheetId
-          , auth : sheet_value.auth
-          , resource : { 
+            spreadsheetId : sheet_value.spreadsheetId
+            , auth : sheet_value.auth
+            , resource : { 
             valueInputOption : sheet_value.valueInputOption
-          , data : User_Nick_Name
-          }
+            , data : User_Nick_Name
+            }
         };
 
         response = (googleSheets.spreadsheets.values.batchUpdate(request)).data;
@@ -129,7 +129,7 @@ Schedule_Update = function(msg, Discord) {
     response = (googleSheets.spreadsheets.values.batchClear(request)).data;
     
 
-    sql  += " DELETE FROM USER_WARLIST";
+    sql  += " DELETE FROM USER_WARLIST WHERE 1=1;";
   
     con.query(sql, function(err, result, fields) {
       console.log('USER_WARLIST 클리어');
