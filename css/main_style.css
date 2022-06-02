@@ -67,7 +67,7 @@ header{border:0px solid red; width:100%; height:auto; position:absolute; left:0;
 
     #premier1 > #middle{width: 100%;}
 
-    #premier1 > #middle video{margin: 0 auto; display: block; width: 63%; margin-top: 2vh;}
+    #premier1 > #middle video{margin: 0 auto; display: block; width: 63%; margin-top: 0vh;}
 
 
 /* pc 모바일 삭제 */
