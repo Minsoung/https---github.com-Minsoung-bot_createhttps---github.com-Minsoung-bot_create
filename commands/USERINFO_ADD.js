@@ -43,11 +43,45 @@ UserInfo_add = function(msg, Discord) {
         
             con.query(sql2, value2,function(err, result, fields) {
                 if (err) {
-                    var board = {
+                    var DROUGHTY_NAME = "";
+                
+                    if (DROUGHTY_VALUE == 1 || DROUGHTY_VALUE == 2 || DROUGHTY_VALUE == 3) {
+                        //DROUGHTY_NAME = "Goguryeo[가문원]";
+                    } else if (DROUGHTY_VALUE == 4) {
+                        DROUGHTY_NAME = "전설";
+                    } else if (DROUGHTY_VALUE == 5) {
+                        //DROUGHTY_NAME = "Bretonnia[가문원]";
+                    } else if (DROUGHTY_VALUE == 6) {
+                        DROUGHTY_NAME = "Heaven";
+                    } else if (DROUGHTY_VALUE == 7) {
+                        DROUGHTY_NAME = "Cerberus";
+                    }
+                    
+                    //msg.member.roles.remove(msg.guild.roles.cache.find(c => c.name === "가입대기").id); // 사용자 가입대기 역할 제거 
+                    
+                    if (gfn_isNull(msg.member.roles.cache.find(c => c.name === DROUGHTY_NAME)) && !gfn_isNull(DROUGHTY_NAME)) {
+                        msg.member.roles.add(msg.guild.roles.cache.find(c => c.name === DROUGHTY_NAME).id); // 해당 디스코드에서 가문에 해당하는 역할 추가
+
+                        var board = {
+                            Title : "가입완료"
+                            , String_value : "가입이 완료되었습니다."
+                            , Color : "BLUE"
+                        }
+
+                    } else {
+                        var board = {
+                            Title : "이미 등록된 사용자입니다."
+                            , String_value : "이미 가입이 완료된 사용자입니다."
+                            , Color : "RED"
+                        }
+                    }
+                    // 위소스는 임시소스
+
+                    /*var board = {
                         Title : "이미 등록된 사용자입니다."
                         , String_value : "이미 가입이 완료된 사용자입니다."
                         , Color : "RED"
-                    }
+                    }*/
                 } else {
                     var board = {
                         Title : "가입완료"
@@ -58,17 +92,19 @@ UserInfo_add = function(msg, Discord) {
                     var DROUGHTY_NAME = "";
                 
                     if (DROUGHTY_VALUE == 1 || DROUGHTY_VALUE == 2 || DROUGHTY_VALUE == 3) {
-                        DROUGHTY_NAME = "Goguryeo[가문원]";
+                        //DROUGHTY_NAME = "Goguryeo[가문원]";
                     } else if (DROUGHTY_VALUE == 4) {
-                        DROUGHTY_NAME = "전설[가문원]";
+                        DROUGHTY_NAME = "전설";
                     } else if (DROUGHTY_VALUE == 5) {
-                        DROUGHTY_NAME = "Bretonnia[가문원]";
+                        //DROUGHTY_NAME = "Bretonnia[가문원]";
                     } else if (DROUGHTY_VALUE == 6) {
-                        DROUGHTY_NAME = "HEAVEN[가문원]";
+                        DROUGHTY_NAME = "Heaven";
+                    } else if (DROUGHTY_VALUE == 7) {
+                        DROUGHTY_NAME = "Cerberus";
                     }
                     
                     //msg.member.roles.remove(msg.guild.roles.cache.find(c => c.name === "가입대기").id); // 사용자 가입대기 역할 제거 
-                    //msg.member.roles.add(msg.guild.roles.cache.find(c => c.name === DROUGHTY_NAME).id); // 해당 디스코드에서 가문에 해당하는 역할 추가
+                    msg.member.roles.add(msg.guild.roles.cache.find(c => c.name === DROUGHTY_NAME).id); // 해당 디스코드에서 가문에 해당하는 역할 추가
                 }
 
                 gfn_Send_Msg(msg, Discord, board);
