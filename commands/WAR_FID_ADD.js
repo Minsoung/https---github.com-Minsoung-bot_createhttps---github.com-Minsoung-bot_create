@@ -21,6 +21,20 @@ User_War_Fed_Add = function(msg, Discord) {
     sql += "   WHERE M.ID = S.ID";
     sql += "   AND M.ID = ?";
     sql += "   ORDER BY M.ID;";
+    sql += " SELECT A.ID";
+    sql += " 	  , IFNULL(A.ARMY_CD, B.COM_CD) AS ARMY_CD";
+    sql += "      , (SELECT COM_CD_NM FROM ARMY WHERE IFNULL(A.ARMY_CD, B.COM_CD) = COM_CD) AS ARMY_NM";
+    sql += "      , IFNULL(A.PROFICIENCY_CD, 0) AS PROFICIENCY_CD";
+    sql += "      , (SELECT COM_CD_NM FROM PROFICIENCY WHERE IFNULL(A.PROFICIENCY_CD, 0) = COM_CD) AS PROFICIENCY_NM";
+    sql += "  FROM ( SELECT ID";
+    sql += " 	  		   , ARMY_CD";
+    sql += "               , PROFICIENCY_CD";
+    sql += "            FROM USER_PROFICIENCY Y";
+    sql += "           WHERE Y.ID = ?";
+    sql += "             AND Y.ARMY_CD > 399) A RIGHT JOIN ARMY B ON A.ARMY_CD = B.COM_CD";
+    sql += "           WHERE B.COM_CD > 399";
+    sql += "           ORDER BY B.COM_CD;";
+    /*
     sql += " SELECT ID";
     sql += " ,  ARMY_CD";
     sql += " , (SELECT COM_CD_NM FROM ARMY WHERE Y.ARMY_CD = COM_CD) AS ARMY_NM";
@@ -29,7 +43,7 @@ User_War_Fed_Add = function(msg, Discord) {
     sql += "   FROM USER_PROFICIENCY Y";
     sql += "   WHERE Y.ID = ?";
     sql += "   AND Y.ARMY_CD > 399";
-    sql += "   ORDER BY Y.ID, Y.ARMY_CD;";
+    sql += "   ORDER BY Y.ID, Y.ARMY_CD;";*/
 
     var value = msg.member.id;
 
