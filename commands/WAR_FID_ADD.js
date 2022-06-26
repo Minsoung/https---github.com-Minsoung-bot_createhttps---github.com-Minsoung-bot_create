@@ -55,7 +55,7 @@ User_War_Fed_Add = function(msg, Discord) {
         if (gfn_isNull(result[0][0]) ) {
             var board = {
                 Title : "신청 실패"
-              , String_value : "설문지를 작성해주세요.\n\h https://6112-112-171-4-239.ngrok.io/key_confirm"
+              , String_value : "설문지를 작성해주세요.\n\h https://cf70-112-171-4-239.ngrok.io/key_confirm"
               , Color : "RED"
             }
 

@@ -42,13 +42,13 @@ UserInfo_key = function(msg, Discord) {
                 if (err) {
                     var board = {
                         Title : "키 발급이 되어있습니다"
-                        , String_value : "키 값 : " + user_key + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n https://6112-112-171-4-239.ngrok.io/key_confirm"
+                        , String_value : "키 값 : " + user_key + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n https://cf70-112-171-4-239.ngrok.io/key_confirm"
                         , Color : "RED"
                     }
                 } else {
                     var board = {
                         Title : "키발급 완료"
-                        , String_value : "키 디스코드 닉네임 :" + value2[2] + " \n\n 키 값 : " + value2[1] + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n https://6112-112-171-4-239.ngrok.io/key_confirm"
+                        , String_value : "키 디스코드 닉네임 :" + value2[2] + " \n\n 키 값 : " + value2[1] + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n https://cf70-112-171-4-239.ngrok.io/key_confirm"
                         , Color : "BLUE"
                     }
 
@@ -67,7 +67,7 @@ UserInfo_key = function(msg, Discord) {
         } else {
             var board = {
                 Title : "키 발급이 되어있습니다"
-                , String_value : "키 값 :" + user_key + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n https://6112-112-171-4-239.ngrok.io/key_confirm"
+                , String_value : "키 값 :" + user_key + "\n\n 설문지를 작성해주세요.(설문지 수정시에도 필요합니다.)\n https://cf70-112-171-4-239.ngrok.io/key_confirm"
                 , Color : "RED"
             }
 
