@@ -7,7 +7,7 @@ const con = require('./mysql_db');
 
 Schedule_Update = function(msg, Discord) {
     
-    // 화요일, 토요일 23시 스케줄러 업데이트
+    // 화요일, 토요일 23시 스케줄러 업데이트 1
     run.dayOfWeek = [2,6];
     run.hour = 23;
     //run.second = 30;//test time
