@@ -65,15 +65,17 @@ client.on('message', msg => {
     } else if (command == '키발급') {   
         client.commands.get(command).User_Key(msg, Discord);
     } else if (command == '참가') {
-        if (msg.channelId != '897821651297775627') {
+        if (msg.channelId == '897821651297775627' || msg.channelId == '986234708243406879') {
+            client.commands.get(command).War_Fed_Add(msg, Discord);    
+        } else {
             return msg.channel.send("영토전 채널 -> 참가조사에서 $참가를 입력해주세요."); 임시주석
         }
-        client.commands.get(command).War_Fed_Add(msg, Discord);
     } else if (command == '출석') {   
-        if (msg.channelId != '897821651297775627') {
+        if (msg.channelId == '897821651297775627' || msg.channelId == '986234708243406879') {
+            client.commands.get(command).War_Fed_Attendance(msg, Discord);   
+        } else {
             return msg.channel.send("영토전 채널 -> 참가조사에서 $출석를 입력해주세요."); // 임시주석
         }
-        client.commands.get(command).War_Fed_Attendance(msg, Discord);
     } else if (command == '도움말') {   
         client.commands.get(command).Discord_Help(msg, Discord);
     }
